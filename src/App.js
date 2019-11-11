@@ -1,4 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,7 +9,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p css={css`
+       color: red;
+      `}>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
