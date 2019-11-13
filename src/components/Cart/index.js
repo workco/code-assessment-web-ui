@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 
-import CartContext from '../../contexts/CartContext';
-import ProductContext from '../../contexts/ProductContext';
+import AppContext from '../../contexts/AppContext';
 
 // TODO Make this a modal, toggle visibility
 function Cart() {
-  const { cartItems } = useContext(CartContext);
-  const { incrementItem, decrementItem } = useContext(ProductContext);
+  const { cartItems, incrementItem, decrementItem } = useContext(AppContext);
 
   return (
     <div>

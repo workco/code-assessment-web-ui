@@ -7,8 +7,7 @@ import ProductLanding from './pages/ProductLanding';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './components/Cart';
 
-import ProductContext from './contexts/ProductContext';
-import CartContext from './contexts/CartContext';
+import AppContext from './contexts/AppContext';
 
 import './App.scss';
 
@@ -65,28 +64,27 @@ function App() {
   };
 
   return (
-    <ProductContext.Provider
+    <AppContext.Provider
       value={{
+        cartItems,
         products,
         addItem: onAddItem,
         incrementItem: item => onUpdateItemQuantity(item, 1),
         decrementItem: item => onUpdateItemQuantity(item, -1)
       }}
     >
-      <CartContext.Provider value={{ cartItems }}>
-        <Cart />
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <ProductLanding />
-            </Route>
-            <Route exact path="/product/:id">
-              <ProductDetail />
-            </Route>
-          </Switch>
-        </Router>
-      </CartContext.Provider>
-    </ProductContext.Provider>
+      <Cart />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <ProductLanding />
+          </Route>
+          <Route exact path="/product/:id">
+            <ProductDetail />
+          </Route>
+        </Switch>
+      </Router>
+    </AppContext.Provider>
   );
 }
 
