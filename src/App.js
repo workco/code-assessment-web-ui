@@ -47,8 +47,22 @@ function App() {
     setProducts(newProducts);
   };
 
+  const removeItem = item => {
+    const newCartItems = [...cartItems];
+    const cartIndex = cartItems.findIndex(i => i.id === item.id);
+
+    const [oldCartItem] = newCartItems.splice(cartIndex, 1);
+    setCartItems(newCartItems);
+
+    const newProducts = [...products];
+    const productIndex = products.findIndex(i => i.id === item.id);
+    newProducts[productIndex].inventory += oldCartItem.count;
+
+    setProducts(newProducts);
+  };
+
   return (
-    <ProductContext.Provider value={{ products, addItem }}>
+    <ProductContext.Provider value={{ products, addItem, removeItem }}>
       <CartContext.Provider value={{ cartItems }}>
         <Cart />
         <Router>
