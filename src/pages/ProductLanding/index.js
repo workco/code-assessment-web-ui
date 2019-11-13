@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import AppContext from '../../contexts/app/context';
 
-import Button from '../../components/Button';
+import Button from '../../components/Button/';
 
 function ProductLanding() {
   const { addItem, products } = useContext(AppContext);
