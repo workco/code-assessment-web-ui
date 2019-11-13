@@ -6,7 +6,7 @@ import ProductContext from '../../contexts/ProductContext';
 // TODO Make this a modal, toggle visibility
 function Cart() {
   const { cartItems } = useContext(CartContext);
-  const { removeItem } = useContext(ProductContext);
+  const { incrementItem, decrementItem } = useContext(ProductContext);
 
   return (
     <div>
@@ -19,7 +19,8 @@ function Cart() {
             <li key={id}>
               <h2>{title}</h2>
               <span>{count}</span>
-              <button onClick={() => removeItem(cartItem)}>Remove</button>
+              <button onClick={() => incrementItem(cartItem)}>+</button>
+              <button onClick={() => decrementItem(cartItem)}>-</button>
             </li>
           );
         })}

@@ -22,47 +22,57 @@ function App() {
     }, 300);
   }, []);
 
-  const addItem = item => {
+  const addItem = product => {
     const newCartItems = [...cartItems];
-
-    const cartIndex = cartItems.findIndex(i => i.id === item.id);
+    const cartIndex = cartItems.findIndex(i => i.id === product.id);
 
     if (cartIndex > -1) {
       newCartItems[cartIndex].count += 1;
     } else {
       newCartItems.push({
         count: 1,
-        id: item.id,
-        title: item.title
+        id: product.id,
+        title: product.title
       });
     }
 
     setCartItems(newCartItems);
 
-    const productIndex = products.findIndex(i => i.id === item.id);
     const newProducts = [...products];
-
+    const productIndex = products.findIndex(i => i.id === product.id);
     newProducts[productIndex].inventory -= 1;
 
     setProducts(newProducts);
   };
 
-  const removeItem = item => {
+  const updateItemQuantity = (cartItem, quantityChange) => {
     const newCartItems = [...cartItems];
-    const cartIndex = cartItems.findIndex(i => i.id === item.id);
+    const cartIndex = cartItems.findIndex(i => i.id === cartItem.id);
 
-    const [oldCartItem] = newCartItems.splice(cartIndex, 1);
+    if (quantityChange === -1 && cartItem.count === 1) {
+      newCartItems.splice(cartIndex, 1);
+    } else {
+      newCartItems[cartIndex].count += quantityChange;
+    }
+
     setCartItems(newCartItems);
 
     const newProducts = [...products];
-    const productIndex = products.findIndex(i => i.id === item.id);
-    newProducts[productIndex].inventory += oldCartItem.count;
+    const productIndex = products.findIndex(i => i.id === cartItem.id);
+    newProducts[productIndex].inventory -= quantityChange;
 
     setProducts(newProducts);
   };
 
   return (
-    <ProductContext.Provider value={{ products, addItem, removeItem }}>
+    <ProductContext.Provider
+      value={{
+        products,
+        addItem,
+        incrementItem: item => updateItemQuantity(item, 1),
+        decrementItem: item => updateItemQuantity(item, -1)
+      }}
+    >
       <CartContext.Provider value={{ cartItems }}>
         <Cart />
         <Router>
