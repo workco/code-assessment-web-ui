@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +36,9 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-knobs": "^5.2.6",
+    "@storybook/addon-storysource": "^5.2.6",
+    "@storybook/react": "^5.2.6",
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.19.1"
   }
