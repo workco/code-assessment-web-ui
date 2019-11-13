@@ -18,11 +18,20 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
+      // We can update the mock file as needed to match the designs
       setProducts(mockProducts);
     }, 300);
   }, []);
 
-  const addItem = product => {
+  const updateProductQuantity = (productId, quantityChange) => {
+    const newProducts = [...products];
+    const productIndex = products.findIndex(p => p.id === productId);
+    newProducts[productIndex].inventory -= quantityChange;
+
+    setProducts(newProducts);
+  };
+
+  const onAddItem = product => {
     const newCartItems = [...cartItems];
     const cartIndex = cartItems.findIndex(i => i.id === product.id);
 
@@ -37,40 +46,31 @@ function App() {
     }
 
     setCartItems(newCartItems);
-
-    const newProducts = [...products];
-    const productIndex = products.findIndex(i => i.id === product.id);
-    newProducts[productIndex].inventory -= 1;
-
-    setProducts(newProducts);
+    updateProductQuantity(product.id, 1);
   };
 
-  const updateItemQuantity = (cartItem, quantityChange) => {
+  const onUpdateItemQuantity = (cartItem, quantityChange) => {
     const newCartItems = [...cartItems];
     const cartIndex = cartItems.findIndex(i => i.id === cartItem.id);
+    const shouldRemoveFromCart = quantityChange === -1 && cartItem.count === 1;
 
-    if (quantityChange === -1 && cartItem.count === 1) {
+    if (shouldRemoveFromCart) {
       newCartItems.splice(cartIndex, 1);
     } else {
       newCartItems[cartIndex].count += quantityChange;
     }
 
     setCartItems(newCartItems);
-
-    const newProducts = [...products];
-    const productIndex = products.findIndex(i => i.id === cartItem.id);
-    newProducts[productIndex].inventory -= quantityChange;
-
-    setProducts(newProducts);
+    updateProductQuantity(cartItem.id, quantityChange);
   };
 
   return (
     <ProductContext.Provider
       value={{
         products,
-        addItem,
-        incrementItem: item => updateItemQuantity(item, 1),
-        decrementItem: item => updateItemQuantity(item, -1)
+        addItem: onAddItem,
+        incrementItem: item => onUpdateItemQuantity(item, 1),
+        decrementItem: item => onUpdateItemQuantity(item, -1)
       }}
     >
       <CartContext.Provider value={{ cartItems }}>
