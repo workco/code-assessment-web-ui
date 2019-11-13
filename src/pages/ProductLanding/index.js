@@ -5,7 +5,7 @@ import ProductContext from '../../contexts/ProductContext';
 import Button from '../../components/Button';
 
 function ProductLanding() {
-  const { products } = useContext(ProductContext);
+  const { addItem, products } = useContext(ProductContext);
 
   return (
     <div>
@@ -13,14 +13,18 @@ function ProductLanding() {
       <Button>A button</Button>
 
       <ul>
-        {products.map(({ id, title, price, inventory }) => (
-          <li key={id}>
-            <h2>{title}</h2>
-            <span>
-              ${price} - {inventory} remaining
-            </span>
-          </li>
-        ))}
+        {products.map(product => {
+          const { id, title, price, inventory } = product;
+          return (
+            <li key={id}>
+              <h2>{title}</h2>
+              <span>
+                ${price} - {inventory} remaining
+              </span>
+              <button onClick={() => addItem(product)}>Add to cart</button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
