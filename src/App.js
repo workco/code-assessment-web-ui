@@ -1,23 +1,27 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import mockProducts from './mocks/products';
 
 import ProductLanding from './pages/ProductLanding';
 import ProductDetail from './pages/ProductDetail';
+
+import ProductContext from './contexts/ProductContext';
+
 import './App.scss';
 
-class App extends Component {
-  static initialState = {
-    products: [],
-    cartItems: [],
-    addToCart: this.onAddToCart
-  };
+function App() {
+  const [products, setProducts] = useState([]);
+  // const [cartItems, setCartItems] = useState([]);
 
-  onAddToCart = () => {
-    console.log('Add to cart');
-  };
+  useEffect(() => {
+    setTimeout(() => {
+      setProducts(mockProducts);
+    }, 1000);
+  }, []);
 
-  render() {
-    return (
+  return (
+    <ProductContext.Provider value={{ products }}>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -28,8 +32,8 @@ class App extends Component {
           </Route>
         </Switch>
       </Router>
-    );
-  }
+    </ProductContext.Provider>
+  );
 }
 
 export default App;
