@@ -12,7 +12,7 @@ function AppStore({ children }) {
     setTimeout(() => {
       // We can update the mock file as needed to match the designs
       setProducts(mockProducts);
-    }, 300);
+    }, 300); // simulate API load time
   }, []);
 
   const updateProductQuantity = (productId, quantityChange) => {
