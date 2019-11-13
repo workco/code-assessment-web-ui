@@ -1,8 +1,7 @@
 import React from 'react';
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { css } from 'emotion';
 
-const styles = {
+const styles = css({
   display: 'inline-block',
   color: 'white',
   background: 'black',
@@ -18,10 +17,10 @@ const styles = {
     background: 'white',
     color: 'black'
   }
-};
+});
 
 const Button = ({ children }) => {
-  return <button css={styles}>{children}</button>;
+  return <button className={styles}>{children}</button>;
 };
 
 export default Button;
