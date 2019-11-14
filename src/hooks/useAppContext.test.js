@@ -48,11 +48,10 @@ describe('useAppContext', () => {
 
       expect(result.current.products).toEqual(
         expect.arrayContaining([
-          {
-            ...productToAdd,
+          expect.objectContaining({
             id: productToAdd.id,
             inventory: productToAdd.inventory - 1
-          }
+          })
         ])
       );
 
@@ -78,16 +77,14 @@ describe('useAppContext', () => {
 
       expect(result.current.products).toEqual(
         expect.arrayContaining([
-          {
-            ...firstProductToAdd,
+          expect.objectContaining({
             id: firstProductToAdd.id,
             inventory: firstProductToAdd.inventory - 1
-          },
-          {
-            ...secondProductToAdd,
+          }),
+          expect.objectContaining({
             id: secondProductToAdd.id,
             inventory: secondProductToAdd.inventory - 1
-          }
+          })
         ])
       );
 
@@ -118,11 +115,10 @@ describe('useAppContext', () => {
 
       expect(result.current.products).toEqual(
         expect.arrayContaining([
-          {
-            ...productToAdd,
+          expect.objectContaining({
             id: productToAdd.id,
             inventory: productToAdd.inventory - 2
-          }
+          })
         ])
       );
 
@@ -165,20 +161,19 @@ describe('useAppContext', () => {
 
       expect(result.current.products).toEqual(
         expect.arrayContaining([
-          {
-            ...productToIncrement,
+          expect.objectContaining({
             id: cartItemToIncrement.id,
             inventory: productToIncrement.inventory - 1
-          }
+          })
         ])
       );
 
       expect(result.current.cartItems).toEqual(
         expect.arrayContaining([
-          {
-            ...cartItemToIncrement,
+          expect.objectContaining({
+            id: cartItemToIncrement.id,
             count: cartItemToIncrement.count + 1
-          }
+          })
         ])
       );
     });
@@ -199,20 +194,19 @@ describe('useAppContext', () => {
 
       expect(result.current.products).toEqual(
         expect.arrayContaining([
-          {
-            ...productToIncrement,
+          expect.objectContaining({
             id: cartItemToIncrement.id,
             inventory: productToIncrement.inventory - 2
-          }
+          })
         ])
       );
 
       expect(result.current.cartItems).toEqual(
         expect.arrayContaining([
-          {
-            ...cartItemToIncrement,
+          expect.objectContaining({
+            id: cartItemToIncrement.id,
             count: cartItemToIncrement.count + 2
-          }
+          })
         ])
       );
     });
