@@ -3,14 +3,18 @@ import { useEffect, useState } from 'react';
 import mockProducts from '../mocks/products';
 
 export default function useAppContext() {
-  const [products, setProducts] = useState(mockProducts);
+  const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       // We can update the mock file as needed to match the designs
       setProducts(mockProducts);
     }, 300); // simulate API load time
+
+    return function cleanup() {
+      clearInterval(timeout);
+    };
   }, []);
 
   const updateProductQuantity = (productId, quantityChange) => {
