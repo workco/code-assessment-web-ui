@@ -211,4 +211,78 @@ describe('useAppContext', () => {
       );
     });
   });
+
+  describe('decrementItem', () => {
+    let result;
+
+    beforeEach(async () => {
+      const hook = renderHook(() => useAppContext());
+      result = hook.result;
+      await hook.waitForNextUpdate();
+      const [productToAdd] = mockProducts;
+      act(() => {
+        result.current.addItem(productToAdd);
+      });
+
+      const [cartItemToIncrement] = result.current.cartItems;
+      act(() => {
+        result.current.incrementItem(cartItemToIncrement);
+      });
+    });
+
+    test('on decrement item from 2 to 1', () => {
+      const [cartItemToDecrement] = result.current.cartItems;
+      const productToIncrement = result.current.products.find(
+        p => p.id === cartItemToDecrement.id
+      );
+
+      act(() => {
+        result.current.decrementItem(cartItemToDecrement);
+      });
+
+      expect(result.current.products).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: cartItemToDecrement.id,
+            inventory: productToIncrement.inventory + 1
+          })
+        ])
+      );
+
+      expect(result.current.cartItems).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: cartItemToDecrement.id,
+            count: cartItemToDecrement.count - 1
+          })
+        ])
+      );
+    });
+
+    test('on decrement item from 1 to 0, removing from cart', () => {
+      let cartItemToDecrement = result.current.cartItems[0];
+      const productToIncrement = result.current.products.find(
+        p => p.id === cartItemToDecrement.id
+      );
+      act(() => {
+        result.current.decrementItem(cartItemToDecrement);
+      });
+
+      cartItemToDecrement = result.current.cartItems[0];
+      act(() => {
+        result.current.decrementItem(cartItemToDecrement);
+      });
+
+      expect(result.current.products).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: cartItemToDecrement.id,
+            inventory: productToIncrement.inventory + 2
+          })
+        ])
+      );
+
+      expect(result.current.cartItems).toEqual([]);
+    });
+  });
 });
