@@ -18,16 +18,9 @@ describe('useAppContext', () => {
 
   test('on fetch products', async () => {
     const { result, waitForNextUpdate } = renderHook(() => useAppContext());
-
     await waitForNextUpdate();
 
-    expect(result.current).toEqual({
-      addItem: expect.any(Function),
-      incrementItem: expect.any(Function),
-      decrementItem: expect.any(Function),
-      products: mockProducts,
-      cartItems: []
-    });
+    expect(result.current.products).toEqual(mockProducts);
   });
 
   describe('addItem', () => {
@@ -178,7 +171,7 @@ describe('useAppContext', () => {
       );
     });
 
-    test('on increment item again', () => {
+    test('on increment item from 1 to 2', () => {
       const [cartItemToIncrement] = result.current.cartItems;
       const productToIncrement = result.current.products.find(
         p => p.id === cartItemToIncrement.id
@@ -260,17 +253,16 @@ describe('useAppContext', () => {
     });
 
     test('on decrement item from 1 to 0, removing from cart', () => {
-      let cartItemToDecrement = result.current.cartItems[0];
+      const [cartItemToDecrement] = result.current.cartItems;
       const productToIncrement = result.current.products.find(
         p => p.id === cartItemToDecrement.id
       );
       act(() => {
         result.current.decrementItem(cartItemToDecrement);
       });
-
-      cartItemToDecrement = result.current.cartItems[0];
       act(() => {
-        result.current.decrementItem(cartItemToDecrement);
+        // We can't use cartItemToDecrement because we need an item with the updated count
+        result.current.decrementItem(result.current.cartItems[0]);
       });
 
       expect(result.current.products).toEqual(
