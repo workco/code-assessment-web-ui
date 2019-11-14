@@ -95,7 +95,7 @@ describe('useAppContext', () => {
       ]);
     });
 
-    test('on add item aready in cart', () => {
+    test('on add item already in cart', () => {
       const [productToAdd] = mockProducts;
 
       act(() => {

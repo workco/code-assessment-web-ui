@@ -8,14 +8,10 @@ export default function useAppContext() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    setTimeout(() => {
       // We can update the mock file as needed to match the designs
       setProducts(mockProducts);
     }, 300); // simulate API load time
-
-    return function cleanup() {
-      clearInterval(timeout);
-    };
   }, []);
 
   const updateProductQuantity = (productId, quantityChange) => {
