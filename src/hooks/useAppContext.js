@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import mockProducts from '../mocks/products';
 
+// Only for use in App.js (to avoid duplicate state instances)
 export default function useAppContext() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
