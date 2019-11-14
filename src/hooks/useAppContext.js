@@ -20,9 +20,14 @@ export default function useAppContext() {
   const updateProductQuantity = (productId, quantityChange) => {
     const newProducts = [...products];
     const productIndex = products.findIndex(p => p.id === productId);
-    newProducts[productIndex].inventory -= quantityChange;
+    if (newProducts[productIndex]) {
+      newProducts[productIndex] = {
+        ...newProducts[productIndex],
+        inventory: newProducts[productIndex].inventory - quantityChange
+      };
 
-    setProducts(newProducts);
+      setProducts(newProducts);
+    }
   };
 
   const onAddItem = product => {
@@ -30,7 +35,10 @@ export default function useAppContext() {
     const cartIndex = cartItems.findIndex(i => i.id === product.id);
 
     if (cartIndex > -1) {
-      newCartItems[cartIndex].count += 1;
+      newCartItems[cartIndex] = {
+        ...newCartItems[cartIndex],
+        count: newCartItems[cartIndex].count + 1
+      };
     } else {
       newCartItems.push({
         count: 1,
@@ -51,7 +59,10 @@ export default function useAppContext() {
     if (shouldRemoveFromCart) {
       newCartItems.splice(cartIndex, 1);
     } else {
-      newCartItems[cartIndex].count += quantityChange;
+      newCartItems[cartIndex] = {
+        ...newCartItems[cartIndex],
+        count: newCartItems[cartIndex].count + quantityChange
+      };
     }
 
     setCartItems(newCartItems);
