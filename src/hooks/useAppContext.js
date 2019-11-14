@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import mockProducts from '../../mocks/products';
+import mockProducts from '../mocks/products';
 
-import AppContext from './context';
-
-function AppStore({ children }) {
+// Only for use in App.js (to avoid duplicate state instances)
+export default function useAppContext() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
@@ -18,9 +17,14 @@ function AppStore({ children }) {
   const updateProductQuantity = (productId, quantityChange) => {
     const newProducts = [...products];
     const productIndex = products.findIndex(p => p.id === productId);
-    newProducts[productIndex].inventory -= quantityChange;
+    if (newProducts[productIndex]) {
+      newProducts[productIndex] = {
+        ...newProducts[productIndex],
+        inventory: newProducts[productIndex].inventory - quantityChange
+      };
 
-    setProducts(newProducts);
+      setProducts(newProducts);
+    }
   };
 
   const onAddItem = product => {
@@ -28,7 +32,10 @@ function AppStore({ children }) {
     const cartIndex = cartItems.findIndex(i => i.id === product.id);
 
     if (cartIndex > -1) {
-      newCartItems[cartIndex].count += 1;
+      newCartItems[cartIndex] = {
+        ...newCartItems[cartIndex],
+        count: newCartItems[cartIndex].count + 1
+      };
     } else {
       newCartItems.push({
         count: 1,
@@ -49,26 +56,21 @@ function AppStore({ children }) {
     if (shouldRemoveFromCart) {
       newCartItems.splice(cartIndex, 1);
     } else {
-      newCartItems[cartIndex].count += quantityChange;
+      newCartItems[cartIndex] = {
+        ...newCartItems[cartIndex],
+        count: newCartItems[cartIndex].count + quantityChange
+      };
     }
 
     setCartItems(newCartItems);
     updateProductQuantity(cartItem.id, quantityChange);
   };
 
-  return (
-    <AppContext.Provider
-      value={{
-        cartItems,
-        products,
-        addItem: onAddItem,
-        incrementItem: item => onUpdateItemQuantity(item, 1),
-        decrementItem: item => onUpdateItemQuantity(item, -1)
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+  return {
+    cartItems,
+    products,
+    addItem: onAddItem,
+    incrementItem: item => onUpdateItemQuantity(item, 1),
+    decrementItem: item => onUpdateItemQuantity(item, -1)
+  };
 }
-
-export default AppStore;
