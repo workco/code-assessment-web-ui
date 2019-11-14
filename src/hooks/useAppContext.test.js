@@ -40,39 +40,33 @@ describe('useAppContext', () => {
     });
 
     test('on add item to cart', () => {
-      const [productToAdd, ...otherProducts] = mockProducts;
+      const [productToAdd] = mockProducts;
 
       act(() => {
         result.current.addItem(productToAdd);
       });
 
-      expect(result.current).toEqual({
-        addItem: expect.any(Function),
-        incrementItem: expect.any(Function),
-        decrementItem: expect.any(Function),
-        products: [
+      expect(result.current.products).toEqual(
+        expect.arrayContaining([
           {
             ...productToAdd,
-            inventory: productToAdd.inventory - 1
-          },
-          ...otherProducts
-        ],
-        cartItems: [
-          {
-            count: 1,
             id: productToAdd.id,
-            title: productToAdd.title
+            inventory: productToAdd.inventory - 1
           }
-        ]
-      });
+        ])
+      );
+
+      expect(result.current.cartItems).toEqual([
+        {
+          count: 1,
+          id: productToAdd.id,
+          title: productToAdd.title
+        }
+      ]);
     });
 
     test('on add second item to cart', () => {
-      const [
-        firstProductToAdd,
-        secondProductToAdd,
-        ...otherProducts
-      ] = mockProducts;
+      const [firstProductToAdd, secondProductToAdd] = mockProducts;
 
       act(() => {
         result.current.addItem(firstProductToAdd);
@@ -82,34 +76,63 @@ describe('useAppContext', () => {
         result.current.addItem(secondProductToAdd);
       });
 
-      expect(result.current).toEqual({
-        addItem: expect.any(Function),
-        incrementItem: expect.any(Function),
-        decrementItem: expect.any(Function),
-        products: [
+      expect(result.current.products).toEqual(
+        expect.arrayContaining([
           {
             ...firstProductToAdd,
+            id: firstProductToAdd.id,
             inventory: firstProductToAdd.inventory - 1
           },
           {
             ...secondProductToAdd,
-            inventory: secondProductToAdd.inventory - 1
-          },
-          ...otherProducts
-        ],
-        cartItems: [
-          {
-            count: 1,
-            id: firstProductToAdd.id,
-            title: firstProductToAdd.title
-          },
-          {
-            count: 1,
             id: secondProductToAdd.id,
-            title: secondProductToAdd.title
+            inventory: secondProductToAdd.inventory - 1
           }
-        ]
+        ])
+      );
+
+      expect(result.current.cartItems).toEqual([
+        {
+          count: 1,
+          id: firstProductToAdd.id,
+          title: firstProductToAdd.title
+        },
+        {
+          count: 1,
+          id: secondProductToAdd.id,
+          title: secondProductToAdd.title
+        }
+      ]);
+    });
+
+    test('on add item aready in cart', () => {
+      const [productToAdd] = mockProducts;
+
+      act(() => {
+        result.current.addItem(productToAdd);
       });
+
+      act(() => {
+        result.current.addItem(productToAdd);
+      });
+
+      expect(result.current.products).toEqual(
+        expect.arrayContaining([
+          {
+            ...productToAdd,
+            id: productToAdd.id,
+            inventory: productToAdd.inventory - 2
+          }
+        ])
+      );
+
+      expect(result.current.cartItems).toEqual([
+        {
+          count: 2,
+          id: productToAdd.id,
+          title: productToAdd.title
+        }
+      ]);
     });
   });
 
@@ -130,7 +153,7 @@ describe('useAppContext', () => {
       });
     });
 
-    test('on increment product', () => {
+    test('on increment item', () => {
       const [cartItemToIncrement] = result.current.cartItems;
       const productToIncrement = result.current.products.find(
         p => p.id === cartItemToIncrement.id
@@ -155,6 +178,40 @@ describe('useAppContext', () => {
           {
             ...cartItemToIncrement,
             count: cartItemToIncrement.count + 1
+          }
+        ])
+      );
+    });
+
+    test('on increment item again', () => {
+      const [cartItemToIncrement] = result.current.cartItems;
+      const productToIncrement = result.current.products.find(
+        p => p.id === cartItemToIncrement.id
+      );
+
+      act(() => {
+        result.current.incrementItem(cartItemToIncrement);
+      });
+
+      act(() => {
+        result.current.incrementItem(cartItemToIncrement);
+      });
+
+      expect(result.current.products).toEqual(
+        expect.arrayContaining([
+          {
+            ...productToIncrement,
+            id: cartItemToIncrement.id,
+            inventory: productToIncrement.inventory - 2
+          }
+        ])
+      );
+
+      expect(result.current.cartItems).toEqual(
+        expect.arrayContaining([
+          {
+            ...cartItemToIncrement,
+            count: cartItemToIncrement.count + 2
           }
         ])
       );
