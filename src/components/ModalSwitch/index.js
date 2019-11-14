@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import { Link, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 
-import AppContext from '../../contexts/app/context';
+import AppContext from '../../contexts/AppContext';
 
 import ProductLanding from '../../pages/ProductLanding';
 import Cart from '../../pages/Cart';
