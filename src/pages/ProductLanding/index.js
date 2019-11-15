@@ -1,40 +1,11 @@
 import React, { useContext } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { css } from 'emotion';
 import { useTheme } from 'emotion-theming';
 
 import AppContext from '../../contexts/AppContext';
-
-const navLinks = [
-  {
-    title: 'Featured',
-    url: '/'
-  },
-  {
-    title: 'Jeans',
-    url: '/jeans'
-  },
-  {
-    title: 'Pants',
-    url: '/pants'
-  },
-  {
-    title: 'Shorts',
-    url: '/shorts'
-  },
-  {
-    title: 'Tops',
-    url: '/tops'
-  },
-  {
-    title: 'Outerwear',
-    url: '/outerwear'
-  },
-  {
-    title: 'Accessories',
-    url: '/accessories'
-  }
-];
+import TopNav from '../../components/TopNav';
+import Product from '../../components/Product';
 
 const styles = {
   wrapper: {
@@ -52,21 +23,10 @@ const styles = {
     textAlign: 'center',
     margin: '0 0 30px'
   },
-  nav: {
-    width: '100%',
-    textAlign: 'center',
-    marginBottom: 40
-  },
-  navItem: {
-    margin: '0 20px'
-  },
   products: {
     display: 'flex',
     flexWrap: 'wrap',
     margin: '0 -22.5px'
-  },
-  product: {
-    margin: '0 22.5px 45px'
   }
 };
 
@@ -90,35 +50,16 @@ function ProductLanding() {
         Daily deals
       </h1>
 
-      <nav>
-        <ul className={css(styles.nav)}>
-          {navLinks.map(link => (
-            <NavLink
-              to={link.url}
-              className={css([styles.navItem, theme.typography.link])}
-              activeStyle={theme.typography.link.active}
-              key={link.title}
-            >
-              {link.title}
-            </NavLink>
-          ))}
-        </ul>
-      </nav>
+      <TopNav />
 
       <ul className={css(styles.products)}>
-        {products.map(product => {
-          const { id, title, price, inventory } = product;
-          return (
-            <li className={css(styles.product)} key={id}>
-              <img src="http://placehold.it/300x300" alt={title} />
-              <h2 className={css(theme.typography.link)}>{title}</h2>
-              <span className={css(theme.typography.price)}>
-                ${price} - {inventory} remaining
-              </span>
-              <button onClick={() => addItem(product)}>Add to cart</button>
-            </li>
-          );
-        })}
+        {products.map(product => (
+          <Product
+            {...product}
+            onClick={() => addItem(product)}
+            key={product.id}
+          />
+        ))}
       </ul>
     </div>
   );

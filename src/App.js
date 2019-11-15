@@ -6,7 +6,6 @@ import { ThemeProvider } from 'emotion-theming';
 import useAppContext from './hooks/useAppContext';
 import AppContext from './contexts/AppContext';
 
-import './App.scss';
 import ModalSwitch from './components/ModalSwitch';
 import { theme } from './theme';
 
