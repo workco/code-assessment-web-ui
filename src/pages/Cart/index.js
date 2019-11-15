@@ -25,7 +25,9 @@ const styles = {
 };
 
 function Cart() {
-  const { cartItems, incrementItem, decrementItem } = useContext(AppContext);
+  const { cartItems, checkout, incrementItem, decrementItem } = useContext(
+    AppContext
+  );
   const history = useHistory();
 
   return (
@@ -48,6 +50,8 @@ function Cart() {
             );
           })}
         </ul>
+
+        {cartItems.length > 0 && <button onClick={checkout}>Checkout</button>}
       </div>
     </div>
   );

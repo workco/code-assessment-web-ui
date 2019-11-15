@@ -9,6 +9,7 @@ describe('useAppContext', () => {
 
     expect(result.current).toEqual({
       addItem: expect.any(Function),
+      checkout: expect.any(Function),
       incrementItem: expect.any(Function),
       decrementItem: expect.any(Function),
       products: [],
@@ -209,5 +210,35 @@ describe('useAppContext', () => {
     test('on decrement item from 2 to 1', () => {});
 
     test('on decrement item from 1 to 0, removing from cart', () => {});
+  });
+
+  describe('checkout', () => {
+    let result;
+
+    beforeEach(async () => {
+      const hook = renderHook(() => useAppContext());
+      result = hook.result;
+      await hook.waitForNextUpdate();
+      const [productToAdd] = mockProducts;
+      act(() => {
+        result.current.addItem(productToAdd);
+      });
+
+      const [cartItemToIncrement] = result.current.cartItems;
+      act(() => {
+        result.current.incrementItem(cartItemToIncrement);
+      });
+    });
+
+    test('checkout', () => {
+      const productsBeforeCheckout = [...result.current.products];
+
+      act(() => {
+        result.current.checkout();
+      });
+
+      expect(result.current.products).toEqual(productsBeforeCheckout);
+      expect(result.current.cartItems).toEqual([]);
+    });
   });
 });

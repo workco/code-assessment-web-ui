@@ -66,10 +66,15 @@ export default function useAppContext() {
     updateProductQuantity(cartItem.id, quantityChange);
   };
 
+  const onCheckout = () => {
+    setCartItems([]);
+  };
+
   return {
     cartItems,
     products,
     addItem: onAddItem,
+    checkout: onCheckout,
     incrementItem: item => onUpdateItemQuantity(item, 1),
     decrementItem: item => onUpdateItemQuantity(item, -1)
   };
