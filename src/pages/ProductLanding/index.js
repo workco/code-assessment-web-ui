@@ -1,30 +1,65 @@
 import React, { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { css } from 'emotion';
+import { useTheme } from 'emotion-theming';
 
 import AppContext from '../../contexts/AppContext';
+import TopNav from '../../components/TopNav';
+import Product from '../../components/Product';
 
-import Button from '../../components/Button/';
+const styles = {
+  wrapper: {
+    padding: '40px 45px',
+    width: '100%',
+    height: '100%'
+  },
+  cartLink: {
+    position: 'absolute',
+    top: 40,
+    right: 45
+  },
+  title: {
+    width: '100%',
+    textAlign: 'center',
+    margin: '0 0 30px'
+  },
+  products: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    margin: '0 -22.5px'
+  }
+};
 
 function ProductLanding() {
-  const { addItem, products } = useContext(AppContext);
+  const { addItem, products, cartItems } = useContext(AppContext);
+  const location = useLocation();
+  const theme = useTheme();
+
+  const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
 
   return (
-    <div>
-      <h1>ProductLanding</h1>
-      <Button>A button</Button>
+    <div className={css(styles.wrapper)}>
+      <Link
+        to={{ pathname: 'cart', state: { background: location } }}
+        className={css(styles.cartLink)}
+      >
+        Cart - {cartQuantity}
+      </Link>
 
-      <ul>
-        {products.map(product => {
-          const { id, title, price, inventory } = product;
-          return (
-            <li key={id}>
-              <h2>{title}</h2>
-              <span>
-                ${price} - {inventory} remaining
-              </span>
-              <button onClick={() => addItem(product)}>Add to cart</button>
-            </li>
-          );
-        })}
+      <h1 className={css([styles.title, theme.typography.heading])}>
+        Daily deals
+      </h1>
+
+      <TopNav />
+
+      <ul className={css(styles.products)}>
+        {products.map(product => (
+          <Product
+            {...product}
+            onClick={() => addItem(product)}
+            key={product.id}
+          />
+        ))}
       </ul>
     </div>
   );
