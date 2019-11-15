@@ -4,6 +4,7 @@ export const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);
 export const theme = {
   colors: {
     black: '#000',
+    black35: 'rgba(0, 0, 0, 0.35)',
     lightGray: '#f3f3f3',
     darkGray: '#eaeaea',
     white: '#fff',
@@ -17,6 +18,22 @@ export const theme = {
       [mq[0]]: {
         fontSize: 24
       }
+    },
+    heading2: {
+      fontFamily: 'Garamond, serif',
+      fontSize: 30,
+      fontWeight: 'normal',
+      lineHeight: '35px',
+      [mq[0]]: {
+        fontSize: 40,
+        lineHeight: '45px'
+      }
+    },
+    body: {
+      fontFamily: 'Garamond, serif',
+      fontSize: 20,
+      lineHeight: '30px',
+      letterSpacing: 0.25
     },
     link: {
       fontFamily: 'Garamond, serif',
@@ -33,7 +50,7 @@ export const theme = {
       }
     },
     price: {
-      fontFamily: 'Garamond, serif',
+      fontFamily: 'Helvetica, serif',
       fontSize: 14
     }
   }
