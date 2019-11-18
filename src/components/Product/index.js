@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 import { useTheme } from 'emotion-theming';
 
+import { getImage } from '../../utils/images';
 import { mq } from '../../theme';
 
 const styles = {
@@ -20,14 +21,14 @@ const styles = {
   }
 };
 
-const Product = ({ title, price, inventory, onClick }) => {
+const Product = ({ title, price, inventory, onClick, images }) => {
   const theme = useTheme();
 
   return (
     <li className={css(styles.product)}>
       <img
         className={css(styles.productImage)}
-        src="http://placehold.it/300x300"
+        src={getImage(images)}
         alt={title}
       />
       <h2 className={css(theme.typography.link)}>{title}</h2>
