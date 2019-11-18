@@ -31,7 +31,7 @@ function Cart() {
   const history = useHistory();
 
   return (
-    <div data-testid="cart" className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <div className={styles.inner}>
         <button onClick={() => history.goBack()}>Close</button>
 

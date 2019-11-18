@@ -38,7 +38,7 @@ function ProductLanding() {
   const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
 
   return (
-    <div data-testid="plp" className={css(styles.wrapper)}>
+    <div className={css(styles.wrapper)}>
       <Link
         to={{ pathname: 'cart', state: { background: location } }}
         className={css(styles.cartLink)}
