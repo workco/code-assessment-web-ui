@@ -14,6 +14,24 @@ import AppContext from '@/contexts/AppContext';
 class Cart extends React.Component {
   static contextType = AppContext;
 
+  wrapperRef = React.createRef();
+
+  state = {
+    isFadedIn: false
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isFadedIn: true });
+    }, 500);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.isFadedIn && this.state.isFadedIn) {
+      this.wrapperRef.current.style.opacity = 1;
+    }
+  }
+
   render() {
     const { cartItems, checkout, incrementItem, decrementItem } = this.context;
 
@@ -22,7 +40,7 @@ class Cart extends React.Component {
     });
 
     return (
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} ref={this.wrapperRef}>
         <div className={innerClasses}>
           <Link to="/" className={styles.closeBtn}>
             <img src={close} alt="close" />
