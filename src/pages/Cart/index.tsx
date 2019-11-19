@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Product from '../../components/Product';
 import Button from '../../components/Button';
@@ -29,8 +29,19 @@ class Cart extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.isFadedIn && this.state.isFadedIn) {
       this.wrapperRef.current.style.opacity = 1;
+    } else if (prevState.isFadedIn && !this.state.isFadedIn) {
+      this.wrapperRef.current.style.opacity = 0;
     }
   }
+
+  close = () => {
+    const { history } = this.props;
+    this.setState({ isFadedIn: false }, () => {
+      setTimeout(() => {
+        history.push({ pathname: '/' });
+      }, 500);
+    });
+  };
 
   render() {
     const { cartItems, checkout, incrementItem, decrementItem } = this.context;
@@ -42,9 +53,9 @@ class Cart extends React.Component {
     return (
       <div className={styles.wrapper} ref={this.wrapperRef}>
         <div className={innerClasses}>
-          <Link to="/" className={styles.closeBtn}>
+          <button onClick={this.close} className={styles.closeBtn}>
             <img src={close} alt="close" />
-          </Link>
+          </button>
 
           {!!cartItems.length ? (
             <>
@@ -124,4 +135,4 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+export default withRouter(Cart);
