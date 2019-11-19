@@ -12,10 +12,32 @@ import styles from './Cart.module.scss';
 import { ICart } from '../../hooks/useAppContext';
 import AppContext from '../../contexts/AppContext';
 
+interface ICartState {
+  isFadedIn: boolean;
+}
 class Cart extends React.Component {
   static contextType = AppContext;
 
   context!: React.ContextType<typeof AppContext>;
+  wrapperRef = React.createRef<HTMLDivElement>();
+
+  state: ICartState = {
+    isFadedIn: false,
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isFadedIn: true });
+    }, 500);
+  }
+
+  componentDidUpdate(_prevProps: unknown, prevState: ICartState) {
+    if (this.wrapperRef?.current) {
+      if (!prevState.isFadedIn && this.state.isFadedIn) {
+        this.wrapperRef.current.style.opacity = '1';
+      }
+    }
+  }
 
   render() {
     if (!this.context) {
@@ -28,7 +50,7 @@ class Cart extends React.Component {
     });
 
     return (
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} ref={this.wrapperRef}>
         <div className={innerClasses}>
           <Link to="/" className={styles.closeBtn}>
             <img src={close} alt="close" />
