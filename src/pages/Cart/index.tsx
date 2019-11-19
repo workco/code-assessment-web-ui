@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 import Product from '../../components/Product';
 import Button from '../../components/Button';
@@ -15,7 +15,18 @@ import AppContext from '../../contexts/AppContext';
 interface ICartState {
   isFadedIn: boolean;
 }
-class Cart extends React.Component {
+
+interface ICartProps {
+  navigate: NavigateFunction;
+}
+
+const Cart = () => {
+  const navigate = useNavigate();
+
+  return <CartComponent navigate={navigate} />;
+};
+
+class CartComponent extends React.Component<ICartProps> {
   static contextType = AppContext;
 
   context!: React.ContextType<typeof AppContext>;
@@ -31,13 +42,25 @@ class Cart extends React.Component {
     }, 500);
   }
 
-  componentDidUpdate(_prevProps: unknown, prevState: ICartState) {
+  componentDidUpdate(_prevProps: ICartProps, prevState: ICartState) {
     if (this.wrapperRef?.current) {
       if (!prevState.isFadedIn && this.state.isFadedIn) {
-        this.wrapperRef.current.style.opacity = '1';
+        if (!prevState.isFadedIn && this.state.isFadedIn) {
+          this.wrapperRef.current.style.opacity = '1';
+        } else if (prevState.isFadedIn && !this.state.isFadedIn) {
+          this.wrapperRef.current.style.opacity = '0';
+        }
       }
     }
   }
+
+  close = () => {
+    this.setState({ isFadedIn: false }, () => {
+      setTimeout(() => {
+        this.props.navigate({ pathname: '/' });
+      }, 500);
+    });
+  };
 
   render() {
     if (!this.context) {
@@ -52,9 +75,9 @@ class Cart extends React.Component {
     return (
       <div className={styles.wrapper} ref={this.wrapperRef}>
         <div className={innerClasses}>
-          <Link to="/" className={styles.closeBtn}>
+          <button onClick={this.close} className={styles.closeBtn}>
             <img src={close} alt="close" />
-          </Link>
+          </button>
 
           {!!cartItems.length ? (
             <>
