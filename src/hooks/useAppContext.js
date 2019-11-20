@@ -9,7 +9,6 @@ export default function useAppContext() {
 
   useEffect(() => {
     setTimeout(() => {
-      // We can update the mock file as needed to match the designs
       setProducts(mockProducts);
     }, 300); // simulate API load time
   }, []);
