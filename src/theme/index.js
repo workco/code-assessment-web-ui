@@ -12,7 +12,7 @@ export const theme = {
   },
   typography: {
     heading: {
-      fontFamily: 'Helvetica, sans-serif',
+      fontFamily: '"Raleway", sans-serif',
       textTransform: 'uppercase',
       fontSize: 20,
       [mq[0]]: {
@@ -20,7 +20,7 @@ export const theme = {
       }
     },
     heading2: {
-      fontFamily: 'Garamond, serif',
+      fontFamily: '"Cormorant Garamond", serif',
       fontSize: 30,
       fontWeight: 'normal',
       lineHeight: '35px',
@@ -30,13 +30,13 @@ export const theme = {
       }
     },
     body: {
-      fontFamily: 'Garamond, serif',
+      fontFamily: '"Cormorant Garamond", serif',
       fontSize: 20,
       lineHeight: '30px',
       letterSpacing: 0.25
     },
     link: {
-      fontFamily: 'Garamond, serif',
+      fontFamily: '"Cormorant Garamond", serif',
       fontSize: 20,
       fontWeight: 'normal',
       lineHeight: '25px',
@@ -50,7 +50,7 @@ export const theme = {
       }
     },
     price: {
-      fontFamily: 'Helvetica, serif',
+      fontFamily: '"Raleway", serif',
       fontSize: 14
     }
   }

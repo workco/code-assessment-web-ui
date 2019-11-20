@@ -10,15 +10,15 @@ import ModalSwitch from './components/ModalSwitch';
 import { theme } from './theme';
 
 injectGlobal`
+  @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Raleway&display=swap');
+
   * {
     box-sizing: border-box;
   }
 
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
+    font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -45,11 +45,6 @@ injectGlobal`
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
   }
 `;
 

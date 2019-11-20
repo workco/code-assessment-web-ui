@@ -6,8 +6,8 @@ import mockProducts from '../mocks/products';
 export default function useAppContext() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([
-    { id: 1, title: 'Chronograph', count: 1, price: 500.01 },
-    { id: 2, title: 'Quartz', count: 1, price: 10.99 }
+    { count: 1, ...mockProducts[0] },
+    { count: 1, ...mockProducts[1] }
   ]);
 
   useEffect(() => {
@@ -43,7 +43,8 @@ export default function useAppContext() {
       newCartItems.push({
         count: 1,
         id: product.id,
-        title: product.title
+        title: product.title,
+        images: product.images
       });
     }
 

@@ -72,7 +72,7 @@ const styles = {
     width: '50%'
   },
   summary: {
-    backgroundColor: theme.colors.darkGray,
+    backgroundColor: theme.colors.lightGray,
     [mq[1]]: {
       width: '35%'
     }
@@ -148,7 +148,7 @@ function Cart() {
               </h2>
               <ul className={css(styles.productList)}>
                 {cartItems.map(cartItem => {
-                  const { id, title, count, price } = cartItem;
+                  const { id, title, count, price, images } = cartItem;
                   return (
                     <Product
                       className={css(styles.product)}
@@ -156,6 +156,7 @@ function Cart() {
                       title={title}
                       price={price}
                       count={count}
+                      images={images}
                       onIncrement={() => incrementItem(cartItem)}
                       onDecrement={() => decrementItem(cartItem)}
                     />
@@ -186,7 +187,7 @@ function Cart() {
                       theme.typography.price
                     ])}
                   >
-                    $248.00
+                    $0
                   </span>
                 </div>
                 <div className={css(styles.summaryRow)}>
@@ -201,7 +202,7 @@ function Cart() {
                       theme.typography.price
                     ])}
                   >
-                    $49.90
+                    $0
                   </span>
                 </div>
                 <div className={css(styles.summaryRow)}>
@@ -232,7 +233,7 @@ function Cart() {
                       theme.typography.price
                     ])}
                   >
-                    $297.00
+                    $0
                   </span>
                 </div>
               </div>

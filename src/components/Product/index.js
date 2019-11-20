@@ -57,6 +57,7 @@ const styles = {
 const Product = ({
   className,
   count,
+  images,
   // inventory,
   onClick,
   onDecrement,
@@ -72,11 +73,7 @@ const Product = ({
         [css(styles.productCart)]: onIncrement && onDecrement
       })}
     >
-      <img
-        className={css(styles.image)}
-        src={getImage(images)}
-        alt={title}
-      />
+      <img className={css(styles.image)} src={getImage(images)} alt={title} />
       <div className={css(styles.details)}>
         <div>
           <h2 className={css(theme.typography.link)}>{title}</h2>
