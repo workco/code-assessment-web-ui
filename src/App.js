@@ -16,9 +16,14 @@ injectGlobal`
     box-sizing: border-box;
   }
 
+  html {
+    width: 100vw;
+  }
+
   body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

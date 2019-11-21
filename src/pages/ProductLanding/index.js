@@ -6,7 +6,7 @@ import { useTheme } from 'emotion-theming';
 import AppContext from '../../contexts/AppContext';
 import TopNav from '../../components/TopNav';
 import Product from '../../components/Product';
-import { mq } from '../../theme';
+import { mq, getColumns } from '../../theme';
 
 const styles = {
   wrapper: {
@@ -14,7 +14,10 @@ const styles = {
     width: '100%',
     height: '100%',
     [mq[0]]: {
-      padding: '40px 45px'
+      padding: `40px ${getColumns(1, 'medium')}`
+    },
+    [mq[1]]: {
+      padding: `40px ${getColumns(1, 'large')}`
     }
   },
   cartLink: {
@@ -23,7 +26,7 @@ const styles = {
     right: 30,
     [mq[0]]: {
       top: 40,
-      right: 45
+      right: getColumns(1, 'medium')
     }
   },
   title: {
@@ -35,8 +38,10 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     margin: '0',
-    [mq[0]]: {
-      margin: '0 -22.5px'
+    justifyContent: 'space-between',
+    '&:after': {
+      content: '""',
+      flex: 'auto'
     }
   }
 };

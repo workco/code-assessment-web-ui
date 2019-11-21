@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { css, cx } from 'emotion';
 import { useHistory } from 'react-router-dom';
-import { theme, mq } from '../../theme';
 import empty from '../../assets/empty.png';
 import close from '../../assets/close.svg';
 
@@ -10,116 +9,7 @@ import { useTheme } from 'emotion-theming';
 import Product from '../../components/Product';
 import Button from '../../components/Button';
 
-const styles = {
-  wrapper: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    top: 0,
-    left: 0,
-    backgroundColor: theme.colors.black35,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  inner: {
-    position: 'relative',
-    backgroundColor: theme.colors.white,
-    width: '80%',
-    height: 'auto',
-    maxHeight: '80%',
-    display: 'flex',
-    overflowY: 'auto',
-    flexDirection: 'column',
-    [mq[1]]: {
-      flexDirection: 'row'
-    }
-  },
-  closeBtn: {
-    position: 'absolute',
-    top: 20,
-    right: 20,
-    width: 15,
-    height: 15,
-    [mq[0]]: {
-      top: 45,
-      right: 45,
-      width: 20,
-      height: 20
-    }
-  },
-  section: {
-    width: '100%',
-    padding: 20,
-    [mq[0]]: {
-      padding: 45
-    }
-  },
-  products: {
-    [mq[1]]: {
-      width: '65%'
-    }
-  },
-  productList: {
-    display: 'flex',
-    flexDirection: 'column',
-    [mq[0]]: {
-      margin: '0 -22.5px',
-      flexDirection: 'row'
-    }
-  },
-  product: {
-    width: '50%'
-  },
-  summary: {
-    backgroundColor: theme.colors.lightGray,
-    [mq[1]]: {
-      width: '35%'
-    }
-  },
-  heading: {
-    marginBottom: 35
-  },
-  headingSummary: {
-    maxWidth: 200
-  },
-  summaryRow: {
-    width: '100%',
-    marginBottom: 20,
-    '&:last-child': {
-      borderTop: '1px solid #d5d5d5',
-      paddingTop: 20
-    }
-  },
-  summaryItem: {
-    display: 'inline-block',
-    width: '50%',
-    '&:nth-child(even)': {
-      textAlign: 'right'
-    }
-  },
-  summaryItemBold: {
-    fontWeight: 'bold'
-  },
-  checkoutBtn: {
-    width: '100%'
-  },
-  text: {
-    width: '100%',
-    margin: 0
-  },
-  empty: {
-    height: '60%',
-    minHeight: 400,
-    textAlign: 'center',
-    alignContent: 'center',
-    justifyContent: 'center'
-  },
-  emptyImage: {
-    marginBottom: 35,
-    maxWidth: '100%'
-  }
-};
+import styles from './styles';
 
 function Cart() {
   const { cartItems, incrementItem, decrementItem } = useContext(AppContext);

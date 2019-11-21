@@ -1,6 +1,12 @@
 const breakpoints = [375, 768, 1440];
 export const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);
 
+export const getColumns = (count, breakpoint, margin = 0) => {
+  const colCounts = { small: 15, medium: 16, large: 32 };
+  const colTotal = colCounts[breakpoint];
+  return `calc(((100vw - (${margin}px * 2)) / ${colTotal}) * ${count})`;
+};
+
 export const theme = {
   colors: {
     black: '#000',
@@ -52,6 +58,17 @@ export const theme = {
     price: {
       fontFamily: '"Raleway", serif',
       fontSize: 14
+    }
+  },
+  grid: {
+    column: {
+      width: getColumns(1, 'small', 30),
+      [mq[0]]: {
+        width: getColumns(1, 'medium')
+      },
+      [mq[1]]: {
+        width: getColumns(1, 'large')
+      }
     }
   }
 };
