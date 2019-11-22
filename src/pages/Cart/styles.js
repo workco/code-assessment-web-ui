@@ -15,7 +15,7 @@ export default {
   inner: {
     position: 'relative',
     backgroundColor: theme.colors.white,
-    width: getColumns(15, 'small', 30),
+    width: getColumns(15, 'small'),
     height: 'auto',
     maxHeight: 'calc(100vh - 70px)',
     display: 'flex',
@@ -34,7 +34,7 @@ export default {
   closeBtn: {
     position: 'absolute',
     top: 20,
-    right: getColumns(1, 'small', 30),
+    right: getColumns(1, 'small'),
     width: 15,
     height: 15,
     [mq[0]]: {
@@ -49,7 +49,7 @@ export default {
   },
   section: {
     width: '100%',
-    padding: `20px ${getColumns(1, 'small', 30)}`,
+    padding: `20px ${getColumns(1, 'small')}`,
     [mq[0]]: {
       padding: `45px ${getColumns(1, 'medium')}`
     },

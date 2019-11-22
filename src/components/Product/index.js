@@ -59,7 +59,7 @@ const styles = {
     flexWrap: 'wrap',
     '.inCart &': {
       width: '50%',
-      marginLeft: getColumns(1, 'small', 30),
+      marginLeft: getColumns(1, 'small'),
       [mq[0]]: {
         marginLeft: 0,
         width: '100%'
