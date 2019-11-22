@@ -21,9 +21,12 @@ const styles = css({
   }
 });
 
-const Button = ({ children, className }) => {
+const Button = ({ children, className, onClick }) => {
   return (
-    <button className={cx(className, styles, css(theme.typography.price))}>
+    <button
+      className={cx(className, styles, css(theme.typography.price))}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

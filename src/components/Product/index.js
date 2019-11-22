@@ -117,7 +117,7 @@ const Product = ({
     <li className={productClasses}>
       <img className={css(styles.image)} src={getImage(images)} alt={title} />
       <div className={css(styles.details)}>
-        <div className={css(css(styles.text))}>
+        <div className={css(styles.text)}>
           <h2 className={css(theme.typography.link)}>{title}</h2>
           <span className={css(theme.typography.price)}>${price}</span>
         </div>
