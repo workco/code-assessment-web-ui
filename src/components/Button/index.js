@@ -1,26 +1,32 @@
 import React from 'react';
 import { css, cx } from 'emotion';
+import { theme } from '../../theme';
 
 const styles = css({
   display: 'inline-block',
-  color: 'white',
-  background: 'black',
-  textTransform: 'uppercase',
-  fontWeight: 'normal',
-  fontSize: 14,
-  padding: '15px 30px',
-  borderRadius: 30,
+  color: theme.colors.white,
+  background: theme.colors.black,
+  fontWeight: 'bold',
+  padding: '10px 15px',
+  borderRadius: 20,
   border: 'none',
   transition: 'all 300ms ease-in-out',
-
   '&:hover': {
-    background: 'white',
-    color: 'black'
+    background: theme.colors.darkGray,
+    color: theme.colors.black
+  },
+  '&:disabled': {
+    background: theme.colors.darkGray,
+    color: theme.colors.black35
   }
 });
 
 const Button = ({ children, className }) => {
-  return <button className={cx(className, styles)}>{children}</button>;
+  return (
+    <button className={cx(className, styles, css(theme.typography.price))}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

@@ -21,6 +21,8 @@ export const theme = {
       fontFamily: '"Raleway", sans-serif',
       textTransform: 'uppercase',
       fontSize: 20,
+      letterSpacing: 1,
+      fontWeight: '900',
       [mq[0]]: {
         fontSize: 24
       }
@@ -56,19 +58,8 @@ export const theme = {
       }
     },
     price: {
-      fontFamily: '"Raleway", serif',
+      fontFamily: '"Raleway", sans-serif',
       fontSize: 14
-    }
-  },
-  grid: {
-    column: {
-      width: getColumns(1, 'small', 30),
-      [mq[0]]: {
-        width: getColumns(1, 'medium')
-      },
-      [mq[1]]: {
-        width: getColumns(1, 'large')
-      }
     }
   }
 };

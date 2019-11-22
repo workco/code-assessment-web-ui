@@ -4,7 +4,6 @@ import { css } from 'emotion';
 import { useTheme } from 'emotion-theming';
 
 import AppContext from '../../contexts/AppContext';
-import TopNav from '../../components/TopNav';
 import Product from '../../components/Product';
 import { mq, getColumns } from '../../theme';
 
@@ -32,7 +31,10 @@ const styles = {
   title: {
     width: '100%',
     textAlign: 'center',
-    margin: '0 0 30px'
+    margin: '0 0 35px',
+    [mq[0]]: {
+      margin: '0 0 45px'
+    }
   },
   products: {
     display: 'flex',
@@ -65,8 +67,6 @@ function ProductLanding() {
       <h1 className={css([styles.title, theme.typography.heading])}>
         Daily deals
       </h1>
-
-      <TopNav />
 
       <ul className={css(styles.products)}>
         {products.map(product => (

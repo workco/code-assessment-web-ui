@@ -10,7 +10,7 @@ import ModalSwitch from './components/ModalSwitch';
 import { theme } from './theme';
 
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Raleway&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Raleway:400,700,900&display=swap');
 
   * {
     box-sizing: border-box;
