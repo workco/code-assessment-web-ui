@@ -98,7 +98,12 @@
 }
 
 .heading {
+  @include heading2;
   margin-bottom: 35px;
+
+  .summary & {
+    margin-right: 20px;
+  }
 }
 
 .headingSummary {
@@ -116,12 +121,17 @@
 }
 
 .summaryItem {
+  @include body;
   display: inline-block;
   width: 50%;
 
   &:nth-child(even) {
     text-align: right;
   }
+}
+
+.summaryPrice {
+  @include price;
 }
 
 .summaryItemBold {
@@ -154,4 +164,12 @@
 .emptyImage {
   margin-bottom: 35px;
   max-width: 100%;
+}
+
+.emptyTitle {
+  @include heading2;
+}
+
+.emptyText {
+  @include body;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import { css, cx } from 'emotion';
-import { useTheme } from 'emotion-theming';
+import cx from 'classnames';
 
 import Button from '../Button';
+
 import { getImage } from '../../utils/images';
 
-import styles from './index.scss';
+import styles from './Product.module.pcss';
 
 const Product = ({
   className,
@@ -17,32 +17,30 @@ const Product = ({
   price,
   title
 }) => {
-  const theme = useTheme();
-
-  const inCart = onIncrement && onDecrement;
-  const productClasses = cx(className, css(styles.product), {
-    inCart: inCart
+  const isInCart = onIncrement && onDecrement;
+  const productClasses = cx(className, styles.product, {
+    [styles.inCart]: isInCart
   });
 
   return (
     <li className={productClasses}>
-      <img className={css(styles.image)} src={getImage(images)} alt={title} />
-      <div className={css(styles.details)}>
-        <div className={css(styles.text)}>
-          <h2 className={css(theme.typography.link)}>{title}</h2>
-          <span className={css(theme.typography.price)}>${price}</span>
+      <img className={styles.image} src={getImage(images)} alt={title} />
+      <div className={styles.details}>
+        <div className={styles.text}>
+          <h2 className={styles.title}>{title}</h2>
+          <span className={styles.price}>${price}</span>
         </div>
         {onIncrement && onDecrement ? (
-          <div className={css(styles.cartButtons)}>
+          <div className={styles.cartButtons}>
             <button
-              className={css([styles.cartButton.left, styles.cartButton])}
+              className={cx(styles.buttonLeft, styles.cartButton)}
               onClick={onIncrement}
             >
               +
             </button>
             <span>{count}</span>
             <button
-              className={css([styles.cartButton.right, styles.cartButton])}
+              className={cx(styles.buttonRight, styles.cartButton)}
               onClick={onDecrement}
             >
               -

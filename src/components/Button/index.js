@@ -1,13 +1,11 @@
 import React from 'react';
-import { css, cx } from 'emotion';
-import { theme } from '../../theme';
+import cx from 'classnames';
+
+import styles from './Button.module.pcss';
 
 const Button = ({ children, className, onClick }) => {
   return (
-    <button
-      className={cx(className, css(theme.typography.price))}
-      onClick={onClick}
-    >
+    <button className={cx(styles.button, className)} onClick={onClick}>
       {children}
     </button>
   );

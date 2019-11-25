@@ -1,0 +1,52 @@
+@mixin heading {
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 900;
+
+  @include medium {
+    font-size: 24px;
+  }
+}
+
+@mixin heading2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 35px;
+
+  @include medium {
+    font-size: 40px;
+    line-height: 45px;
+  }
+}
+
+@mixin body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+}
+
+@mixin link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 25px;
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+
+  &:hover {
+    opacity: 0.2;
+  }
+
+  &.active {
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+@mixin price {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
