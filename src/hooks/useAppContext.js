@@ -5,7 +5,10 @@ import mockProducts from '../mocks/products';
 // Only for use in App.js (to avoid duplicate state instances)
 export default function useAppContext() {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([
+    { count: 1, ...mockProducts[0] },
+    { count: 1, ...mockProducts[1] }
+  ]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,7 +42,8 @@ export default function useAppContext() {
       newCartItems.push({
         count: 1,
         id: product.id,
-        title: product.title
+        title: product.title,
+        images: product.images
       });
     }
 
