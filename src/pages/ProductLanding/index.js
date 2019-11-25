@@ -5,7 +5,8 @@ import { useTheme } from 'emotion-theming';
 
 import AppContext from '../../contexts/AppContext';
 import Product from '../../components/Product';
-import { mq, getColumns } from '../../theme';
+import bag from '../../assets/bag.svg';
+import { mq, getColumns, theme } from '../../theme';
 
 const styles = {
   wrapper: {
@@ -23,10 +24,37 @@ const styles = {
     position: 'absolute',
     top: 35,
     right: 30,
+    display: 'flex',
+    alignItems: 'center',
     [mq[0]]: {
       top: 40,
       right: getColumns(1, 'medium')
     }
+  },
+  iconWrapper: {
+    width: 40,
+    height: 40,
+    padding: 5,
+    borderRadius: 20,
+    backgroundColor: theme.colors.white,
+    transition: 'background-color 300ms ease-in-out',
+    '&:hover': {
+      backgroundColor: theme.colors.darkGray
+    }
+  },
+  cartQuantity: {
+    width: 20,
+    height: 20,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    backgroundColor: theme.colors.black,
+    color: theme.colors.white,
+    fontSize: 11,
+    fontWeight: 700,
+    lineHeight: 0,
+    marginLeft: -5
   },
   title: {
     width: '100%',
@@ -61,7 +89,10 @@ function ProductLanding() {
         to={{ pathname: 'cart', state: { background: location } }}
         className={css(styles.cartLink)}
       >
-        Cart - {cartQuantity}
+        <div className={css(styles.iconWrapper)}>
+          <img src={bag} alt="shopping bag" />
+        </div>
+        <div className={css(styles.cartQuantity)}>{cartQuantity}</div>
       </Link>
 
       <h1 className={css([styles.title, theme.typography.heading])}>
