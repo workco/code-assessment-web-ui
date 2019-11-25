@@ -10,7 +10,7 @@ import Button from '../../components/Button';
 import empty from '../../assets/empty.png';
 import close from '../../assets/close.svg';
 
-import styles from './Cart.module.pcss';
+import styles from './Cart.module.scss';
 
 function Cart() {
   const { cartItems, incrementItem, decrementItem } = useContext(AppContext);

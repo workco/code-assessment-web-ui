@@ -7,7 +7,7 @@ import Product from '../../components/Product';
 
 import bag from '../../assets/bag.svg';
 
-import styles from './ProductLanding.module.pcss';
+import styles from './ProductLanding.module.scss';
 
 function ProductLanding() {
   const { addItem, products, cartItems } = useContext(AppContext);

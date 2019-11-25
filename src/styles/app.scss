@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Raleway:400,700,900&display=swap');
-@import 'base';
-@import 'global';
+@import './base.scss';
+@import './global.scss';
 
 * {
   box-sizing: border-box;

@@ -12,7 +12,7 @@
     }
   }
 
-  @include lg {
+  @include large {
     width: getColumns(7, 'large');
 
     &:last-child {
@@ -33,7 +33,7 @@
       }
     }
 
-    @include lg {
+    @include large {
       width: getColumns(7, 'large');
 
       &:last-child {

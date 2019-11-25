@@ -5,7 +5,7 @@ import Button from '../Button';
 
 import { getImage } from '../../utils/images';
 
-import styles from './Product.module.pcss';
+import styles from './Product.module.scss';
 
 const Product = ({
   className,
