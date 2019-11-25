@@ -1,0 +1,21 @@
+$bp-small: 375px;
+$bp-medium: 768px;
+$bp-large: 1440px;
+
+@mixin medium {
+  @media (min-width: #{$bp-small}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$bp-medium}) {
+    @content;
+  }
+}
+
+@mixin xlarge {
+  @media (min-width: #{$bp-large}) {
+    @content;
+  }
+}

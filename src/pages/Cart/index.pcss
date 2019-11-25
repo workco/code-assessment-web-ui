@@ -1,0 +1,157 @@
+@import '../../styles/base';
+
+.wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $color-black-35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  position: relative;
+  background-color: $color-white;
+  width: getColumns(15, 'small');
+  height: auto;
+  max-height: calc(100vh - 70px);
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+
+  @include medium {
+    width: getColumns(14, 'medium');
+    max-height: calc(100vh - 80px);
+  }
+
+  @include large {
+    width: getColumns(26, 'large');
+    flex-direction: row;
+    max-height: calc(100vh - 140px);
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: getColumns(1, 'small');
+  width: 15px;
+  height: 15px;
+
+  @include medium {
+    top: 45px;
+    right: getColumns(1, 'medium');
+    width: 20px;
+    height: 20px;
+  }
+
+  @include large {
+    right: getColumns(1, 'large');
+  }
+}
+
+.section {
+  width: '100%';
+  // padding: 20px ${getColumns(1, 'small')};
+
+  @include medium {
+    // padding: 45px ${getColumns(1, 'medium')};
+  }
+
+  @include large {
+    // padding: 45px ${getColumns(1, 'large')};
+  }
+}
+
+.products {
+  @include large {
+    width: getColumns(17, 'large');
+  }
+}
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: calc(100% - 45px);
+
+  @include medium {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @include large {
+    width: getColumns(15, 'large');
+  }
+}
+
+.summary {
+  background-color: $color-gray-light;
+
+  @include large {
+    width: getColumns(9, 'large');
+  }
+}
+
+.heading {
+  margin-bottom: 35px;
+}
+
+.headingSummary {
+  margin-right: 20px;
+}
+
+.summaryRow {
+  width: 100%;
+  margin-bottom: 20px;
+
+  &:last-child {
+    border-top: 1px solid #d5d5d5;
+    padding-top: 20px;
+  }
+}
+
+.summaryItem {
+  display: inline-block;
+  width: 50%;
+
+  &:nth-child(even) {
+    text-align: right;
+  }
+}
+
+.summaryItemBold {
+  font-weight: bold;
+}
+
+.checkoutBtn {
+  width: 100%;
+}
+
+.text {
+  width: 100%;
+  margin: 0;
+}
+
+.empty {
+  height: 60%;
+  min-height: 400px;
+  padding: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  @include large {
+    padding: 0;
+    flex-direction: column;
+  }
+}
+
+.emptyImage {
+  margin-bottom: 35px;
+  max-width: 100%;
+}

@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
 import { css, cx } from 'emotion';
+import { useTheme } from 'emotion-theming';
 import { useHistory } from 'react-router-dom';
 import empty from '../../assets/empty.png';
 import close from '../../assets/close.svg';
 
-import AppContext from '../../contexts/AppContext';
-import { useTheme } from 'emotion-theming';
 import Product from '../../components/Product';
 import Button from '../../components/Button';
 
-import styles from './styles';
+import AppContext from '../../contexts/AppContext';
+
+import styles from './index.pcss';
 
 function Cart() {
   const { cartItems, incrementItem, decrementItem } = useContext(AppContext);
