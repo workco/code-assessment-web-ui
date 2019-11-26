@@ -1,0 +1,16 @@
+@function getColumns($count, $breakpoint) {
+  $colTotal: 15;
+  @if $breakpoint == $bp-medium {
+    $colTotal: 16;
+  } @else if $breakpoint == $bp-large {
+    $colTotal: 32;
+  }
+
+  $contentWidth: 100vw;
+  @if $breakpoint == $bp-small {
+    // 60px = small breakpoint side margins
+    @return calc(((100vw - 60px) / #{$colTotal}) * #{$count});
+  } @else {
+    @return calc((100vw / #{$colTotal}) * #{$count});
+  }
+}

@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "emotion": "^10.0.23",
-    "emotion-theming": "^10.0.19",
-    "facepaint": "^1.2.1",
+    "classnames": "^2.2.6",
+    "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",

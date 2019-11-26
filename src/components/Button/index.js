@@ -1,32 +1,11 @@
 import React from 'react';
-import { css, cx } from 'emotion';
-import { theme } from '../../theme';
+import cx from 'classnames';
 
-const styles = css({
-  display: 'inline-block',
-  color: theme.colors.white,
-  background: theme.colors.black,
-  fontWeight: 'bold',
-  padding: '10px 15px',
-  borderRadius: 20,
-  border: 'none',
-  transition: 'all 300ms ease-in-out',
-  '&:hover': {
-    background: theme.colors.darkGray,
-    color: theme.colors.black
-  },
-  '&:disabled': {
-    background: theme.colors.darkGray,
-    color: theme.colors.black35
-  }
-});
+import styles from './Button.module.scss';
 
 const Button = ({ children, className, onClick }) => {
   return (
-    <button
-      className={cx(className, styles, css(theme.typography.price))}
-      onClick={onClick}
-    >
+    <button className={cx(styles.button, className)} onClick={onClick}>
       {children}
     </button>
   );

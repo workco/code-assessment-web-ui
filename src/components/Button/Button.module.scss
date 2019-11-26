@@ -1,0 +1,23 @@
+@import 'base.scss';
+
+.button {
+  @include price;
+  display: inline-block;
+  color: $color-white;
+  background: $color-black;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    background: $color-gray-dark;
+    color: $color-black;
+  }
+
+  &:disabled {
+    background: $color-gray-dark;
+    color: $color-black-35;
+  }
+}

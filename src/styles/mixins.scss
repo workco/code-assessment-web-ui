@@ -1,0 +1,3 @@
+@mixin smooth($attr: all, $speed: 300ms) {
+  transition: $attr $speed ease-in-out;
+}

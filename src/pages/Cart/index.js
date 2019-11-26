@@ -1,47 +1,42 @@
 import React, { useContext } from 'react';
-import { css, cx } from 'emotion';
+import cx from 'classnames';
 import { useHistory } from 'react-router-dom';
-import empty from '../../assets/empty.png';
-import close from '../../assets/close.svg';
 
 import AppContext from '../../contexts/AppContext';
-import { useTheme } from 'emotion-theming';
+
 import Product from '../../components/Product';
 import Button from '../../components/Button';
 
-import styles from './styles';
+import empty from '../../assets/empty.png';
+import close from '../../assets/close.svg';
+
+import styles from './Cart.module.scss';
 
 function Cart() {
   const { cartItems, incrementItem, decrementItem } = useContext(AppContext);
   const history = useHistory();
-  const theme = useTheme();
+
+  const innerClasses = cx(styles.inner, {
+    [styles.empty]: !cartItems.length
+  });
 
   return (
-    <div className={css(styles.wrapper)}>
-      <div
-        className={cx(css(styles.inner), {
-          [css(styles.empty)]: !cartItems.length
-        })}
-      >
-        <button
-          className={css(styles.closeBtn)}
-          onClick={() => history.goBack()}
-        >
+    <div className={styles.wrapper}>
+      <div className={innerClasses}>
+        <button className={styles.closeBtn} onClick={() => history.goBack()}>
           <img src={close} alt="close" />
         </button>
 
         {!!cartItems.length ? (
           <>
-            <div className={css([styles.products, styles.section])}>
-              <h2 className={css([styles.heading, theme.typography.heading2])}>
-                Shopping Bag
-              </h2>
-              <ul className={css(styles.productList)}>
+            <div className={cx(styles.products, styles.section)}>
+              <h2 className={styles.heading}>Shopping Bag</h2>
+              <ul className={styles.productList}>
                 {cartItems.map(cartItem => {
                   const { id, title, count, price, images } = cartItem;
                   return (
                     <Product
-                      className={css(styles.product)}
+                      className={styles.product}
                       key={id}
                       title={title}
                       price={price}
@@ -54,89 +49,50 @@ function Cart() {
                 })}
               </ul>
             </div>
-            <div className={css([styles.summary, styles.section])}>
-              <h2
-                className={css([
-                  styles.headingSummary,
-                  styles.heading,
-                  theme.typography.heading2
-                ])}
-              >
-                Order Summary
-              </h2>
+            <div className={cx(styles.summary, styles.section)}>
+              <h2 className={styles.heading}>Order Summary</h2>
               <div>
-                <div className={css(styles.summaryRow)}>
-                  <span
-                    className={css([styles.summaryItem, theme.typography.body])}
-                  >
-                    Subtotal
-                  </span>
-                  <span
-                    className={css([
-                      styles.summaryItem,
-                      theme.typography.price
-                    ])}
-                  >
+                <div className={styles.summaryRow}>
+                  <span className={styles.summaryItem}>Subtotal</span>
+                  <span className={cx(styles.summaryItem, styles.summaryPrice)}>
                     $0
                   </span>
                 </div>
-                <div className={css(styles.summaryRow)}>
-                  <span
-                    className={css([styles.summaryItem, theme.typography.body])}
-                  >
-                    Taxes
-                  </span>
-                  <span
-                    className={css([
-                      styles.summaryItem,
-                      theme.typography.price
-                    ])}
-                  >
+                <div className={styles.summaryRow}>
+                  <span className={styles.summaryItem}>Taxes</span>
+                  <span className={cx(styles.summaryItem, styles.summaryPrice)}>
                     $0
                   </span>
                 </div>
-                <div className={css(styles.summaryRow)}>
-                  <span
-                    className={css([styles.summaryItem, theme.typography.body])}
-                  >
-                    Shipping
-                  </span>
-                  <span
-                    className={css([
-                      styles.summaryItem,
-                      theme.typography.price
-                    ])}
-                  >
+                <div className={styles.summaryRow}>
+                  <span className={styles.summaryItem}>Shipping</span>
+                  <span className={cx(styles.summaryItem, styles.summaryPrice)}>
                     FREE
                   </span>
                 </div>
-                <div className={css(styles.summaryRow)}>
+                <div className={styles.summaryRow}>
+                  <span className={styles.summaryItem}>Total</span>
                   <span
-                    className={css([styles.summaryItem, theme.typography.body])}
-                  >
-                    Total
-                  </span>
-                  <span
-                    className={css([
-                      styles.summaryItemBold,
+                    className={cx(
                       styles.summaryItem,
-                      theme.typography.price
-                    ])}
+                      styles.summaryPrice,
+                      styles.summaryItemBold
+                    )}
                   >
                     $0
                   </span>
                 </div>
               </div>
-              <Button className={css(styles.checkoutBtn)}>Checkout</Button>
+              <Button className={styles.checkoutBtn}>Checkout</Button>
             </div>
           </>
         ) : (
           <>
-            <img className={css(styles.emptyImage)} src={empty} alt="empty" />
-            <p className={css([styles.text, theme.typography.heading2])}>
+            <img className={styles.emptyImage} src={empty} alt="empty" />
+            <p className={cx(styles.text, styles.emptyTitle)}>
               Your bag is empty
             </p>
-            <p className={css([styles.text, theme.typography.body])}>
+            <p className={cx(styles.text, styles.emptyText)}>
               Please add some products to your cart
             </p>
           </>

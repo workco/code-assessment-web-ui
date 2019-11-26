@@ -1,0 +1,118 @@
+@import 'base.scss';
+
+.product {
+  margin: 0 0 40px;
+  width: 100%;
+
+  @include medium {
+    width: getColumns(6.5, $bp-medium);
+
+    &:last-child {
+      margin-left: getColumns(1, $bp-medium);
+    }
+  }
+
+  @include large {
+    width: getColumns(7, $bp-large);
+
+    &:last-child {
+      margin-left: getColumns(1, $bp-large);
+    }
+  }
+
+  &.inCart {
+    display: flex;
+    align-content: flex-start;
+
+    @include medium {
+      flexWrap: wrap;
+      width: getColumns(5.5, $bp-medium);
+
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+
+    @include large {
+      width: getColumns(7, $bp-large);
+
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.image {
+  width: 100%;
+  margin-bottom: 10;
+
+  .inCart & {
+    flex-shrink: 0;
+    width: 50%;
+
+    @include medium {
+      width: 100%;
+    }
+  }
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .inCart & {
+    width: 50%;
+    margin-left: getColumns(1, $bp-small);
+
+    @include medium {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.text {
+  .inCart & {
+    margin-bottom: 20;
+
+    @include xlarge {
+      margin-bottom: 0
+    }
+  }
+}
+
+.title {
+  @include link;
+}
+
+.price {
+  @include price;
+}
+
+.cartButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120;
+  flex-shrink: 0;
+}
+
+.cartButton {
+  background-color: $color-gray-light;
+  width: 38;
+  height: 40;
+  font-size: 20;
+  line-height: 0;
+}
+
+.buttonLeft {
+  border-radius: 20px 0 0 20px;
+}
+
+.buttonRight {
+  border-radius: 0 20px 20px 0;
+}
