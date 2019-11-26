@@ -1,4 +1,4 @@
-@import '../../styles/base';
+@import 'base.scss';
 
 .wrapper {
   position: fixed;
@@ -15,7 +15,7 @@
 .inner {
   position: relative;
   background-color: $color-white;
-  width: getColumns(15, 'small');
+  width: getColumns(15, $bp-small);
   height: auto;
   max-height: calc(100vh - 70px);
   display: flex;
@@ -23,12 +23,12 @@
   flex-direction: column;
 
   @include medium {
-    width: getColumns(14, 'medium');
+    width: getColumns(14, $bp-medium);
     max-height: calc(100vh - 80px);
   }
 
   @include large {
-    width: getColumns(26, 'large');
+    width: getColumns(26, $bp-large);
     flex-direction: row;
     max-height: calc(100vh - 140px);
   }
@@ -37,38 +37,38 @@
 .closeBtn {
   position: absolute;
   top: 20px;
-  right: getColumns(1, 'small');
+  right: getColumns(1, $bp-small);
   width: 15px;
   height: 15px;
 
   @include medium {
     top: 45px;
-    right: getColumns(1, 'medium');
+    right: getColumns(1, $bp-medium);
     width: 20px;
     height: 20px;
   }
 
   @include large {
-    right: getColumns(1, 'large');
+    right: getColumns(1, $bp-large);
   }
 }
 
 .section {
-  width: '100%';
-  // padding: 20px ${getColumns(1, 'small')};
+  width: 100%;
+  padding: 20px getColumns(1, $bp-small);
 
   @include medium {
-    // padding: 45px ${getColumns(1, 'medium')};
+    padding: 45px getColumns(1, $bp-medium);
   }
 
   @include large {
-    // padding: 45px ${getColumns(1, 'large')};
+    padding: 45px getColumns(1, $bp-large);
   }
 }
 
 .products {
   @include large {
-    width: getColumns(17, 'large');
+    width: getColumns(17, $bp-large);
   }
 }
 
@@ -85,7 +85,7 @@
   }
 
   @include large {
-    width: getColumns(15, 'large');
+    width: getColumns(15, $bp-large);
   }
 }
 
@@ -93,7 +93,7 @@
   background-color: $color-gray-light;
 
   @include large {
-    width: getColumns(9, 'large');
+    width: getColumns(9, $bp-large);
   }
 }
 

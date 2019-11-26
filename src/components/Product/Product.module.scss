@@ -1,22 +1,22 @@
-@import '../../styles/base';
+@import 'base.scss';
 
 .product {
   margin: 0 0 40px;
-  width: '100%';
+  width: 100%;
 
   @include medium {
-    width: getColumns(6.5, 'medium');
+    width: getColumns(6.5, $bp-medium);
 
     &:last-child {
-      margin-left: getColumns(1, 'medium');
+      margin-left: getColumns(1, $bp-medium);
     }
   }
 
   @include large {
-    width: getColumns(7, 'large');
+    width: getColumns(7, $bp-large);
 
     &:last-child {
-      margin-left: getColumns(1, 'large');
+      margin-left: getColumns(1, $bp-large);
     }
   }
 
@@ -26,7 +26,7 @@
 
     @include medium {
       flexWrap: wrap;
-      width: getColumns(5.5, 'medium');
+      width: getColumns(5.5, $bp-medium);
 
       &:last-child {
         margin-left: 0;
@@ -34,7 +34,7 @@
     }
 
     @include large {
-      width: getColumns(7, 'large');
+      width: getColumns(7, $bp-large);
 
       &:last-child {
         margin-left: 0;
@@ -66,7 +66,7 @@
 
   .inCart & {
     width: 50%;
-    margin-left: getColumns(1, 'small');
+    margin-left: getColumns(1, $bp-small);
 
     @include medium {
       margin-left: 0;

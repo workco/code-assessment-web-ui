@@ -1,4 +1,4 @@
-@import '../../styles/base';
+@import 'base.scss';
 
 .wrapper {
   padding: 35px 30px;
@@ -6,11 +6,11 @@
   height: 100%;
 
   @include medium {
-    // padding: 40px ${getColumns(1, 'medium')}
+    padding: 40px getColumns(1, $bp-medium);
   }
 
   @include large {
-    // padding: 40px ${getColumns(1, 'large')}
+    padding: 40px getColumns(1, $bp-large);
   }
 }
 
@@ -23,7 +23,7 @@
 
   @include medium {
     top: 40px;
-    right: getColumns(1, 'medium');
+    right: getColumns(1, $bp-medium);
   }
 }
 
