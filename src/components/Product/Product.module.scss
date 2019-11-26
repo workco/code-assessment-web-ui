@@ -19,27 +19,35 @@
       margin-left: getColumns(1, $bp-large);
     }
   }
+}
 
-  &.inCart {
-    display: flex;
-    align-content: flex-start;
+.inCart {
+  display: flex;
+  align-content: flex-start;
 
-    @include medium {
-      flexWrap: wrap;
-      width: getColumns(5.5, $bp-medium);
+  @include medium {
+    flexWrap: wrap;
+    width: getColumns(5.5, $bp-medium);
 
-      &:last-child {
-        margin-left: 0;
-      }
+    &:last-child {
+      margin-left: 0;
     }
+  }
 
-    @include large {
-      width: getColumns(7, $bp-large);
+  @include large {
+    width: getColumns(7, $bp-large);
 
-      &:last-child {
-        margin-left: 0;
-      }
+    &:last-child {
+      margin-left: 0;
     }
+  }
+}
+
+.featured {
+  width: 100%;
+
+  @include large {
+    width: getColumns(14, $bp-large);
   }
 }
 
@@ -62,7 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 
   .inCart & {
     width: 50%;
@@ -86,11 +94,17 @@
 }
 
 .title {
-  @include link;
+  @include heading3;
 }
 
 .price {
   @include price;
+}
+
+.addButton {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 4px;
 }
 
 .cartButtons {

@@ -11,6 +11,7 @@ const Product = ({
   className,
   count,
   images,
+  isFeatured,
   onClick,
   onDecrement,
   onIncrement,
@@ -19,18 +20,21 @@ const Product = ({
 }) => {
   const isInCart = onIncrement && onDecrement;
   const productClasses = cx(className, styles.product, {
-    [styles.inCart]: isInCart
+    [styles.inCart]: isInCart,
+    [styles.featured]: isFeatured
   });
 
+  const imageSrc = isFeatured ? getImage(images, 'featured') : getImage(images);
+
   return (
-    <li className={productClasses}>
-      <img className={styles.image} src={getImage(images)} alt={title} />
+    <div className={productClasses}>
+      <img className={styles.image} src={imageSrc} alt={title} />
       <div className={styles.details}>
         <div className={styles.text}>
           <h2 className={styles.title}>{title}</h2>
           <span className={styles.price}>${price}</span>
         </div>
-        {onIncrement && onDecrement ? (
+        {isInCart ? (
           <div className={styles.cartButtons}>
             <button
               className={cx(styles.buttonLeft, styles.cartButton)}
@@ -47,10 +51,12 @@ const Product = ({
             </button>
           </div>
         ) : (
-          <Button onClick={onClick}>Add to bag</Button>
+          <Button className={styles.addButton} onClick={onClick}>
+            Add to bag
+          </Button>
         )}
       </div>
-    </li>
+    </div>
   );
 };
 

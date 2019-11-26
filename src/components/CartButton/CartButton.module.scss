@@ -1,0 +1,29 @@
+@import 'base.scss';
+
+.icon {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: $color-white;
+  transition: background-color 300ms ease-in-out;
+
+  &:hover {
+    background-color: $color-gray-dark;
+  }
+}
+
+.quantity {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: $color-black;
+  color: $color-white;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 0;
+  margin-left: -5px;
+}
