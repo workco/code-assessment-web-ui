@@ -1,5 +1,10 @@
 @import 'base.scss';
 
+.button {
+  display: flex;
+  align-items: center;
+}
+
 .icon {
   width: 40px;
   height: 40px;

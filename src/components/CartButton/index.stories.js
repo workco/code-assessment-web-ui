@@ -1,10 +1,27 @@
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { object } from '@storybook/addon-knobs';
 
 import CartButton from './index';
+
+const items = [
+  {
+    count: 1
+  },
+  {
+    count: 2
+  }
+];
 
 export default { title: 'CartButton' };
 
 export const regular = () => (
-  <CartButton disabled={boolean('Disabled', false)}>Add to bag</CartButton>
+  <Router>
+    <Route path="/">
+      <CartButton
+        cartItems={object('Items', items)}
+        location={{ pathname: '/' }}
+      />
+    </Route>
+  </Router>
 );

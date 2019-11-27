@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import AppContext from '../../contexts/AppContext';
 import Product from '../../components/Product';
@@ -7,7 +8,8 @@ import CartButton from '../../components/CartButton';
 import styles from './ProductLanding.module.scss';
 
 function ProductLanding() {
-  const { addItem, products } = useContext(AppContext);
+  const { addItem, products, cartItems } = useContext(AppContext);
+  const location = useLocation();
 
   const hasFeaturedImage =
     products[0] &&
@@ -18,7 +20,11 @@ function ProductLanding() {
 
   return (
     <div className={styles.wrapper}>
-      <CartButton className={styles.cartIconWrapper} />
+      <CartButton
+        className={styles.cartIconWrapper}
+        cartItems={cartItems}
+        location={location}
+      />
 
       <h1 className={styles.title}>Daily deals</h1>
 

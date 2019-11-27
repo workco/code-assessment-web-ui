@@ -1,20 +1,18 @@
-import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import cx from 'classnames';
+import { Link } from 'react-router-dom';
 
-import AppContext from '../../contexts/AppContext';
 import bag from '../../assets/bag.svg';
 
 import styles from './CartButton.module.scss';
 
-const CartButton = ({ className }) => {
-  const { cartItems } = useContext(AppContext);
-  const location = useLocation();
+const CartButton = ({ className, cartItems, location }) => {
   const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
 
   return (
     <Link
       to={{ pathname: 'cart', state: { background: location } }}
-      className={className}
+      className={cx(styles.button, className)}
     >
       <div className={styles.icon}>
         <img src={bag} alt="shopping bag" />
