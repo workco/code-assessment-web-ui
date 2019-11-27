@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Button from '../Button';
+import Quantity from '../Quantity';
 
 import { getImage } from '../../utils/images';
 
@@ -35,21 +36,11 @@ const Product = ({
           <span className={styles.price}>${price}</span>
         </div>
         {isInCart ? (
-          <div className={styles.cartButtons}>
-            <button
-              className={cx(styles.buttonLeft, styles.cartButton)}
-              onClick={onIncrement}
-            >
-              +
-            </button>
-            <span>{count}</span>
-            <button
-              className={cx(styles.buttonRight, styles.cartButton)}
-              onClick={onDecrement}
-            >
-              -
-            </button>
-          </div>
+          <Quantity
+            onIncrement={onIncrement}
+            onDecrement={onDecrement}
+            count={count}
+          />
         ) : (
           <Button className={styles.addButton} onClick={onClick}>
             Add to bag
