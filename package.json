@@ -16,7 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -p 5000 --ci"
   },
   "eslintConfig": {
     "extends": "react-app"

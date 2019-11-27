@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import AppContext from '../../contexts/AppContext';
-
 import Product from '../../components/Product';
-
-import bag from '../../assets/bag.svg';
+import CartButton from '../../components/CartButton';
 
 import styles from './ProductLanding.module.scss';
 
@@ -13,31 +11,42 @@ function ProductLanding() {
   const { addItem, products, cartItems } = useContext(AppContext);
   const location = useLocation();
 
-  const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
+  const hasFeaturedImage =
+    products[0] &&
+    products[0].images &&
+    Object.values(products[0].images).filter(
+      image => image.type === 'featured'
+    );
 
   return (
     <div className={styles.wrapper}>
-      <Link
-        to={{ pathname: 'cart', state: { background: location } }}
-        className={styles.cartLink}
-      >
-        <div className={styles.iconWrapper}>
-          <img src={bag} alt="shopping bag" />
-        </div>
-        <div className={styles.cartQuantity}>{cartQuantity}</div>
-      </Link>
+      <CartButton
+        className={styles.cartIconWrapper}
+        cartItems={cartItems}
+        location={location}
+      />
 
       <h1 className={styles.title}>Daily deals</h1>
 
-      <ul className={styles.products}>
-        {products.map(product => (
+      <div className={styles.products}>
+        {hasFeaturedImage && (
           <Product
-            {...product}
-            onClick={() => addItem(product)}
-            key={product.id}
+            {...products[0]}
+            onClick={() => addItem(products[0])}
+            key={products[0].id}
+            isFeatured
           />
-        ))}
-      </ul>
+        )}
+        <div className={styles.thumbnails}>
+          {[...products].slice(1).map(product => (
+            <Product
+              {...product}
+              onClick={() => addItem(product)}
+              key={product.id}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
