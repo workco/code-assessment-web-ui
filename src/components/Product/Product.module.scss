@@ -23,11 +23,12 @@
 
 .inCart {
   display: flex;
-  align-content: flex-start;
+  align-items: center;
 
   @include medium {
-    flexWrap: wrap;
+    flex-wrap: wrap;
     width: getColumns(5.5, $bp-medium);
+    align-items: flex-start;
 
     &:last-child {
       margin-left: 0;
@@ -53,7 +54,7 @@
 
 .image {
   width: 100%;
-  margin-bottom: 10;
+  margin-bottom: 10px;
 
   .inCart & {
     flex-shrink: 0;
@@ -70,31 +71,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // flex-wrap: wrap;
 
   .inCart & {
     width: 50%;
     margin-left: getColumns(1, $bp-small);
+    flex-wrap: wrap;
 
     @include medium {
       margin-left: 0;
       width: 100%;
+    }
+
+    @include large {
+      flex-wrap: nowrap;
     }
   }
 }
 
 .text {
   .inCart & {
-    margin-bottom: 20;
+    margin-bottom: 20px;
 
-    @include xlarge {
-      margin-bottom: 0
+    @include large {
+      margin-bottom: 0;
     }
   }
 }
 
 .title {
-  @include heading3;
+  @include body;
+  font-weight: normal;
 }
 
 .price {
@@ -105,28 +111,4 @@
   flex-shrink: 0;
   align-self: flex-start;
   margin-top: 4px;
-}
-
-.cartButtons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 120;
-  flex-shrink: 0;
-}
-
-.cartButton {
-  background-color: $color-gray-light;
-  width: 38;
-  height: 40;
-  font-size: 20;
-  line-height: 0;
-}
-
-.buttonLeft {
-  border-radius: 20px 0 0 20px;
-}
-
-.buttonRight {
-  border-radius: 0 20px 20px 0;
 }
