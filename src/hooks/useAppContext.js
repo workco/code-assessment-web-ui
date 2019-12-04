@@ -40,6 +40,7 @@ export default function useAppContext() {
         count: 1,
         id: product.id,
         title: product.title,
+        price: product.price,
         images: product.images
       });
     }
