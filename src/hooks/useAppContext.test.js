@@ -53,7 +53,8 @@ describe('useAppContext', () => {
         {
           count: 1,
           id: productToAdd.id,
-          title: productToAdd.title
+          title: productToAdd.title,
+          images: productToAdd.images
         }
       ]);
     });
@@ -86,12 +87,14 @@ describe('useAppContext', () => {
         {
           count: 1,
           id: firstProductToAdd.id,
-          title: firstProductToAdd.title
+          title: firstProductToAdd.title,
+          images: firstProductToAdd.images
         },
         {
           count: 1,
           id: secondProductToAdd.id,
-          title: secondProductToAdd.title
+          title: secondProductToAdd.title,
+          images: secondProductToAdd.images
         }
       ]);
     });
@@ -120,7 +123,8 @@ describe('useAppContext', () => {
         {
           count: 2,
           id: productToAdd.id,
-          title: productToAdd.title
+          title: productToAdd.title,
+          images: productToAdd.images
         }
       ]);
     });
