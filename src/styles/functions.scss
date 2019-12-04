@@ -6,7 +6,6 @@
     $colTotal: 32;
   }
 
-  $contentWidth: 100vw;
   @if $breakpoint == $bp-small {
     // 60px = small breakpoint side margins
     @return calc(((100vw - 60px) / #{$colTotal}) * #{$count});
