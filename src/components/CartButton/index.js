@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 
@@ -20,6 +21,16 @@ const CartButton = ({ className, cartItems, location }) => {
       <div className={styles.quantity}>{cartQuantity}</div>
     </Link>
   );
+};
+
+CartButton.propTypes = {
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      count: PropTypes.number.isRequired
+    })
+  ).isRequired,
+  className: PropTypes.string,
+  location: PropTypes.object.isRequired
 };
 
 export default CartButton;
