@@ -18,11 +18,13 @@ function ProductLanding() {
       image => image.type === 'featured'
     );
 
+  const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
+
   return (
     <div className={styles.wrapper}>
       <CartButton
+        cartQuantity={cartQuantity}
         className={styles.cartIconWrapper}
-        cartItems={cartItems}
         location={location}
       />
 

@@ -7,9 +7,7 @@ import bag from '../../assets/bag.svg';
 
 import styles from './CartButton.module.scss';
 
-const CartButton = ({ className, cartItems, location }) => {
-  const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
-
+const CartButton = ({ className, cartQuantity, location }) => {
   return (
     <Link
       to={{ pathname: 'cart', state: { background: location } }}
@@ -24,11 +22,7 @@ const CartButton = ({ className, cartItems, location }) => {
 };
 
 CartButton.propTypes = {
-  cartItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      count: PropTypes.number.isRequired
-    })
-  ).isRequired,
+  cartQuantity: PropTypes.number,
   className: PropTypes.string,
   location: PropTypes.object.isRequired
 };
