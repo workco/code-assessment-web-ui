@@ -90,7 +90,7 @@
 }
 
 .summary {
-  background-color: $color-gray-light;
+  background-color: $color-gray;
 
   @include large {
     width: getColumns(9, $bp-large);
