@@ -69,17 +69,19 @@
 .details {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
   .inCart & {
     width: 50%;
     margin-left: getColumns(1, $bp-small);
+    flex-direction: column;
     flex-wrap: wrap;
 
     @include medium {
-      margin-left: 0;
       width: 100%;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 0;
     }
 
     @include large {
