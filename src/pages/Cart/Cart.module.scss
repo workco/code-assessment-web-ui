@@ -75,7 +75,6 @@
 .productList {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
   height: calc(100% - 45px);
 
   @include medium {
@@ -85,6 +84,7 @@
   }
 
   @include large {
+    overflow-y: auto;
     width: getColumns(15, $bp-large);
   }
 }

@@ -1,8 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Browser Support
+
+Please see package.json for a list of supported browsers.
+
+Note: The UI is optimized for widths of greater than or equal to 375px.
 
 ## Available Scripts
 
-In the project directory, you can run:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). In the project directory, you can run:
+
+### `yarn`
+
+Install dependencies.
 
 ### `yarn start`
 
