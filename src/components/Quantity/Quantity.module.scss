@@ -3,6 +3,7 @@
 $buttonWidth: 38px;
 
 .quantity {
+  @include price;
   position: relative;
   display: flex;
   align-items: center;
