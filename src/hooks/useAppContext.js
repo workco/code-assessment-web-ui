@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import mockProducts from '../mocks/products';
 
@@ -80,3 +81,36 @@ export default function useAppContext() {
     decrementItem: item => onUpdateItemQuantity(item, -1)
   };
 }
+
+const commonItemTypes = {
+  id: PropTypes.number.isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  price: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
+};
+
+export const providerPropTypes = {
+  value: PropTypes.shape({
+    cartItems: PropTypes.arrayOf(
+      PropTypes.shape({
+        ...commonItemTypes,
+        count: PropTypes.number.isRequired
+      })
+    ),
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        ...commonItemTypes,
+        inventory: PropTypes.number.isRequired
+      })
+    ).isRequired,
+    addItem: PropTypes.func.isRequired,
+    checkout: PropTypes.func.isRequired,
+    decrementItem: PropTypes.func.isRequired,
+    incrementItem: PropTypes.func.isRequired
+  })
+};

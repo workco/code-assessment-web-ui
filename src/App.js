@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import useAppContext from './hooks/useAppContext';
+import useAppContext, { providerPropTypes } from './hooks/useAppContext';
 import AppContext from './contexts/AppContext';
 
 import ModalSwitch from './components/ModalSwitch';
@@ -16,5 +16,7 @@ function App() {
     </AppContext.Provider>
   );
 }
+
+AppContext.Provider.propTypes = providerPropTypes;
 
 export default App;
