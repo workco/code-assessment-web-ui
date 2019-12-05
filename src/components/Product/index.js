@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import Button from '../Button';
@@ -10,7 +11,7 @@ import styles from './Product.module.scss';
 
 const Product = ({
   className,
-  count,
+  count = 1,
   images,
   isFeatured,
   onClick,
@@ -26,6 +27,7 @@ const Product = ({
   });
 
   const imageSrc = isFeatured ? getImage(images, 'featured') : getImage(images);
+  const finalPrice = (price * count).toFixed(2);
 
   return (
     <div className={productClasses}>
@@ -33,7 +35,7 @@ const Product = ({
       <div className={styles.details}>
         <div className={styles.text}>
           <h2 className={styles.title}>{title}</h2>
-          <span className={styles.price}>${price}</span>
+          <span className={styles.price}>${finalPrice}</span>
         </div>
         {isInCart ? (
           <Quantity
@@ -49,6 +51,23 @@ const Product = ({
       </div>
     </div>
   );
+};
+
+Product.propTypes = {
+  className: PropTypes.string,
+  count: PropTypes.number,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  isFeatured: PropTypes.bool,
+  onClick: PropTypes.func,
+  onDecrement: PropTypes.func,
+  onIncrement: PropTypes.func,
+  price: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default Product;

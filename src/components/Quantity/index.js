@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import styles from './Quantity.module.scss';
@@ -15,6 +16,12 @@ const Quantity = ({ onIncrement, onDecrement, count }) => {
       </button>
     </div>
   );
+};
+
+Quantity.propTypes = {
+  count: PropTypes.number.isRequired,
+  onDecrement: PropTypes.func.isRequired,
+  onIncrement: PropTypes.func.isRequired
 };
 
 export default Quantity;

@@ -6,5 +6,10 @@ import Button from './index';
 export default { title: 'Button' };
 
 export const regular = () => (
-  <Button disabled={boolean('Disabled', false)}>Add to bag</Button>
+  <Button
+    disabled={boolean('Disabled', false)}
+    onClick={() => console.log('onClick!')}
+  >
+    Add to bag
+  </Button>
 );

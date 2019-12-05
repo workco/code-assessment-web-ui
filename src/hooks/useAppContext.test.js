@@ -54,7 +54,8 @@ describe('useAppContext', () => {
           count: 1,
           id: productToAdd.id,
           title: productToAdd.title,
-          images: productToAdd.images
+          images: productToAdd.images,
+          price: productToAdd.price
         }
       ]);
     });
@@ -88,13 +89,15 @@ describe('useAppContext', () => {
           count: 1,
           id: firstProductToAdd.id,
           title: firstProductToAdd.title,
-          images: firstProductToAdd.images
+          images: firstProductToAdd.images,
+          price: firstProductToAdd.price
         },
         {
           count: 1,
           id: secondProductToAdd.id,
           title: secondProductToAdd.title,
-          images: secondProductToAdd.images
+          images: secondProductToAdd.images,
+          price: secondProductToAdd.price
         }
       ]);
     });
@@ -124,7 +127,8 @@ describe('useAppContext', () => {
           count: 2,
           id: productToAdd.id,
           title: productToAdd.title,
-          images: productToAdd.images
+          images: productToAdd.images,
+          price: productToAdd.price
         }
       ]);
     });

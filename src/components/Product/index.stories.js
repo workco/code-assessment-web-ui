@@ -4,10 +4,8 @@ import { boolean } from '@storybook/addon-knobs';
 import Product from './index';
 
 const data = {
-  id: 1,
   title: 'The Sideswept Dhoti + Bottom Line Grey',
   price: 219.0,
-  inventory: 2,
   images: [
     {
       type: 'featured',
@@ -23,5 +21,9 @@ const data = {
 export default { title: 'Product' };
 
 export const regular = () => (
-  <Product {...data} isFeatured={boolean('Featured', false)} />
+  <Product
+    {...data}
+    isFeatured={boolean('Featured', false)}
+    onClick={() => console.log('Add to bag')}
+  />
 );

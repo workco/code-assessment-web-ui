@@ -13,7 +13,9 @@ import close from '../../assets/close.svg';
 import styles from './Cart.module.scss';
 
 function Cart() {
-  const { cartItems, incrementItem, decrementItem } = useContext(AppContext);
+  const { cartItems, checkout, incrementItem, decrementItem } = useContext(
+    AppContext
+  );
   const history = useHistory();
 
   const innerClasses = cx(styles.inner, {
@@ -83,7 +85,9 @@ function Cart() {
                   </span>
                 </div>
               </div>
-              <Button className={styles.checkoutBtn}>Checkout</Button>
+              <Button className={styles.checkoutBtn} onClick={checkout}>
+                Checkout
+              </Button>
             </div>
           </>
         ) : (
