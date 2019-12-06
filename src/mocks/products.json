@@ -1,17 +1,29 @@
 [
     {
         "id": 1,
-        "title": "Dhoti Pants",
+        "title": "Floral Dress",
         "price": 219.00,
         "inventory": 2,
         "images": [
             {
                 "type": "featured",
-                "src": "/assets/prod-1-featured.png"
+                "src": "/assets/prod-1-featured.jpg"
             },
             {
                 "type": "default",
-                "src": "https://via.placeholder.com/315x310?text=Prod-1-Default"
+                "src": "/assets/prod-1-default.jpg"
+            },
+            {
+                "type": "alt1",
+                "src": "/assets/prod-1-alt-1.jpg"
+            },
+            {
+                "type": "alt2",
+                "src": "/assets/prod-1-alt-2.jpg"
+            },
+            {
+                "type": "alt3",
+                "src": "/assets/prod-1-alt-3.jpg"
             }
         ]
     },
@@ -23,11 +35,15 @@
         "images": [
             {
                 "type": "featured",
-                "src": "https://via.placeholder.com/620x725?text=Prod-2-Featured"
+                "src": "https://via.placeholder.com/630x725?text=Prod-2-Featured"
             },
             {
                 "type": "default",
-                "src": "/assets/prod-2-default.png"
+                "src": "/assets/prod-2-default.jpg"
+            },
+            {
+                "type": "alt1",
+                "src": "https://via.placeholder.com/630x725?text=Prod-2-Alt-1"
             }
         ]
     },
@@ -39,11 +55,15 @@
         "images": [
             {
                 "type": "featured",
-                "src": "https://via.placeholder.com/620x725?text=Prod-3-Featured"
+                "src": "https://via.placeholder.com/630x725?text=Prod-3-Featured"
             },
             {
                 "type": "default",
-                "src": "/assets/prod-3-default.png"
+                "src": "/assets/prod-3-default.jpg"
+            },
+            {
+                "type": "alt1",
+                "src": "https://via.placeholder.com/630x725?text=Prod-3-Alt-1"
             }
         ]
     },
@@ -55,11 +75,15 @@
         "images": [
             {
                 "type": "featured",
-                "src": "https://via.placeholder.com/620x725?text=Prod-4-Featured"
+                "src": "https://via.placeholder.com/630x725?text=Prod-4-Featured"
             },
             {
                 "type": "default",
-                "src": "/assets/prod-4-default.png"
+                "src": "/assets/prod-4-default.jpg"
+            },
+            {
+                "type": "alt1",
+                "src": "https://via.placeholder.com/630x725?text=Prod-4-Alt-1"
             }
         ]
     },
@@ -71,11 +95,15 @@
         "images": [
             {
                 "type": "featured",
-                "src": "https://via.placeholder.com/620x725?text=Prod-5-Featured"
+                "src": "https://via.placeholder.com/630x725?text=Prod-5-Featured"
             },
             {
                 "type": "default",
-                "src": "/assets/prod-5-default.png"
+                "src": "/assets/prod-5-default.jpg"
+            },
+            {
+                "type": "alt1",
+                "src": "https://via.placeholder.com/630x725?text=Prod-5-Alt-1"
             }
         ]
     }
