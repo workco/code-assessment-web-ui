@@ -49,7 +49,7 @@ Other things we’re looking for in your work:
 - New/updated tests (when appropriate)
 - New/updated stories (when appropriate)
 
-## UI
+### Design/Browser Info
 
 You can find the Figma file for this project here: https://www.figma.com/file/TghrEZgi3nl3t3iZ72Ufmt/Code-Assessment---Final. The "App" designs are for the mobile assessment - please disregard.
 
