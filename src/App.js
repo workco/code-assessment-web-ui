@@ -1,17 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import useAppContext, { providerPropTypes } from './hooks/useAppContext';
 import AppContext from './contexts/AppContext';
 
-import ModalSwitch from './components/ModalSwitch';
+import ProductLanding from './pages/ProductLanding';
+import Cart from './pages/Cart';
 
 function App() {
   const appContextValue = useAppContext();
   return (
     <AppContext.Provider value={appContextValue}>
       <Router>
-        <ModalSwitch />
+        <ProductLanding />
+        <Switch>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+        </Switch>
       </Router>
     </AppContext.Provider>
   );

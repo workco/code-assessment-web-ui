@@ -9,10 +9,7 @@ export default { title: 'CartButton' };
 export const regular = () => (
   <Router>
     <Route path="/">
-      <CartButton
-        cartQuantity={number('Quantity', 3)}
-        location={{ pathname: '/' }}
-      />
+      <CartButton cartQuantity={number('Quantity', 3)} />
     </Route>
   </Router>
 );

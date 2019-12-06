@@ -7,12 +7,9 @@ import bag from '../../assets/bag.svg';
 
 import styles from './CartButton.module.scss';
 
-const CartButton = ({ className, cartQuantity, location }) => {
+const CartButton = ({ className, cartQuantity }) => {
   return (
-    <Link
-      to={{ pathname: 'cart', state: { background: location } }}
-      className={cx(styles.button, className)}
-    >
+    <Link to="/cart" className={cx(styles.button, className)}>
       <div className={styles.icon}>
         <img src={bag} alt="shopping bag" />
       </div>
@@ -23,8 +20,7 @@ const CartButton = ({ className, cartQuantity, location }) => {
 
 CartButton.propTypes = {
   cartQuantity: PropTypes.number,
-  className: PropTypes.string,
-  location: PropTypes.object.isRequired
+  className: PropTypes.string
 };
 
 export default CartButton;
