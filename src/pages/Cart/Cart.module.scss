@@ -68,6 +68,7 @@
 
 .products {
   @include large {
+    overflow-y: auto;
     width: getColumns(17, $bp-large);
   }
 }
@@ -75,7 +76,6 @@
 .productList {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 45px);
 
   @include medium {
     flex-direction: row;
@@ -84,7 +84,6 @@
   }
 
   @include large {
-    overflow-y: auto;
     width: getColumns(15, $bp-large);
   }
 }

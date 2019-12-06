@@ -4,13 +4,9 @@
   margin: 0 0 25px;
   width: 100%;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   @include medium {
-  margin: 0 0 40px;
-  width: getColumns(6.5, $bp-medium);
+    margin: 0 0 40px;
+    width: getColumns(6.5, $bp-medium);
 
     &:last-child {
       margin-left: getColumns(1, $bp-medium);
@@ -30,6 +26,10 @@
   display: flex;
   align-items: center;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   @include medium {
     flex-wrap: wrap;
     width: getColumns(5.5, $bp-medium);
@@ -37,6 +37,10 @@
 
     &:last-child {
       margin-left: 0;
+    }
+
+    &:nth-last-child(2):nth-child(odd) {
+      margin-bottom: 0;
     }
   }
 
@@ -69,7 +73,7 @@
     width: getColumns(6, $bp-small);
 
     @include medium {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       width: 100%;
     }
   }
@@ -103,7 +107,7 @@
   .inCart & {
     margin-bottom: 20px;
 
-    @include large {
+    @include medium {
       margin-bottom: 0;
     }
   }
