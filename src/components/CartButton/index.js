@@ -16,7 +16,7 @@ const CartButton = ({ className, cartQuantity, location }) => {
       <div className={styles.icon}>
         <img src={bag} alt="shopping bag" />
       </div>
-      <div className={styles.quantity}>{cartQuantity}</div>
+      {!!cartQuantity && <div className={styles.quantity}>{cartQuantity}</div>}
     </Link>
   );
 };

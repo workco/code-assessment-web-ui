@@ -38,8 +38,8 @@
   position: absolute;
   top: 20px;
   right: getColumns(1, $bp-small);
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
 
   @include medium {
     top: 45px;
@@ -55,7 +55,7 @@
 
 .section {
   width: 100%;
-  padding: 20px getColumns(1, $bp-small);
+  padding: 30px getColumns(1, $bp-small);
 
   @include medium {
     padding: 45px getColumns(1, $bp-medium);
@@ -68,6 +68,7 @@
 
 .products {
   @include large {
+    overflow-y: auto;
     width: getColumns(17, $bp-large);
   }
 }
@@ -75,8 +76,6 @@
 .productList {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  height: calc(100% - 45px);
 
   @include medium {
     flex-direction: row;
@@ -90,7 +89,7 @@
 }
 
 .summary {
-  background-color: $color-gray-light;
+  background-color: $color-gray;
 
   @include large {
     width: getColumns(9, $bp-large);
@@ -99,7 +98,11 @@
 
 .heading {
   @include heading2;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+
+  @include medium {
+    margin-bottom: 35px;
+  }
 
   .summary & {
     margin-right: 20px;

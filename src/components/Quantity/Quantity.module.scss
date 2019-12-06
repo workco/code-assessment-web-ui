@@ -3,6 +3,7 @@
 $buttonWidth: 38px;
 
 .quantity {
+  @include price;
   position: relative;
   display: flex;
   align-items: center;
@@ -17,7 +18,7 @@ $buttonWidth: 38px;
     height: 1px;
     position: absolute;
     left: $buttonWidth;
-    background: $color-gray-light;
+    background: $color-gray;
   }
 
   &:before {
@@ -30,17 +31,12 @@ $buttonWidth: 38px;
 }
 
 .button {
-  @include smooth(background);
-  background: $color-gray-light;
+  background: $color-gray;
   width: $buttonWidth;
   height: 40px;
   font-size: 20px;
   line-height: 0;
   cursor: pointer;
-
-  &:hover {
-    background: $color-gray-dark;
-  }
 }
 
 .left {

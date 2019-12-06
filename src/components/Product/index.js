@@ -22,6 +22,7 @@ const Product = ({
 }) => {
   const isInCart = onIncrement && onDecrement;
   const productClasses = cx(className, styles.product, {
+    [styles.inProductLanding]: !isInCart,
     [styles.inCart]: isInCart,
     [styles.featured]: isFeatured
   });
