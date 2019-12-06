@@ -4,16 +4,16 @@ import { boolean } from '@storybook/addon-knobs';
 import Product from './index';
 
 const data = {
-  title: 'The Sideswept Dhoti + Bottom Line Grey',
+  title: 'Floral Dress',
   price: 219.0,
   images: [
     {
       type: 'featured',
-      src: '/assets/prod-1-featured.png'
+      src: '/assets/prod-1-featured.jpg'
     },
     {
       type: 'default',
-      src: '/assets/prod-1-default.png'
+      src: '/assets/prod-1-default.jpg'
     }
   ]
 };
