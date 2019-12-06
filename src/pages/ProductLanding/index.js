@@ -11,13 +11,6 @@ function ProductLanding() {
   const { addItem, products, cartItems } = useContext(AppContext);
   const location = useLocation();
 
-  const hasFeaturedImage =
-    products[0] &&
-    products[0].images &&
-    Object.values(products[0].images).filter(
-      image => image.type === 'featured'
-    );
-
   const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
 
   return (
@@ -31,7 +24,7 @@ function ProductLanding() {
       <h1 className={styles.title}>Daily deals</h1>
 
       <div className={styles.products}>
-        {hasFeaturedImage && (
+        {products[0] && (
           <Product
             {...products[0]}
             onClick={() => addItem(products[0])}
