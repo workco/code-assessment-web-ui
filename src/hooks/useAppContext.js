@@ -6,25 +6,7 @@ import mockProducts from '../mocks/products';
 // Only for use in App.js (to avoid duplicate state instances)
 export default function useAppContext() {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([
-    {
-      count: 1,
-      id: 1,
-      title: 'Chronograph',
-      price: 219,
-      images: [
-        { type: 'featured', src: '/assets/prod-1-featured.png' },
-        { type: 'default', src: '/assets/prod-1-default.png' }
-      ]
-    },
-    {
-      count: 1,
-      id: 2,
-      title: 'Quartz',
-      price: 10.99,
-      images: [{ type: 'default', src: '/assets/prod-2-default.png' }]
-    }
-  ]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
