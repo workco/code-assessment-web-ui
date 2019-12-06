@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Skirt",
+        "title": "Dhoti Pants",
         "price": 219.00,
         "inventory": 2,
         "images": [
@@ -11,16 +11,20 @@
             },
             {
                 "type": "default",
-                "src": "/assets/prod-1-default.png"
+                "src": "https://via.placeholder.com/315x310?text=Prod-1-Default"
             }
         ]
     },
     {
         "id": 2,
-        "title": "Quartz",
+        "title": "Watch",
         "price": 10.99,
         "inventory": 10,
         "images": [
+            {
+                "type": "featured",
+                "src": "https://via.placeholder.com/620x725?text=Prod-2-Featured"
+            },
             {
                 "type": "default",
                 "src": "/assets/prod-2-default.png"
@@ -29,10 +33,14 @@
     },
     {
         "id": 3,
-        "title": "Weekender",
+        "title": "Purse",
         "price": 19.99,
         "inventory": 5,
         "images": [
+            {
+                "type": "featured",
+                "src": "https://via.placeholder.com/620x725?text=Prod-3-Featured"
+            },
             {
                 "type": "default",
                 "src": "/assets/prod-3-default.png"
@@ -41,25 +49,33 @@
     },
     {
         "id": 4,
-        "title": "Chronograph",
+        "title": "Shades",
         "price": 500.01,
         "inventory": 2,
         "images": [
             {
+                "type": "featured",
+                "src": "https://via.placeholder.com/620x725?text=Prod-4-Featured"
+            },
+            {
                 "type": "default",
-                "src": "/assets/prod-1-default.png"
+                "src": "/assets/prod-4-default.png"
             }
         ]
     },
     {
         "id": 5,
-        "title": "Quartz",
+        "title": "Sneaker",
         "price": 10.99,
         "inventory": 10,
         "images": [
             {
+                "type": "featured",
+                "src": "https://via.placeholder.com/620x725?text=Prod-5-Featured"
+            },
+            {
                 "type": "default",
-                "src": "/assets/prod-2-default.png"
+                "src": "/assets/prod-5-default.png"
             }
         ]
     }
