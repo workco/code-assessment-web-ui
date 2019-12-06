@@ -1,4 +1,57 @@
-## Browser Support
+# Code Assessment: Web Edition ⭑⭑
+
+## Instructions
+
+### Mirroring the Repo
+
+For your own privacy, please do not fork this repo! Instead, follow these instructions to mirror the repository to a new private repo on your account:
+
+1. Create a new private repo on your github (eg, my-assessment)
+
+2. On the command line, create a bare clone of our repo:
+
+```
+git clone --bare git@github.com:workco/code-assessment-web-v2.git
+```
+
+3. Enter the temporary directory created by that command and push to your repo
+
+```
+cd code-assessment-web-v2.git
+git push --mirror git@github.com:my-github-account/my-assessment.git
+```
+
+4. Clone the repo to start local development
+
+```
+git clone git@github.com:my-github-account/my-assessment
+```
+
+When you’re done with your work, please share your private repo with [workco-talent](https://github.com/workco-talent).
+
+If you’re having trouble with these mirroring instructions, let us know!
+
+### Task Guidelines
+
+Please refer to emailed instructions from the talent team as to which/how many tasks to work on.
+
+[Create a pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for each task you work on. Set this up like you would a real PR. Some features we’ll look for:
+
+- Informative, consistent commit message(s)
+- A detailed PR description. Explain the fixes or functionalities accomplished, any decisions you made along the way, or alternative implementations you may have considered or attempted. Feel free to add images and videos.
+- If applicable: Why did you choose this task?
+
+You can merge the PR when you’re done.
+
+Other things we’re looking for in your work:
+
+- Code quality and consistency
+- New/updated tests (when appropriate)
+- New/updated stories (when appropriate)
+
+## UI
+
+You can find the Figma file for this project here: https://www.figma.com/file/TghrEZgi3nl3t3iZ72Ufmt/Code-Assessment---Final. The "App" designs are for the mobile assessment - please disregard.
 
 Please see package.json for a list of supported browsers.
 
