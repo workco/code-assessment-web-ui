@@ -1,11 +1,16 @@
 @import 'base.scss';
 
 .product {
-  margin: 0 0 40px;
+  margin: 0 0 25px;
   width: 100%;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   @include medium {
-    width: getColumns(6.5, $bp-medium);
+  margin: 0 0 40px;
+  width: getColumns(6.5, $bp-medium);
 
     &:last-child {
       margin-left: getColumns(1, $bp-medium);
@@ -54,13 +59,17 @@
 
 .image {
   width: 100%;
-  margin-bottom: 10px;
+
+  .inProductLanding & {
+    margin-bottom: 10px;
+  }
 
   .inCart & {
     flex-shrink: 0;
-    width: 50%;
+    width: getColumns(6, $bp-small);
 
     @include medium {
+      margin-bottom: 10px;
       width: 100%;
     }
   }
