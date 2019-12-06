@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import cx from 'classnames';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import AppContext from '../../contexts/AppContext';
 
@@ -16,7 +16,6 @@ function Cart() {
   const { cartItems, checkout, incrementItem, decrementItem } = useContext(
     AppContext
   );
-  const history = useHistory();
 
   const innerClasses = cx(styles.inner, {
     [styles.empty]: !cartItems.length
@@ -25,9 +24,9 @@ function Cart() {
   return (
     <div className={styles.wrapper}>
       <div className={innerClasses}>
-        <button className={styles.closeBtn} onClick={() => history.goBack()}>
+        <Link to="/" className={styles.closeBtn}>
           <img src={close} alt="close" />
-        </button>
+        </Link>
 
         {!!cartItems.length ? (
           <>

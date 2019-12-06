@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import AppContext from '../../contexts/AppContext';
 import Product from '../../components/Product';
@@ -9,7 +8,6 @@ import styles from './ProductLanding.module.scss';
 
 function ProductLanding() {
   const { addItem, products, cartItems } = useContext(AppContext);
-  const location = useLocation();
 
   const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
 
@@ -18,7 +16,6 @@ function ProductLanding() {
       <CartButton
         cartQuantity={cartQuantity}
         className={styles.cartIconWrapper}
-        location={location}
       />
 
       <h1 className={styles.title}>Daily deals</h1>
