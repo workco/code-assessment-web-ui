@@ -75,3 +75,7 @@ Complete the following objectives:
 A. Each component has a stories file, but only one configuration is covered. (Knobs are fun, but they don't count as separate configurations.) Please update stories as needed to reflect all significant configurations of each component.
 
 B. Create `Cart` and `ProductLanding` components and add stories for these as well.
+
+# 8. Create Your Own!
+
+Define and complete your own task 💪. Use this opportunity to show us how you like to set up your React projects and/or demonstrate more of your skills.
