@@ -33,21 +33,15 @@ function Cart() {
             <div className={cx(styles.products, styles.section)}>
               <h2 className={styles.heading}>Shopping Bag</h2>
               <ul className={styles.productList}>
-                {cartItems.map(cartItem => {
-                  const { id, title, count, price, images } = cartItem;
-                  return (
-                    <Product
-                      className={styles.product}
-                      key={id}
-                      title={title}
-                      price={price}
-                      count={count}
-                      images={images}
-                      onIncrement={() => incrementItem(cartItem)}
-                      onDecrement={() => decrementItem(cartItem)}
-                    />
-                  );
-                })}
+                {cartItems.map(cartItem => (
+                  <Product
+                    {...cartItem}
+                    className={styles.product}
+                    key={cartItem.id}
+                    onIncrement={() => incrementItem(cartItem)}
+                    onDecrement={() => decrementItem(cartItem)}
+                  />
+                ))}
               </ul>
             </div>
             <div className={cx(styles.summary, styles.section)}>
