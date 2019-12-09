@@ -65,3 +65,13 @@ Requirements:
 
 - Out of stock product button is disabled on homepage
 - Out of stock increment button is disabled in cart
+
+# 7. Enhance Component Stories - Level I
+
+This repo uses [Storybook](https://storybook.js.org/). Run `yarn storybook` to start a local instance at http://localhost:5000.
+
+Complete the following objectives:
+
+A. Each component has a stories file, but only one configuration is covered. (Knobs are fun, but they don't count as separate configurations.) Please update stories as needed to reflect all significant configurations of each component.
+
+B. Create `Cart` and `ProductLanding` components and add stories for these as well.
