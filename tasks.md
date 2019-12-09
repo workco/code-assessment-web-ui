@@ -37,3 +37,12 @@ Requirements:
 - On shift-tab off first item, focus on last focusable item
 - Never lose focus if focused element is removed from modal
 - One other accessibility improvement to cart modal
+
+# 4. Improve Tests - Level II
+
+Complete the following objectives:
+
+A. Update the useAppContext hook or its test to resolve the warning that appears when running tests.
+B. Implement the two skipped tests in the useAppContext test.
+C. Make one additional change to improve test coverage in the repo.
+D. In your PR for this task, propose a strategy for improving coverage. Explain your thinking and any potential tradeoffs of this approach.
