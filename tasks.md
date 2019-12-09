@@ -23,3 +23,17 @@ See https://github.com/workco/code-assessment-api for more API documentation.
 Requirements:
 
 - Shipping should display "FREE" when the total shipping cost is $0.
+
+# 3. Improve Cart Modal's Accessibility - Level II
+
+Implement a focus trap for the modal to improve accessibility for keyboard users. Please also implement any other quick wins you can think of to improve the accessibility of the modal.
+
+Please do not use a third-party library for this task.
+
+Requirements:
+
+- Focus on first focusable item in modal on modal open
+- On tab off last item, focus on first focusable item
+- On shift-tab off first item, focus on last focusable item
+- Never lose focus if focused element is removed from modal
+- One other accessibility improvement to cart modal
