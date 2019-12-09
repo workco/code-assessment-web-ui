@@ -68,7 +68,7 @@ function Cart() {
                 <div className={styles.summaryRow}>
                   <span className={styles.summaryItem}>Shipping</span>
                   <span className={cx(styles.summaryItem, styles.summaryPrice)}>
-                    FREE
+                    Free
                   </span>
                 </div>
                 <div className={styles.summaryRow}>

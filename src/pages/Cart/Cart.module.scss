@@ -131,6 +131,7 @@
 
 .summaryPrice {
   @include price;
+  text-transform: uppercase;
 }
 
 .summaryItemBold {
