@@ -26,9 +26,7 @@ Requirements:
 
 # 3. Improve Cart Modal's Accessibility - Level II
 
-Implement a focus trap for the modal to improve accessibility for keyboard users. Please also implement any other quick wins you can think of to improve the accessibility of the modal.
-
-Please do not use a third-party library for this task.
+Implement a focus trap for the modal to improve accessibility for keyboard users. Please do not use a third-party library for this task.
 
 Requirements:
 
@@ -36,20 +34,19 @@ Requirements:
 - On tab off last item, focus on first focusable item
 - On shift-tab off first item, focus on last focusable item
 - Never lose focus if focused element is removed from modal
-- One other accessibility improvement to cart modal
 
 # 4. Improve Tests - Level II
 
 Complete the following objectives:
 
-A. Update the useAppContext hook or its test to resolve the warning that appears when running tests.
-B. Implement the two skipped tests in the useAppContext test.
-C. Make one additional change to improve test coverage in the repo.
-D. In your PR for this task, propose a strategy for improving coverage. Explain your thinking and any potential tradeoffs of this approach.
+1. Update the useAppContext hook or its test to resolve the warning that appears when running tests.
+2. Implement the two skipped tests in the useAppContext test.
+3. Make one additional change to improve test coverage in the repo.
+4. In your PR for this task, propose a strategy for improving coverage. Explain your thinking and any potential tradeoffs of this approach.
 
 # 5. Review Pull Request - Level II
 
-This task requires a little set up on your end. Please create a pull request between the `master` and `task-pr` branches. Don’t worry about the description - just press “Create pull request” from a screen like this.
+This task requires a little setup on your end. Please create a pull request between the `master` and `task-pr` branches. Don’t worry about the description - just press “Create pull request” from a screen like this.
 
 ![Open PR](./pr-task.png)
 
@@ -72,9 +69,8 @@ This repo uses [Storybook](https://storybook.js.org/). Run `yarn storybook` to s
 
 Complete the following objectives:
 
-A. Each component has a stories file, but only one configuration is covered. (Knobs are fun, but they don't count as separate configurations.) Please update stories as needed to reflect all significant configurations of each component.
-
-B. Create `Cart` and `ProductLanding` components and add stories for these as well.
+1. Each component has a stories file, but only one configuration is covered. (Knobs are fun, but they don't count as separate configurations.) Please update stories as needed to reflect all significant configurations of each component.
+2. Create `Cart` and `ProductLanding` components and add stories for these as well.
 
 # 8. Create Your Own!
 
