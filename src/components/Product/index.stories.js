@@ -1,5 +1,6 @@
 import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 import Product from './index';
 
@@ -24,6 +25,6 @@ export const regular = () => (
   <Product
     {...data}
     isFeatured={boolean('Featured', false)}
-    onClick={() => console.log('Add to bag')}
+    onClick={action('Add to bag')}
   />
 );
