@@ -51,11 +51,9 @@ describe('useAppContext', () => {
 
       expect(result.current.cartItems).toEqual([
         {
-          count: 1,
-          id: productToAdd.id,
-          title: productToAdd.title,
-          images: productToAdd.images,
-          price: productToAdd.price
+          ...productToAdd,
+          inventory: productToAdd.inventory - 1,
+          count: 1
         }
       ]);
     });
@@ -86,18 +84,14 @@ describe('useAppContext', () => {
 
       expect(result.current.cartItems).toEqual([
         {
+          ...firstProductToAdd,
           count: 1,
-          id: firstProductToAdd.id,
-          title: firstProductToAdd.title,
-          images: firstProductToAdd.images,
-          price: firstProductToAdd.price
+          inventory: firstProductToAdd.inventory - 1
         },
         {
+          ...secondProductToAdd,
           count: 1,
-          id: secondProductToAdd.id,
-          title: secondProductToAdd.title,
-          images: secondProductToAdd.images,
-          price: secondProductToAdd.price
+          inventory: secondProductToAdd.inventory - 1
         }
       ]);
     });
@@ -124,11 +118,9 @@ describe('useAppContext', () => {
 
       expect(result.current.cartItems).toEqual([
         {
-          count: 2,
-          id: productToAdd.id,
-          title: productToAdd.title,
-          images: productToAdd.images,
-          price: productToAdd.price
+          ...productToAdd,
+          inventory: productToAdd.inventory - 2,
+          count: 2
         }
       ]);
     });
@@ -174,7 +166,8 @@ describe('useAppContext', () => {
         expect.arrayContaining([
           expect.objectContaining({
             id: cartItemToIncrement.id,
-            count: cartItemToIncrement.count + 1
+            count: cartItemToIncrement.count + 1,
+            inventory: productToIncrement.inventory - 1
           })
         ])
       );
@@ -207,7 +200,8 @@ describe('useAppContext', () => {
         expect.arrayContaining([
           expect.objectContaining({
             id: cartItemToIncrement.id,
-            count: cartItemToIncrement.count + 2
+            count: cartItemToIncrement.count + 2,
+            inventory: productToIncrement.inventory - 2
           })
         ])
       );

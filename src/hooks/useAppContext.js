@@ -6,7 +6,7 @@ import mockProducts from '../mocks/products';
 // Only for use in App.js (to avoid duplicate state instances)
 export default function useAppContext() {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -28,16 +28,16 @@ export default function useAppContext() {
   };
 
   const onAddItem = product => {
-    const newCartItems = [...cartItems];
-    const cartIndex = cartItems.findIndex(i => i.id === product.id);
+    const newCart = [...cart];
+    const cartIndex = cart.findIndex(i => i.id === product.id);
 
     if (cartIndex > -1) {
-      newCartItems[cartIndex] = {
-        ...newCartItems[cartIndex],
-        count: newCartItems[cartIndex].count + 1
+      newCart[cartIndex] = {
+        ...newCart[cartIndex],
+        count: newCart[cartIndex].count + 1
       };
     } else {
-      newCartItems.push({
+      newCart.push({
         count: 1,
         id: product.id,
         title: product.title,
@@ -46,31 +46,39 @@ export default function useAppContext() {
       });
     }
 
-    setCartItems(newCartItems);
+    setCart(newCart);
     updateProductQuantity(product.id, 1);
   };
 
   const onUpdateItemQuantity = (cartItem, quantityChange) => {
-    const newCartItems = [...cartItems];
-    const cartIndex = cartItems.findIndex(i => i.id === cartItem.id);
+    const newCart = [...cart];
+    const cartIndex = cart.findIndex(i => i.id === cartItem.id);
     const shouldRemoveFromCart = quantityChange === -1 && cartItem.count === 1;
 
     if (shouldRemoveFromCart) {
-      newCartItems.splice(cartIndex, 1);
+      newCart.splice(cartIndex, 1);
     } else {
-      newCartItems[cartIndex] = {
-        ...newCartItems[cartIndex],
-        count: newCartItems[cartIndex].count + quantityChange
+      newCart[cartIndex] = {
+        ...newCart[cartIndex],
+        count: newCart[cartIndex].count + quantityChange
       };
     }
 
-    setCartItems(newCartItems);
+    setCart(newCart);
     updateProductQuantity(cartItem.id, quantityChange);
   };
 
   const onCheckout = () => {
-    setCartItems([]);
+    setCart([]);
   };
+
+  const cartItems = cart.map(cartItem => {
+    const product = products.find(p => p.id === cartItem.id);
+    return {
+      ...cartItem,
+      ...product
+    };
+  });
 
   return {
     cartItems,
@@ -82,7 +90,7 @@ export default function useAppContext() {
   };
 }
 
-const commonItemTypes = {
+const productPropTypes = {
   id: PropTypes.number.isRequired,
   images: PropTypes.arrayOf(
     PropTypes.shape({
@@ -90,24 +98,20 @@ const commonItemTypes = {
       src: PropTypes.string.isRequired
     })
   ).isRequired,
+  inventory: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired
 };
 
 export const providerPropTypes = {
   value: PropTypes.shape({
-    cartItems: PropTypes.arrayOf(
+    cart: PropTypes.arrayOf(
       PropTypes.shape({
-        ...commonItemTypes,
+        ...productPropTypes,
         count: PropTypes.number.isRequired
       })
     ),
-    products: PropTypes.arrayOf(
-      PropTypes.shape({
-        ...commonItemTypes,
-        inventory: PropTypes.number.isRequired
-      })
-    ).isRequired,
+    products: PropTypes.arrayOf(PropTypes.shape(productPropTypes)).isRequired,
     addItem: PropTypes.func.isRequired,
     checkout: PropTypes.func.isRequired,
     decrementItem: PropTypes.func.isRequired,
