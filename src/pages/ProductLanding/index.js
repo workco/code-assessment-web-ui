@@ -12,7 +12,7 @@ function ProductLanding() {
   const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
 
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper}>
       <CartButton
         cartQuantity={cartQuantity}
         className={styles.cartIconWrapper}
@@ -39,7 +39,7 @@ function ProductLanding() {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

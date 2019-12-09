@@ -10,10 +10,12 @@ import styles from './CartButton.module.scss';
 const CartButton = ({ className, cartQuantity }) => {
   return (
     <Link to="/cart" className={cx(styles.button, className)}>
-      <div className={styles.icon}>
+      <span className={styles.icon}>
         <img src={bag} alt="shopping bag" />
-      </div>
-      {!!cartQuantity && <div className={styles.quantity}>{cartQuantity}</div>}
+      </span>
+      {!!cartQuantity && (
+        <span className={styles.quantity}>{cartQuantity}</span>
+      )}
     </Link>
   );
 };
