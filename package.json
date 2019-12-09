@@ -17,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "storybook": "start-storybook -s ./public, -p 5000 --ci"
   },
   "eslintConfig": {
@@ -43,5 +44,13 @@
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.11.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.stories.js",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ]
   }
 }
