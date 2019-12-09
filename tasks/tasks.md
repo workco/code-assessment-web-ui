@@ -56,3 +56,12 @@ This task requires a little set up on your end. Please create a pull request bet
 Now, please review this PR as if you were reviewing a colleague’s code.
 
 For context, imagine the author of this PR is an engineer who is new to React and has one year of development experience. The PR is fulfilling an imaginary JIRA ticket called “Add Cart Animation on Opening/Closing.”
+
+# 6. Disable Add/Increment Based on Inventory - Level I
+
+Right now, products can be added or incremented regardless of inventory. Please update the codebase so that the product inventories never go below 0.
+
+Requirements:
+
+- Out of stock product button is disabled on homepage
+- Out of stock increment button is disabled in cart
