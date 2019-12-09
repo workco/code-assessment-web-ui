@@ -46,3 +46,13 @@ A. Update the useAppContext hook or its test to resolve the warning that appears
 B. Implement the two skipped tests in the useAppContext test.
 C. Make one additional change to improve test coverage in the repo.
 D. In your PR for this task, propose a strategy for improving coverage. Explain your thinking and any potential tradeoffs of this approach.
+
+# 5. Review Pull Request - Level II
+
+This task requires a little set up on your end. Please create a pull request between the `master` and `task-pr` branches. Don’t worry about the description - just press “Create pull request” from a screen like this.
+
+![Open PR](./pr-task.png)
+
+Now, please review this PR as if you were reviewing a colleague’s code.
+
+For context, imagine the author of this PR is an engineer who is new to React and has one year of development experience. The PR is fulfilling an imaginary JIRA ticket called “Add Cart Animation on Opening/Closing.”
