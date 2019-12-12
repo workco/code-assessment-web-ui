@@ -10676,6 +10676,13 @@ react-app-polyfill@^1.0.4:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
+react-browser-detection@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-browser-detection/-/react-browser-detection-1.2.1.tgz#7cafa3f7e2772394101a3b14b114b6fe7c6124fc"
+  integrity sha512-ku57WQN/NprjxvDjPQuZwmtgWqr77Wq0LM7B0Kn6irVfQFwz/X9qnBNXNQJFiKWCcECPioKDNBSo6MZMNtszYw==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-clientside-effect@^1.2.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.2.tgz#6212fb0e07b204e714581dd51992603d1accc837"

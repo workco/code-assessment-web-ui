@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './Splash.module.scss';
 import { Link } from 'react-router-dom';
+import BrowserDetection from 'react-browser-detection';
+
 import { getImageUrl } from '../../utils/images';
 
 function Splash() {
@@ -11,10 +13,22 @@ function Splash() {
         <Link to="/products">Daily deals</Link>
       </h1>
 
-      <video controls className={styles.video} autoPlay loop>
-        <source src={getImageUrl('/assets/video.mp4')} type="video/mp4" />
-        Sorry, your browser doesn't support embedded videos.
-      </video>
+      <BrowserDetection>
+        {{
+          default: browser => (
+            <video
+              controls
+              className={styles.video}
+              autoPlay
+              muted
+              loop={browser === 'chrome'} /* Only loop on Chrome */
+            >
+              <source src={getImageUrl('/assets/video.mp4')} type="video/mp4" />
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+          )
+        }}
+      </BrowserDetection>
     </main>
   );
 }
