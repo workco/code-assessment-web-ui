@@ -24,7 +24,7 @@ function Cart() {
   return (
     <div className={styles.wrapper}>
       <div className={innerClasses}>
-        <Link to="/" className={styles.closeBtn}>
+        <Link to="/products" className={styles.closeBtn}>
           <img src={close} alt="close" />
         </Link>
 

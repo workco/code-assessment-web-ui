@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
-import styles from './Splash.module.scss';
 import { Link } from 'react-router-dom';
 import BrowserDetection from 'react-browser-detection';
 
 import { getImageUrl } from '../../utils/images';
+
+import styles from './Splash.module.scss';
 
 function Splash() {
   const [width, setWidth] = useState(1400);
@@ -20,8 +20,6 @@ function Splash() {
       window.removeEventListener('resize', handleResize);
     };
   }, [width]);
-
-  console.log(width);
 
   return (
     <main className={styles.wrapper}>

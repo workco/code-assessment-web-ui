@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import BrowserDetection from 'react-browser-detection';
 
 import AppContext from '../../contexts/AppContext';
 import Product from '../../components/Product';
@@ -18,10 +19,22 @@ function ProductLanding() {
         cartQuantity={cartQuantity}
         className={styles.cartIconWrapper}
       />
-
-      <h1 className={styles.title}>
-        <Link to="/">Daily deals</Link>
-      </h1>
+      <BrowserDetection>
+        {{
+          default: browser => (
+            <h1 className={styles.title}>
+              <Link
+                onClick={
+                  browser === 'firefox' ? e => e.preventDefault() : undefined
+                }
+                to="/"
+              >
+                Daily deals
+              </Link>
+            </h1>
+          )
+        }}
+      </BrowserDetection>
 
       <div className={styles.products}>
         {products[0] && (

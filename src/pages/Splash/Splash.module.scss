@@ -24,6 +24,10 @@
   @include medium {
     margin: 0 0 45px;
   }
+
+  &:hover {
+    color: $color-black-35;
+  }
 }
 
 .video {

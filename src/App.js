@@ -14,11 +14,14 @@ function App() {
     <AppContext.Provider value={appContextValue}>
       <Router>
         <Switch>
+          <Route exact path="/">
+            <Splash />
+          </Route>
           <Route path="/products">
             <ProductLanding />
           </Route>
-          <Route path="/">
-            <Splash />
+          <Route path="/cart">
+            <ProductLanding />
           </Route>
         </Switch>
         <Switch>
