@@ -10,7 +10,7 @@ function Splash() {
   return (
     <main className={styles.wrapper}>
       <h1 className={styles.title}>
-        <Link to="/products">Daily deals</Link>
+        <Link to="/">Daily deals</Link>
       </h1>
 
       <BrowserDetection>
@@ -29,6 +29,10 @@ function Splash() {
           )
         }}
       </BrowserDetection>
+
+      <Link className={styles.productLink} to="/products">
+        Start shopping
+      </Link>
     </main>
   );
 }

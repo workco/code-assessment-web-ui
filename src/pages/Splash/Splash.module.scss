@@ -4,6 +4,7 @@
   padding: 35px 30px;
   width: 100%;
   height: 100%;
+  text-align: center;
 
   @include medium {
     padding: 40px getColumns(1, $bp-medium);
@@ -28,4 +29,10 @@
 .video {
   width: getColumns(28, $bp-large);
   margin: 0 auto;
+}
+
+.productLink {
+  cursor: default;
+  margin-top: 40px;
+  display: block;
 }

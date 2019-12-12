@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import AppContext from '../../contexts/AppContext';
 import Product from '../../components/Product';
@@ -18,7 +19,9 @@ function ProductLanding() {
         className={styles.cartIconWrapper}
       />
 
-      <h1 className={styles.title}>Daily deals</h1>
+      <h1 className={styles.title}>
+        <Link to="/">Daily deals</Link>
+      </h1>
 
       <div className={styles.products}>
         {products[0] && (
