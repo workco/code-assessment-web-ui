@@ -21,6 +21,10 @@ function Cart() {
     [styles.empty]: !cartItems.length
   });
 
+  if (!cartItems.length) {
+    console.log(cartItems[0].title);
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={innerClasses}>
