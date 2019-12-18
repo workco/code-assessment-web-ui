@@ -32,6 +32,14 @@
 
 .video {
   margin: 0 auto;
+
+  &:not(.video-chrome) {
+    display: none;
+
+    @include medium {
+      display: block;
+    }
+  }
 }
 
 .productLink {

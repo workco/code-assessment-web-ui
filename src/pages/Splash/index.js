@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BrowserDetection from 'react-browser-detection';
+import cx from 'classnames';
 
 import { getImageUrl } from '../../utils/images';
 
@@ -32,7 +33,7 @@ function Splash() {
           default: browser => (
             <video
               controls
-              className={styles.video}
+              className={cx(styles.video, styles[`video-${browser}`])}
               autoPlay
               muted
               width={width >= 1100 ? '80%' : '50%'}
