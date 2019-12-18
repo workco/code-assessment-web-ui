@@ -23,6 +23,14 @@
   }
 }
 
+.product-chrome {
+  overflow: scroll;
+
+  @include medium {
+    overflow: hidden;
+  }
+}
+
 .inCart {
   display: flex;
   align-items: center;
