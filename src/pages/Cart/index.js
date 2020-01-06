@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import AppContext from '../../contexts/AppContext';
 
@@ -12,7 +12,7 @@ import close from '../../assets/close.svg';
 
 import styles from './Cart.module.scss';
 
-function Cart() {
+function Cart({ history }) {
   const { cartItems, checkout, incrementItem, decrementItem } = useContext(
     AppContext
   );
@@ -26,7 +26,14 @@ function Cart() {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      onClick={e => {
+        if (e.target === e.currentTarget) {
+          history.push('/products');
+        }
+      }}
+    >
       <div className={innerClasses}>
         <Link to="/products" className={styles.closeBtn}>
           <img src={close} alt="close" />
@@ -103,4 +110,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default withRouter(Cart);
