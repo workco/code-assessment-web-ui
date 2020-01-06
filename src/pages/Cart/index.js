@@ -26,6 +26,12 @@ function Cart({ history }) {
     console.log(cartItems[0].title);
   }
 
+  const subtotal = cartItems.reduce((acc, { price }) => {
+    return acc + price;
+  }, 0);
+  const taxes = subtotal * 0.08;
+  const total = subtotal + taxes;
+
   return (
     <BrowserDetection once={false}>
       {{
@@ -70,7 +76,7 @@ function Cart({ history }) {
                             styles.summaryPrice
                           )}
                         >
-                          $0
+                          ${subtotal.toFixed(2)}
                         </span>
                       </div>
                       <div className={styles.summaryRow}>
@@ -81,7 +87,7 @@ function Cart({ history }) {
                             styles.summaryPrice
                           )}
                         >
-                          $0
+                          ${taxes.toFixed(2)}
                         </span>
                       </div>
                       <div className={styles.summaryRow}>
@@ -104,7 +110,7 @@ function Cart({ history }) {
                             styles.summaryItemBold
                           )}
                         >
-                          $0
+                          ${total.toFixed(2)}
                         </span>
                       </div>
                     </div>
