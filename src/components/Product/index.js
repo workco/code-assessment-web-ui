@@ -22,7 +22,7 @@ const Product = ({
   title
 }) => {
   return (
-    <BrowserDetection>
+    <BrowserDetection once={false}>
       {{
         default: browser => {
           const isInCart = onIncrement && onDecrement;
