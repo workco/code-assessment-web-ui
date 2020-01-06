@@ -86,7 +86,8 @@ export default function useAppContext() {
     addItem: onAddItem,
     checkout: onCheckout,
     incrementItem: item => onUpdateItemQuantity(item, 1),
-    decrementItem: item => onUpdateItemQuantity(item, -1)
+    decrementItem: () => {} // Disable cart decrement
+    // decrementItem: item => onUpdateItemQuantity(item, -1)
   };
 }
 
