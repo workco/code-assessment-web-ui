@@ -40,7 +40,9 @@ const Product = ({
           const imageSrc = isFeatured
             ? getImage(images, 'featured')
             : getImage(images);
-          const finalPrice = (price * count).toFixed(2);
+          // const finalPrice = (price * count).toFixed(2);
+          // Only show price for one quantity, regardless of count
+          const finalPrice = price.toFixed(2);
 
           return (
             <div className={productClasses}>
