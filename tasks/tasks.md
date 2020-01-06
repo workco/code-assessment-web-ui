@@ -1,4 +1,4 @@
-# 1. Implement Product Details Page - Level III
+# 1. Implement Product Details Page
 
 Implement the Product modal as shown in the Figma design file: https://www.figma.com/file/TghrEZgi3nl3t3iZ72Ufmt/Code-Assessment---Final.
 
@@ -11,7 +11,7 @@ Requirements:
 - Our data contains some placeholder.com images for certain image types - this is expected
 - No specific loading/404 behavior is required, as long as these events do not lead to an error
 
-# 2. Implement a State Management Library - Level III
+# 2. Implement a State Management Library
 
 Replace our use of React Context with the state management library of your choice (Apollo, Redux, MobX, urql, etc). While you’re at it, please wire up two API integrations. You may choose between GraphQL or REST.
 
@@ -24,7 +24,7 @@ Requirements:
 
 - Shipping should display "FREE" when the total shipping cost is $0.
 
-# 3. Improve Cart Modal's Accessibility - Level II
+# 3. Improve Cart Modal's Accessibility
 
 Implement a focus trap for the modal to improve accessibility for keyboard users. Please do not use a third-party library for this task.
 
@@ -35,7 +35,7 @@ Requirements:
 - On shift-tab off first item, focus on last focusable item
 - Never lose focus if focused element is removed from modal
 
-# 4. Improve Tests - Level II
+# 4. Improve Tests
 
 Complete the following objectives:
 
@@ -44,7 +44,7 @@ Complete the following objectives:
 3. Make one additional change to improve test coverage in the repo.
 4. In your PR for this task, propose a strategy for improving coverage. Explain your thinking and any potential tradeoffs of this approach.
 
-# 5. Review Pull Request - Level II
+# 5. Review Pull Request
 
 This task requires a little setup on your end. Please create a pull request between the `master` and `task-pr` branches. Don’t worry about the description - just press “Create pull request” from a screen like this.
 
@@ -54,7 +54,7 @@ Now, please review this PR as if you were reviewing a colleague’s code.
 
 For context, imagine the author of this PR is an engineer who is new to React and has one year of development experience. The PR is fulfilling an imaginary JIRA ticket called “Add Cart Animation on Opening/Closing.”
 
-# 6. Disable Add/Increment Based on Inventory - Level I
+# 6. Disable Add/Increment Based on Inventory
 
 Right now, products can be added or incremented regardless of inventory. Please update the codebase so that the product inventories never go below 0.
 
@@ -63,7 +63,7 @@ Requirements:
 - Out of stock product button is disabled on homepage
 - Out of stock increment button is disabled in cart
 
-# 7. Enhance Component Stories - Level I
+# 7. Enhance Component Stories
 
 This repo uses [Storybook](https://storybook.js.org/). Run `yarn storybook` to start a local instance at http://localhost:5000.
 
