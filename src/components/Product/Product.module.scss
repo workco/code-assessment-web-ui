@@ -68,6 +68,14 @@
     margin-bottom: 10px;
   }
 
+  .featured & {
+    @include small-only {
+      // Modern browsers see a more optimal crop on mobile
+      height: getColumns(15 * 445/315, $bp-small);
+      object-fit: cover;
+    }
+  }
+
   .inCart & {
     flex-shrink: 0;
     width: getColumns(6, $bp-small);

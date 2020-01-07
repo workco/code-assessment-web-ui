@@ -1,3 +1,9 @@
+@mixin small-only {
+  @media (max-width: #{$bp-medium - .1}) {
+    @content;
+  }
+}
+
 @mixin medium {
   @media (min-width: #{$bp-medium}) {
     @content;
