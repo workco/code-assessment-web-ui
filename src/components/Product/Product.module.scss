@@ -104,6 +104,8 @@
 }
 
 .text {
+  min-width: 0;
+
   .inCart & {
     margin-bottom: 20px;
 
@@ -115,15 +117,20 @@
 
 .title {
   @include body;
+  padding-right: 20px;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .price {
   @include price;
+  display: block;
+  margin-top: -3px;
 }
 
 .addButton {
   flex-shrink: 0;
   align-self: flex-start;
-  margin-top: 4px;
 }
