@@ -46,7 +46,7 @@ const Product = ({
           />
         ) : (
           <Button className={styles.addButton} onClick={onClick}>
-            Add to bag
+            Add to Bag
           </Button>
         )}
       </div>

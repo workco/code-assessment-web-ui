@@ -17,7 +17,7 @@
   background-color: $color-white;
   width: getColumns(15, $bp-small);
   height: auto;
-  max-height: calc(100vh - 70px);
+  max-height: calc(100vh - 60px);
   display: flex;
   overflow-y: auto;
   flex-direction: column;
