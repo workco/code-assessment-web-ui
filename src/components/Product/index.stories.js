@@ -25,6 +25,6 @@ export const regular = () => (
   <Product
     {...data}
     isFeatured={boolean('Featured', false)}
-    onClick={action('Add to bag')}
+    onClick={action('Add to Bag')}
   />
 );

@@ -24,7 +24,7 @@
 
 .inCart {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   &:last-child {
     margin-bottom: 0;
@@ -33,7 +33,6 @@
   @include medium {
     flex-wrap: wrap;
     width: getColumns(5.5, $bp-medium);
-    align-items: flex-start;
 
     &:last-child {
       margin-left: 0;
@@ -94,6 +93,7 @@
 
   .inCart & {
     width: 50%;
+    margin-top: 4px;
     margin-left: getColumns(1, $bp-small);
     flex-direction: column;
     flex-wrap: wrap;
@@ -102,10 +102,8 @@
       width: 100%;
       flex-direction: row;
       align-items: center;
+      margin-top: 0;
       margin-left: 0;
-    }
-
-    @include large {
       flex-wrap: nowrap;
     }
   }
@@ -115,6 +113,7 @@
   min-width: 0;
 
   .inCart & {
+    width: 100%;
     margin-bottom: 20px;
 
     @include medium {
@@ -125,7 +124,7 @@
 
 .title {
   @include body;
-  padding-right: 20px;
+  margin-right: 20px;
   font-weight: normal;
   white-space: nowrap;
   overflow: hidden;

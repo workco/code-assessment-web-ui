@@ -8,6 +8,6 @@ export default { title: 'Button' };
 
 export const regular = () => (
   <Button disabled={boolean('Disabled', false)} onClick={action('on-click')}>
-    Add to bag
+    Add to Bag
   </Button>
 );
