@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Floral Dress",
+        "title": "Floral Dress with Long Title",
         "price": 219.00,
         "inventory": 2,
         "images": [
@@ -30,7 +30,7 @@
     },
     {
         "id": 2,
-        "title": "Watch",
+        "title": "Girl’s Sneaker Shoes",
         "price": 10.99,
         "inventory": 10,
         "images": [

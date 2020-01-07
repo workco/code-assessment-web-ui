@@ -8,8 +8,14 @@ import bag from '../../assets/bag.svg';
 import styles from './CartButton.module.scss';
 
 const CartButton = ({ className, cartQuantity }) => {
+  const buttonClasses = cx(
+    styles.button,
+    { [styles.empty]: !cartQuantity },
+    className
+  );
+
   return (
-    <Link to="/cart" className={cx(styles.button, className)}>
+    <Link to="/cart" className={buttonClasses}>
       <span className={styles.icon}>
         <img src={bag} alt="shopping bag" />
       </span>

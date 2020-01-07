@@ -4,6 +4,8 @@ import AppContext from '../../contexts/AppContext';
 import Product from '../../components/Product';
 import CartButton from '../../components/CartButton';
 
+import logo from '../../assets/logo.svg';
+
 import styles from './ProductLanding.module.scss';
 
 function ProductLanding() {
@@ -18,7 +20,9 @@ function ProductLanding() {
         className={styles.cartIconWrapper}
       />
 
-      <h1 className={styles.title}>Daily deals</h1>
+      <h1 className={styles.title}>
+        <img src={logo} alt="Daily deals" />
+      </h1>
 
       <div className={styles.products}>
         {products[0] && (

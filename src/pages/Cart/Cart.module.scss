@@ -97,7 +97,7 @@
 }
 
 .heading {
-  @include heading2;
+  @include heading;
   margin-bottom: 25px;
 
   @include medium {
@@ -167,7 +167,7 @@
 }
 
 .emptyTitle {
-  @include heading2;
+  @include heading;
 }
 
 .emptyText {

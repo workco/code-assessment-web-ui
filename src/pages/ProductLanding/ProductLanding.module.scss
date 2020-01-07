@@ -6,11 +6,11 @@
   height: 100%;
 
   @include medium {
-    padding: 40px getColumns(1, $bp-medium);
+    padding: 35px getColumns(1, $bp-medium);
   }
 
   @include large {
-    padding: 40px getColumns(1, $bp-large);
+    padding: 35px getColumns(1, $bp-large);
   }
 }
 
@@ -20,7 +20,6 @@
   right: 30px;
 
   @include medium {
-    top: 40px;
     right: getColumns(1, $bp-medium);
   }
 
@@ -30,7 +29,6 @@
 }
 
 .title {
-  @include heading;
   width: 100%;
   text-align: center;
   margin: 0 0 35px;
