@@ -13,6 +13,16 @@ function ProductLanding() {
 
   const cartQuantity = cartItems.reduce((acc, item) => acc + item.count, 0);
 
+  const renderProduct = (product, isFeatured) => (
+    <Product
+      {...product}
+      isAdded={cartItems.some(({ id }) => id === product.id)}
+      onClick={() => addItem(product)}
+      key={product.id}
+      isFeatured={isFeatured}
+    />
+  );
+
   return (
     <main className={styles.wrapper}>
       <CartButton
@@ -25,22 +35,9 @@ function ProductLanding() {
       </h1>
 
       <div className={styles.products}>
-        {products[0] && (
-          <Product
-            {...products[0]}
-            onClick={() => addItem(products[0])}
-            key={products[0].id}
-            isFeatured
-          />
-        )}
+        {products[0] && renderProduct(products[0], true)}
         <div className={styles.thumbnails}>
-          {[...products].slice(1).map(product => (
-            <Product
-              {...product}
-              onClick={() => addItem(product)}
-              key={product.id}
-            />
-          ))}
+          {[...products].slice(1).map(p => renderProduct(p))}
         </div>
       </div>
     </main>

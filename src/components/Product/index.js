@@ -13,6 +13,7 @@ const Product = ({
   className,
   count = 1,
   images,
+  isAdded,
   isFeatured,
   onClick,
   onDecrement,
@@ -24,7 +25,8 @@ const Product = ({
   const productClasses = cx(className, styles.product, {
     [styles.inProductLanding]: !isInCart,
     [styles.inCart]: isInCart,
-    [styles.featured]: isFeatured
+    [styles.featured]: isFeatured,
+    [styles.isAddable]: !isAdded
   });
 
   const imageSrc = isFeatured ? getImage(images, 'featured') : getImage(images);
@@ -45,8 +47,12 @@ const Product = ({
             count={count}
           />
         ) : (
-          <Button className={styles.addButton} onClick={onClick}>
-            Add to Bag
+          <Button
+            className={styles.addButton}
+            disabled={isAdded}
+            onClick={onClick}
+          >
+            {isAdded ? 'Added' : 'Add to Bag'}
           </Button>
         )}
       </div>
