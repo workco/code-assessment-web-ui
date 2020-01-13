@@ -140,4 +140,13 @@
 .addButton {
   flex-shrink: 0;
   align-self: flex-start;
+  // Keep button width the same when text changes
+  min-width: 114px;
+
+  // On desktop, only disable Add to Bag on hover
+  .isAddable:not(:hover) & {
+    @include large {
+      opacity: 0;
+    }
+  }
 }
