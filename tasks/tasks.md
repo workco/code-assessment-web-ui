@@ -5,6 +5,7 @@ Implement the Product modal as shown in the Figma design file: https://www.figma
 Requirements:
 
 - Users should be able to open the product modal from both the homepage and Cart modal, or navigate to a route in the format `/product/:productId`
+- Clicking on the product name or image should open the product modal
 - Closing the Product modal should take the user to the homepage, no matter where they came from
 - No animation is required when switching between active images in the PDP image picker
 - Don't worry about wiring up quantity/Add to Bag buttons
