@@ -9,7 +9,6 @@ Requirements:
 - Closing the Product modal should take the user to the homepage, no matter where they came from
 - No animation is required when switching between active images in the PDP image picker
 - Don't worry about wiring up quantity/Add to Bag buttons
-- Our data contains some placeholder.com images for certain image types - this is expected
 - No specific loading/404 behavior is required, as long as these events do not lead to an error
 
 # 2. Implement a State Management Library
