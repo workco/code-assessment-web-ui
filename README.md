@@ -135,7 +135,7 @@ For more information, read about ESLint [in the Create React App docs](https://c
 
 ## Design/Browser Info
 
-You can find the Figma file for this project here: https://www.figma.com/file/TghrEZgi3nl3t3iZ72Ufmt/Code-Assessment---Final. The "App" designs are for a mobile assessment - please disregard.
+You can find the Figma file for this project here: https://www.figma.com/file/ddnRArsK0ZT4CmmQvLvJTh/Code-Assessment. The "App" designs are for a mobile assessment - please disregard.
 
 Please see package.json for a list of supported browsers.
 
