@@ -29,7 +29,9 @@ const Product = ({
     [styles.isAddable]: !isAdded
   });
 
-  const imageSrc = isFeatured ? getImage(images, 'featured') : getImage(images);
+  const imageSrc = isFeatured
+    ? getImage(images, 'default-rt')
+    : getImage(images);
   const finalPrice = (price * count).toFixed(2);
 
   return (
