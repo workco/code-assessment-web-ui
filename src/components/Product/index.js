@@ -6,6 +6,7 @@ import Button from '../Button';
 import Quantity from '../Quantity';
 
 import { getImage } from '../../utils/images';
+import imageTypes from '../../constants/imageTypes';
 
 import styles from './Product.module.scss';
 
@@ -30,7 +31,7 @@ const Product = ({
   });
 
   const imageSrc = isFeatured
-    ? getImage(images, 'default-rt')
+    ? getImage(images, imageTypes.DEFAULT_RT)
     : getImage(images);
   const finalPrice = (price * count).toFixed(2);
 
