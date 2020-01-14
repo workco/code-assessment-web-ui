@@ -1,6 +1,6 @@
 # 1. Implement Product Details Page
 
-Implement the Product modal as shown in the Figma design file: https://www.figma.com/file/TghrEZgi3nl3t3iZ72Ufmt/Code-Assessment---Final.
+Implement the Product modal as shown in the Figma design file: https://www.figma.com/file/ddnRArsK0ZT4CmmQvLvJTh/Code-Assessment.
 
 Requirements:
 
