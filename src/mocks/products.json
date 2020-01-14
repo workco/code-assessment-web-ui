@@ -6,35 +6,35 @@
         "inventory": 2,
         "images": [
             {
-                "type": "default-rt",
+                "type": "defaultRect",
                 "src": "/assets/orange-rancher-hat/default-rt.jpg"
             },
             {
-                "type": "default-sq",
+                "type": "defaultSquare",
                 "src": "/assets/orange-rancher-hat/default-sq.jpg"
             },
             {
-                "type": "alt-1-rt",
+                "type": "alt1Rect",
                 "src": "/assets/orange-rancher-hat/alt-1-rt.jpg"
             },
             {
-                "type": "alt-1-sq",
+                "type": "alt1Square",
                 "src": "/assets/orange-rancher-hat/alt-1-sq.jpg"
             },
             {
-                "type": "alt-2-rt",
+                "type": "alt2Rect",
                 "src": "/assets/orange-rancher-hat/alt-2-rt.jpg"
             },
             {
-                "type": "alt-2-sq",
+                "type": "alt2Square",
                 "src": "/assets/orange-rancher-hat/alt-2-sq.jpg"
             },
             {
-                "type": "alt-3-rt",
+                "type": "alt3Rect",
                 "src": "/assets/orange-rancher-hat/alt-3-rt.jpg"
             },
             {
-                "type": "alt-3-sq",
+                "type": "alt3Square",
                 "src": "/assets/orange-rancher-hat/alt-3-sq.jpg"
             }
         ],
@@ -47,35 +47,35 @@
         "inventory": 20,
         "images": [
             {
-                "type": "default-rt",
+                "type": "defaultRect",
                 "src": "/assets/flashy-heels/default-rt.jpg"
             },
             {
-                "type": "default-sq",
+                "type": "defaultSquare",
                 "src": "/assets/flashy-heels/default-sq.jpg"
             },
             {
-                "type": "alt-1-rt",
+                "type": "alt1Rect",
                 "src": "/assets/flashy-heels/alt-1-rt.jpg"
             },
             {
-                "type": "alt-1-sq",
+                "type": "alt1Square",
                 "src": "/assets/flashy-heels/alt-1-sq.jpg"
             },
             {
-                "type": "alt-2-rt",
+                "type": "alt2Rect",
                 "src": "/assets/flashy-heels/alt-2-rt.jpg"
             },
             {
-                "type": "alt-2-sq",
+                "type": "alt2Square",
                 "src": "/assets/flashy-heels/alt-2-sq.jpg"
             },
             {
-                "type": "alt-3-rt",
+                "type": "alt3Rect",
                 "src": "/assets/flashy-heels/alt-3-rt.jpg"
             },
             {
-                "type": "alt-3-sq",
+                "type": "alt3Square",
                 "src": "/assets/flashy-heels/alt-3-sq.jpg"
             }
         ],
@@ -88,35 +88,35 @@
         "inventory": 0,
         "images": [
             {
-                "type": "default-rt",
+                "type": "defaultRect",
                 "src": "/assets/black-shades/default-rt.jpg"
             },
             {
-                "type": "default-sq",
+                "type": "defaultSquare",
                 "src": "/assets/black-shades/default-sq.jpg"
             },
             {
-                "type": "alt-1-rt",
+                "type": "alt1Rect",
                 "src": "/assets/black-shades/alt-1-rt.jpg"
             },
             {
-                "type": "alt-1-sq",
+                "type": "alt1Square",
                 "src": "/assets/black-shades/alt-1-sq.jpg"
             },
             {
-                "type": "alt-2-rt",
+                "type": "alt2Rect",
                 "src": "/assets/black-shades/alt-2-rt.jpg"
             },
             {
-                "type": "alt-2-sq",
+                "type": "alt2Square",
                 "src": "/assets/black-shades/alt-2-sq.jpg"
             },
             {
-                "type": "alt-3-rt",
+                "type": "alt3Rect",
                 "src": "/assets/black-shades/alt-3-rt.jpg"
             },
             {
-                "type": "alt-3-sq",
+                "type": "alt3Square",
                 "src": "/assets/black-shades/alt-3-sq.jpg"
             }
         ],
@@ -129,35 +129,35 @@
         "inventory": 99,
         "images": [
             {
-                "type": "default-rt",
+                "type": "defaultRect",
                 "src": "/assets/gold-and-leather-watch/default-rt.jpg"
             },
             {
-                "type": "default-sq",
+                "type": "defaultSquare",
                 "src": "/assets/gold-and-leather-watch/default-sq.jpg"
             },
             {
-                "type": "alt-1-rt",
+                "type": "alt1Rect",
                 "src": "/assets/gold-and-leather-watch/alt-1-rt.jpg"
             },
             {
-                "type": "alt-1-sq",
+                "type": "alt1Square",
                 "src": "/assets/gold-and-leather-watch/alt-1-sq.jpg"
             },
             {
-                "type": "alt-2-rt",
+                "type": "alt2Rect",
                 "src": "/assets/gold-and-leather-watch/alt-2-rt.jpg"
             },
             {
-                "type": "alt-2-sq",
+                "type": "alt2Square",
                 "src": "/assets/gold-and-leather-watch/alt-2-sq.jpg"
             },
             {
-                "type": "alt-3-rt",
+                "type": "alt3Rect",
                 "src": "/assets/gold-and-leather-watch/alt-3-rt.jpg"
             },
             {
-                "type": "alt-3-sq",
+                "type": "alt3Square",
                 "src": "/assets/gold-and-leather-watch/alt-3-sq.jpg"
             }
         ],
@@ -170,35 +170,35 @@
         "inventory": 30,
         "images": [
             {
-                "type": "default-rt",
+                "type": "defaultRect",
                 "src": "/assets/gray-canvas-backpack/default-rt.jpg"
             },
             {
-                "type": "default-sq",
+                "type": "defaultSquare",
                 "src": "/assets/gray-canvas-backpack/default-sq.jpg"
             },
             {
-                "type": "alt-1-rt",
+                "type": "alt1Rect",
                 "src": "/assets/gray-canvas-backpack/alt-1-rt.jpg"
             },
             {
-                "type": "alt-1-sq",
+                "type": "alt1Square",
                 "src": "/assets/gray-canvas-backpack/alt-1-sq.jpg"
             },
             {
-                "type": "alt-2-rt",
+                "type": "alt2Rect",
                 "src": "/assets/gray-canvas-backpack/alt-2-rt.jpg"
             },
             {
-                "type": "alt-2-sq",
+                "type": "alt2Square",
                 "src": "/assets/gray-canvas-backpack/alt-2-sq.jpg"
             },
             {
-                "type": "alt-3-rt",
+                "type": "alt3Rect",
                 "src": "/assets/gray-canvas-backpack/alt-3-rt.jpg"
             },
             {
-                "type": "alt-3-sq",
+                "type": "alt3Square",
                 "src": "/assets/gray-canvas-backpack/alt-3-sq.jpg"
             }
         ],
