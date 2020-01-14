@@ -1,113 +1,205 @@
 [
     {
         "id": 1,
-        "title": "Floral Dress with Long Title",
-        "price": 219.00,
+        "title": "Orange Rancher Hat",
+        "price": 45,
         "inventory": 2,
         "images": [
             {
-                "type": "featured",
-                "src": "/assets/prod-1-featured.jpg"
+                "type": "default-rt",
+                "src": "/assets/orange-rancher-hat/default-rt.jpg"
             },
             {
-                "type": "default",
-                "src": "/assets/prod-1-default.jpg"
+                "type": "default-sq",
+                "src": "/assets/orange-rancher-hat/default-sq.jpg"
             },
             {
-                "type": "alt1",
-                "src": "/assets/prod-1-alt-1.jpg"
+                "type": "alt-1-rt",
+                "src": "/assets/orange-rancher-hat/alt-1-rt.jpg"
             },
             {
-                "type": "alt2",
-                "src": "/assets/prod-1-alt-2.jpg"
+                "type": "alt-1-sq",
+                "src": "/assets/orange-rancher-hat/alt-1-sq.jpg"
             },
             {
-                "type": "alt3",
-                "src": "/assets/prod-1-alt-3.jpg"
+                "type": "alt-2-rt",
+                "src": "/assets/orange-rancher-hat/alt-2-rt.jpg"
+            },
+            {
+                "type": "alt-2-sq",
+                "src": "/assets/orange-rancher-hat/alt-2-sq.jpg"
+            },
+            {
+                "type": "alt-3-rt",
+                "src": "/assets/orange-rancher-hat/alt-3-rt.jpg"
+            },
+            {
+                "type": "alt-3-sq",
+                "src": "/assets/orange-rancher-hat/alt-3-sq.jpg"
             }
         ],
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
         "id": 2,
-        "title": "Girl’s Sneaker Shoes with Extra Long Cool Title That Would Wrap",
-        "price": 10.99,
-        "inventory": 10,
+        "title": "Flashy Heels",
+        "price": 60,
+        "inventory": 20,
         "images": [
             {
-                "type": "featured",
-                "src": "https://via.placeholder.com/630x725?text=Prod-2-Featured"
+                "type": "default-rt",
+                "src": "/assets/flashy-heels/default-rt.jpg"
             },
             {
-                "type": "default",
-                "src": "/assets/prod-2-default.jpg"
+                "type": "default-sq",
+                "src": "/assets/flashy-heels/default-sq.jpg"
             },
             {
-                "type": "alt1",
-                "src": "https://via.placeholder.com/630x725?text=Prod-2-Alt-1"
+                "type": "alt-1-rt",
+                "src": "/assets/flashy-heels/alt-1-rt.jpg"
+            },
+            {
+                "type": "alt-1-sq",
+                "src": "/assets/flashy-heels/alt-1-sq.jpg"
+            },
+            {
+                "type": "alt-2-rt",
+                "src": "/assets/flashy-heels/alt-2-rt.jpg"
+            },
+            {
+                "type": "alt-2-sq",
+                "src": "/assets/flashy-heels/alt-2-sq.jpg"
+            },
+            {
+                "type": "alt-3-rt",
+                "src": "/assets/flashy-heels/alt-3-rt.jpg"
+            },
+            {
+                "type": "alt-3-sq",
+                "src": "/assets/flashy-heels/alt-3-sq.jpg"
             }
         ],
         "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     },
-    {
+     {
         "id": 3,
-        "title": "Purse",
-        "price": 19.99,
-        "inventory": 5,
+        "title": "Black Shades",
+        "price": 54.99,
+        "inventory": 0,
         "images": [
             {
-                "type": "featured",
-                "src": "https://via.placeholder.com/630x725?text=Prod-3-Featured"
+                "type": "default-rt",
+                "src": "/assets/black-shades/default-rt.jpg"
             },
             {
-                "type": "default",
-                "src": "/assets/prod-3-default.jpg"
+                "type": "default-sq",
+                "src": "/assets/black-shades/default-sq.jpg"
             },
             {
-                "type": "alt1",
-                "src": "https://via.placeholder.com/630x725?text=Prod-3-Alt-1"
+                "type": "alt-1-rt",
+                "src": "/assets/black-shades/alt-1-rt.jpg"
+            },
+            {
+                "type": "alt-1-sq",
+                "src": "/assets/black-shades/alt-1-sq.jpg"
+            },
+            {
+                "type": "alt-2-rt",
+                "src": "/assets/black-shades/alt-2-rt.jpg"
+            },
+            {
+                "type": "alt-2-sq",
+                "src": "/assets/black-shades/alt-2-sq.jpg"
+            },
+            {
+                "type": "alt-3-rt",
+                "src": "/assets/black-shades/alt-3-rt.jpg"
+            },
+            {
+                "type": "alt-3-sq",
+                "src": "/assets/black-shades/alt-3-sq.jpg"
             }
         ],
         "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
     },
     {
         "id": 4,
-        "title": "Shades",
-        "price": 500.01,
-        "inventory": 2,
+        "title": "Gold and Leather Watch",
+        "price": 250,
+        "inventory": 99,
         "images": [
             {
-                "type": "featured",
-                "src": "https://via.placeholder.com/630x725?text=Prod-4-Featured"
+                "type": "default-rt",
+                "src": "/assets/gold-and-leather-watch/default-rt.jpg"
             },
             {
-                "type": "default",
-                "src": "/assets/prod-4-default.jpg"
+                "type": "default-sq",
+                "src": "/assets/gold-and-leather-watch/default-sq.jpg"
             },
             {
-                "type": "alt1",
-                "src": "https://via.placeholder.com/630x725?text=Prod-4-Alt-1"
+                "type": "alt-1-rt",
+                "src": "/assets/gold-and-leather-watch/alt-1-rt.jpg"
+            },
+            {
+                "type": "alt-1-sq",
+                "src": "/assets/gold-and-leather-watch/alt-1-sq.jpg"
+            },
+            {
+                "type": "alt-2-rt",
+                "src": "/assets/gold-and-leather-watch/alt-2-rt.jpg"
+            },
+            {
+                "type": "alt-2-sq",
+                "src": "/assets/gold-and-leather-watch/alt-2-sq.jpg"
+            },
+            {
+                "type": "alt-3-rt",
+                "src": "/assets/gold-and-leather-watch/alt-3-rt.jpg"
+            },
+            {
+                "type": "alt-3-sq",
+                "src": "/assets/gold-and-leather-watch/alt-3-sq.jpg"
             }
         ],
         "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
     },
     {
         "id": 5,
-        "title": "Sneaker",
-        "price": 10.99,
-        "inventory": 10,
+        "title": "Gray Canvas Backpack",
+        "price": 88.75,
+        "inventory": 30,
         "images": [
             {
-                "type": "featured",
-                "src": "https://via.placeholder.com/630x725?text=Prod-5-Featured"
+                "type": "default-rt",
+                "src": "/assets/gray-canvas-backpack/default-rt.jpg"
             },
             {
-                "type": "default",
-                "src": "/assets/prod-5-default.jpg"
+                "type": "default-sq",
+                "src": "/assets/gray-canvas-backpack/default-sq.jpg"
             },
             {
-                "type": "alt1",
-                "src": "https://via.placeholder.com/630x725?text=Prod-5-Alt-1"
+                "type": "alt-1-rt",
+                "src": "/assets/gray-canvas-backpack/alt-1-rt.jpg"
+            },
+            {
+                "type": "alt-1-sq",
+                "src": "/assets/gray-canvas-backpack/alt-1-sq.jpg"
+            },
+            {
+                "type": "alt-2-rt",
+                "src": "/assets/gray-canvas-backpack/alt-2-rt.jpg"
+            },
+            {
+                "type": "alt-2-sq",
+                "src": "/assets/gray-canvas-backpack/alt-2-sq.jpg"
+            },
+            {
+                "type": "alt-3-rt",
+                "src": "/assets/gray-canvas-backpack/alt-3-rt.jpg"
+            },
+            {
+                "type": "alt-3-sq",
+                "src": "/assets/gray-canvas-backpack/alt-3-sq.jpg"
             }
         ],
         "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
