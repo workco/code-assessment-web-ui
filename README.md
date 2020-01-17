@@ -11,13 +11,13 @@ For your own privacy, please do not fork this repo! Instead, follow these instru
 2. On the command line, create a bare clone of our repo:
 
 ```
-git clone --bare git@github.com:workco/code-assessment-web-v2.git
+git clone --bare git@github.com:workco/code-assessment-web-ui.git
 ```
 
 3. Enter the temporary directory created by that command and push to your repo
 
 ```
-cd code-assessment-web-v2.git
+cd code-assessment-web-ui.git
 git push --mirror git@github.com:my-github-account/my-assessment.git
 ```
 
