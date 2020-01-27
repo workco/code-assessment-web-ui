@@ -21,7 +21,7 @@ cd code-assessment-web-ui.git
 git push --mirror git@github.com:my-github-account/my-assessment.git
 ```
 
-4. Clone the repo to start local development
+4. In the working directory of your choice, clone the repo to start local development
 
 ```
 git clone git@github.com:my-github-account/my-assessment
