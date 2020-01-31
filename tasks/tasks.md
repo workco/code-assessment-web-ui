@@ -7,7 +7,7 @@ Requirements:
 - Users should be able to open the product modal from both the homepage and Cart modal, or navigate to a route in the format `/product/:productId`
 - Clicking on the product name or image should open the product modal
 - Closing the Product modal should take the user to the homepage, no matter where they came from
-- No animation is required when switching between active images in the PDP image picker
+- Implement the PDP image picker, so clicking on a thumbnail changes the featued image (no animation/transition between images is required)
 - Don't worry about wiring up quantity/Add to Bag buttons
 - No specific loading/404 behavior is required, as long as these events do not lead to an error
 
