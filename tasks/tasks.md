@@ -46,7 +46,7 @@ Complete the following objectives:
 
 # 5. Review Pull Request
 
-This task requires a little setup on your end. Please create a pull request between the `master` and `task-pr` branches. Don’t worry about the description - just press “Create pull request” from a screen like this.
+This task requires a little setup on your end. Please create a pull request between the `master` and `branch-for-task-5` branches. Don’t worry about the description - just press “Create pull request” from a screen like this.
 
 ![Open PR](./pr-task.png)
 
