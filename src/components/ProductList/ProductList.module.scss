@@ -1,0 +1,23 @@
+@import 'base.scss';
+
+.products {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include large {
+    flex-wrap: nowrap;
+  }
+}
+
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+
+  @include large {
+    width: getColumns(15, $bp-large);
+  }
+}
