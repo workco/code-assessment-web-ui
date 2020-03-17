@@ -70,7 +70,7 @@ This repo uses [Storybook](https://storybook.js.org/). Run `yarn storybook` to s
 Complete the following objectives:
 
 1. Each component has a stories file, but only one configuration is covered. (Knobs are fun, but they don't count as separate configurations.) Please update stories as needed to reflect all significant configurations of each component.
-2. Create `Cart` and `ProductLanding` components and add stories for these as well.
+2. Find a way to create stories for the `Cart` screen.
 
 # 8. Create Your Own!
 
