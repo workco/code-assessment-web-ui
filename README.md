@@ -33,7 +33,9 @@ PS: Having trouble with these instructions? Reply to the talent team with your q
 
 Please refer to emailed instructions from the talent team as to which/how many tasks to work on. See the master task list [here](/tasks/tasks.md).
 
-Create a new branch off of a `master` for each task you work on (except #5). [Make one pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for each task. Set this up like you would a real PR. Some features we’ll look for:
+Create a new branch off of `main` for each task you work on (except #5).
+
+[Make one pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for each task. Set this up like you would a real PR. Some features we’ll look for:
 
 - Informative, consistent commit message(s)
 - A detailed PR description. Explain the fixes or functionalities accomplished, any decisions you made along the way, or alternative implementations you may have considered or attempted. Feel free to add images and videos.
