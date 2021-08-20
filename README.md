@@ -133,6 +133,16 @@ To catch errors and enforce consistency, we're using [ESLint](https://eslint.org
 
 For more information, read about ESLint [in the Create React App docs](https://create-react-app.dev/docs/setting-up-your-editor#displaying-lint-output-in-the-editor).
 
+### NVM
+
+Use [nvm](https://github.com/nvm-sh/nvm) to ensure the correct Node.js version (specified in .nvmrc)
+
+```bash
+nvm use
+```
+
+Additionally, you may need to run `nvm install` if the specified version is not yet installed.
+
 ## Design/Browser Info
 
 You can find the Figma file for this project here: https://www.figma.com/file/ddnRArsK0ZT4CmmQvLvJTh/Code-Assessment. The "App" designs are for a mobile assessment - please disregard.
