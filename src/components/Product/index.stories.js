@@ -12,13 +12,13 @@ const data = {
   images: [
     {
       type: imageTypes.DEFAULT_RT,
-      src: '/assets/orange-rancher-hat/default-rt.jpg'
+      src: '/assets/orange-rancher-hat/default-rt.jpg',
     },
     {
       type: imageTypes.DEFAULT_SQ,
-      src: '/assets/orange-rancher-hat/default-sq.jpg'
-    }
-  ]
+      src: '/assets/orange-rancher-hat/default-sq.jpg',
+    },
+  ],
 };
 
 export default { title: 'Product' };

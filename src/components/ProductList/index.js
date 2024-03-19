@@ -20,7 +20,7 @@ function ProductList({ addItem, products, cartItems }) {
     <div className={styles.products}>
       {products[0] && renderProduct(products[0], true)}
       <div className={styles.thumbnails}>
-        {[...products].slice(1).map(p => renderProduct(p))}
+        {[...products].slice(1).map((p) => renderProduct(p))}
       </div>
     </div>
   );
@@ -29,7 +29,7 @@ function ProductList({ addItem, products, cartItems }) {
 ProductList.propTypes = {
   addItem: PropTypes.func,
   cartItems: PropTypes.object,
-  products: PropTypes.object
+  products: PropTypes.object,
 };
 
 export default ProductList;

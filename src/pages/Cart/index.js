@@ -13,12 +13,11 @@ import close from '../../assets/close.svg';
 import styles from './Cart.module.scss';
 
 function Cart() {
-  const { cartItems, checkout, incrementItem, decrementItem } = useContext(
-    AppContext
-  );
+  const { cartItems, checkout, incrementItem, decrementItem } =
+    useContext(AppContext);
 
   const innerClasses = cx(styles.inner, {
-    [styles.empty]: !cartItems.length
+    [styles.empty]: !cartItems.length,
   });
 
   return (
@@ -33,7 +32,7 @@ function Cart() {
             <div className={cx(styles.products, styles.section)}>
               <h2 className={styles.heading}>Shopping Bag</h2>
               <ul className={styles.productList}>
-                {cartItems.map(cartItem => (
+                {cartItems.map((cartItem) => (
                   <Product
                     {...cartItem}
                     className={styles.product}
@@ -71,7 +70,7 @@ function Cart() {
                     className={cx(
                       styles.summaryItem,
                       styles.summaryPrice,
-                      styles.summaryItemBold
+                      styles.summaryItemBold,
                     )}
                   >
                     $0

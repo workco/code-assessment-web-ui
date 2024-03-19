@@ -20,14 +20,14 @@ const Product = ({
   onDecrement,
   onIncrement,
   price,
-  title
+  title,
 }) => {
   const isInCart = onIncrement && onDecrement;
   const productClasses = cx(className, styles.product, {
     [styles.inProductLanding]: !isInCart,
     [styles.inCart]: isInCart,
     [styles.featured]: isFeatured,
-    [styles.isAddable]: !isAdded
+    [styles.isAddable]: !isAdded,
   });
 
   const imageSrc = isFeatured
@@ -69,15 +69,15 @@ Product.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    })
+      src: PropTypes.string.isRequired,
+    }),
   ).isRequired,
   isFeatured: PropTypes.bool,
   onClick: PropTypes.func,
   onDecrement: PropTypes.func,
   onIncrement: PropTypes.func,
   price: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default Product;
