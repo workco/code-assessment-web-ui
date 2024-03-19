@@ -11,3 +11,13 @@ const preview = {
 };
 
 export default preview;
+
+import { BrowserRouter } from 'react-router-dom';
+
+export const decorators = [
+  (Story) => (
+    <BrowserRouter>
+      <Story />
+    </BrowserRouter>
+  ),
+];
