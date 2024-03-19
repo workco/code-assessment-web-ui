@@ -9,7 +9,7 @@ const products = mockProducts.slice(0, 5);
 
 export default { title: 'ProductList' };
 
-export const regular = () => (
+export const Regular = () => (
   <ProductList
     addItem={action('Add to Bag')}
     cartItems={[]}

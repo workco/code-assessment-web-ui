@@ -28,8 +28,8 @@ function ProductList({ addItem, products, cartItems }) {
 
 ProductList.propTypes = {
   addItem: PropTypes.func,
-  cartItems: PropTypes.object,
-  products: PropTypes.object,
+  cartItems: PropTypes.array,
+  products: PropTypes.array,
 };
 
 export default ProductList;

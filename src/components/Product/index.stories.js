@@ -1,5 +1,5 @@
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs';
+// import { boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import imageTypes from '../../constants/imageTypes';
@@ -23,10 +23,10 @@ const data = {
 
 export default { title: 'Product' };
 
-export const regular = () => (
+export const Regular = () => (
   <Product
     {...data}
-    isFeatured={boolean('Featured', false)}
+    // isFeatured={boolean('Featured', false)}
     onClick={action('Add to Bag')}
   />
 );
