@@ -1,16 +1,18 @@
-@import '../../styles/base.scss';
+@use '/src/styles/breakpoints.scss';
+@use '/src/styles/variables.scss';
+@use '/src/styles/functions.scss';
 
 .wrapper {
   padding: 35px 30px;
   width: 100%;
   height: 100%;
 
-  @include medium {
-    padding: 35px getColumns(1, $bp-medium);
+  @include breakpoints.medium {
+    padding: 35px functions.getColumns(1, variables.$bp-medium);
   }
 
-  @include large {
-    padding: 35px getColumns(1, $bp-large);
+  @include breakpoints.large {
+    padding: 35px functions.getColumns(1, variables.$bp-large);
   }
 }
 
@@ -19,12 +21,12 @@
   top: 35px;
   right: 30px;
 
-  @include medium {
-    right: getColumns(1, $bp-medium);
+  @include breakpoints.medium {
+    right: functions.getColumns(1, variables.$bp-medium);
   }
 
-  @include large {
-    right: getColumns(1, $bp-large);
+  @include breakpoints.large {
+    right: functions.getColumns(1, variables.$bp-large);
   }
 }
 
@@ -33,7 +35,7 @@
   text-align: center;
   margin: 0 0 35px;
 
-  @include medium {
+  @include breakpoints.medium {
     margin: 0 0 45px;
   }
 }

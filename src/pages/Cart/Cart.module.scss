@@ -1,4 +1,8 @@
-@import '../../styles/base.scss';
+@use '/src/styles/colors.scss';
+@use '/src/styles/typography.scss';
+@use '/src/styles/breakpoints.scss';
+@use '/src/styles/variables.scss';
+@use '/src/styles/functions.scss';
 
 .wrapper {
   position: fixed;
@@ -6,7 +10,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: $color-black-35;
+  background-color: colors.$color-black-35;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,21 +18,21 @@
 
 .inner {
   position: relative;
-  background-color: $color-white;
-  width: getColumns(15, $bp-small);
+  background-color: colors.$color-white;
+  width: functions.getColumns(15, variables.$bp-small);
   height: auto;
   max-height: calc(100vh - 60px);
   display: flex;
   overflow-y: auto;
   flex-direction: column;
 
-  @include medium {
-    width: getColumns(14, $bp-medium);
+  @include breakpoints.medium {
+    width: functions.getColumns(14, variables.$bp-medium);
     max-height: calc(100vh - 80px);
   }
 
-  @include large {
-    width: getColumns(26, $bp-large);
+  @include breakpoints.large {
+    width: functions.getColumns(26, variables.$bp-large);
     flex-direction: row;
     max-height: calc(100vh - 140px);
   }
@@ -37,39 +41,39 @@
 .closeBtn {
   position: absolute;
   top: 20px;
-  right: getColumns(1, $bp-small);
+  right: functions.getColumns(1, variables.$bp-small);
   width: 13px;
   height: 13px;
 
-  @include medium {
+  @include breakpoints.medium {
     top: 45px;
-    right: getColumns(1, $bp-medium);
+    right: functions.getColumns(1, variables.$bp-medium);
     width: 20px;
     height: 20px;
   }
 
-  @include large {
-    right: getColumns(1, $bp-large);
+  @include breakpoints.large {
+    right: functions.getColumns(1, variables.$bp-large);
   }
 }
 
 .section {
   width: 100%;
-  padding: 30px getColumns(1, $bp-small);
+  padding: 30px functions.getColumns(1, variables.$bp-small);
 
-  @include medium {
-    padding: 45px getColumns(1, $bp-medium);
+  @include breakpoints.medium {
+    padding: 45px functions.getColumns(1, variables.$bp-medium);
   }
 
-  @include large {
-    padding: 45px getColumns(1, $bp-large);
+  @include breakpoints.large {
+    padding: 45px functions.getColumns(1, variables.$bp-large);
   }
 }
 
 .products {
-  @include large {
+  @include breakpoints.large {
     overflow-y: auto;
-    width: getColumns(17, $bp-large);
+    width: functions.getColumns(17, variables.$bp-large);
   }
 }
 
@@ -77,30 +81,30 @@
   display: flex;
   flex-direction: column;
 
-  @include medium {
+  @include breakpoints.medium {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  @include large {
-    width: getColumns(15, $bp-large);
+  @include breakpoints.large {
+    width: functions.getColumns(15,variables.$bp-large);
   }
 }
 
 .summary {
-  background-color: $color-gray;
+  background-color: colors.$color-gray;
 
-  @include large {
-    width: getColumns(9, $bp-large);
+  @include breakpoints.large {
+    width: functions.getColumns(9, variables.$bp-large);
   }
 }
 
 .heading {
-  @include heading;
+  @include typography.heading;
   margin-bottom: 25px;
 
-  @include medium {
+  @include breakpoints.medium {
     margin-bottom: 35px;
   }
 
@@ -114,13 +118,13 @@
   margin-bottom: 20px;
 
   &:last-child {
-    border-top: 1px solid #d5d5d5;
+    border-top: 1px solid #d5d5d5; // add color
     padding-top: 20px;
   }
 }
 
 .summaryItem {
-  @include body;
+  @include typography.body;
   display: inline-block;
   width: 50%;
 
@@ -130,7 +134,7 @@
 }
 
 .summaryPrice {
-  @include price;
+  @include typography.price;
   text-transform: uppercase;
 }
 
@@ -155,7 +159,7 @@
   align-items: center;
   justify-content: center;
 
-  @include large {
+  @include breakpoints.large {
     padding: 0;
     flex-direction: column;
   }
@@ -167,9 +171,9 @@
 }
 
 .emptyTitle {
-  @include heading;
+  @include typography.heading;
 }
 
 .emptyText {
-  @include body;
+  @include typography.body;
 }

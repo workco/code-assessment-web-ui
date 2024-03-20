@@ -12,7 +12,7 @@ export const Primary = {
   name: 'Quantity',
   render: (args) => (
     <Quantity
-      count={args.count || '1'}
+      count={args.count || 1}
       onIncrement={action('on increment')}
       onDecrement={action('on decrement')}
     />

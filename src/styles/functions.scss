@@ -1,12 +1,14 @@
+@use 'variables';
+
 @function getColumns($count, $breakpoint) {
   $colTotal: 15;
-  @if $breakpoint == $bp-medium {
+  @if $breakpoint == variables.$bp-medium {
     $colTotal: 16;
-  } @else if $breakpoint == $bp-large {
+  } @else if $breakpoint == variables.$bp-large {
     $colTotal: 32;
   }
 
-  @if $breakpoint == $bp-small {
+  @if $breakpoint == variables.$bp-small {
     // 60px = small breakpoint side margins
     @return calc(((100vw - 60px) / #{$colTotal}) * #{$count});
   } @else {

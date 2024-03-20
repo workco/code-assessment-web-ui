@@ -1,4 +1,6 @@
-@import '../../styles/base.scss';
+@use '/src/styles/breakpoints.scss';
+@use '/src/styles/variables.scss';
+@use '/src/styles/functions.scss';
 
 .products {
   display: flex;
@@ -6,7 +8,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @include large {
+  @include breakpoints.large {
     flex-wrap: nowrap;
   }
 }
@@ -17,7 +19,7 @@
   justify-content: space-between;
   width: 100%;
 
-  @include large {
-    width: getColumns(15, $bp-large);
+  @include breakpoints.large {
+    width: functions.getColumns(15, variables.$bp-large);
   }
 }

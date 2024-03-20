@@ -1,4 +1,4 @@
-export default {
+const imageTypes = {
   DEFAULT_RT: 'defaultRect',
   DEFAULT_SQ: 'defaultSquare',
   ALT_1_RT: 'alt1Rect',
@@ -8,3 +8,5 @@ export default {
   ALT_3_RT: 'alt3Rect',
   ALT_3_SQ: 'alt3Square',
 };
+
+export default imageTypes;
