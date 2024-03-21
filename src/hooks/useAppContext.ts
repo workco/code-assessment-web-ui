@@ -1,12 +1,39 @@
-import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useContext, useEffect, useState } from 'react';
 
-import mockProducts from '../mocks/products';
+import AppContext from '../contexts/AppContext';
+import { mockProducts } from '../mocks/dataMapper';
+import imageTypes from '@/constants/imageTypes';
 
-// Only for use in App.js (to avoid duplicate state instances)
-export default function useAppContext() {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+export interface IImage {
+  type: imageTypes;
+  src: string;
+}
+
+export interface IProduct {
+  id: number;
+  title: string;
+  price: number;
+  inventory: number;
+  images: IImage[];
+  description?: string;
+}
+export interface ICart extends IProduct {
+  count: number;
+}
+
+export interface IAppContext {
+  cartItems: ICart[];
+  products: IProduct[];
+  addItem: (product: IProduct) => void;
+  checkout: () => void;
+  decrementItem: (item: ICart) => void;
+  incrementItem: (item: ICart) => void;
+}
+
+// Only for use in App.ts (to avoid duplicate state instances)
+export default function useAppContextValue(): IAppContext {
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [cart, setCart] = useState<ICart[]>([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -14,7 +41,7 @@ export default function useAppContext() {
     }, 300); // simulate API load time
   }, []);
 
-  const updateProductQuantity = (productId, quantityChange) => {
+  const updateProductQuantity = (productId: number, quantityChange: number) => {
     const newProducts = [...products];
     const productIndex = products.findIndex((p) => p.id === productId);
     if (newProducts[productIndex]) {
@@ -27,7 +54,7 @@ export default function useAppContext() {
     }
   };
 
-  const onAddItem = (product) => {
+  const onAddItem = (product: IProduct) => {
     const newCart = [...cart];
     const cartIndex = cart.findIndex((i) => i.id === product.id);
 
@@ -43,6 +70,7 @@ export default function useAppContext() {
         title: product.title,
         price: product.price,
         images: product.images,
+        inventory: product.inventory,
       });
     }
 
@@ -50,7 +78,7 @@ export default function useAppContext() {
     updateProductQuantity(product.id, 1);
   };
 
-  const onUpdateItemQuantity = (cartItem, quantityChange) => {
+  const onUpdateItemQuantity = (cartItem: ICart, quantityChange: number) => {
     const newCart = [...cart];
     const cartIndex = cart.findIndex((i) => i.id === cartItem.id);
     const shouldRemoveFromCart = quantityChange === -1 && cartItem.count === 1;
@@ -90,31 +118,10 @@ export default function useAppContext() {
   };
 }
 
-const productPropTypes = {
-  id: PropTypes.number.isRequired,
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  inventory: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-export const providerPropTypes = {
-  value: PropTypes.shape({
-    cart: PropTypes.arrayOf(
-      PropTypes.shape({
-        ...productPropTypes,
-        count: PropTypes.number.isRequired,
-      }),
-    ),
-    products: PropTypes.arrayOf(PropTypes.shape(productPropTypes)).isRequired,
-    addItem: PropTypes.func.isRequired,
-    checkout: PropTypes.func.isRequired,
-    decrementItem: PropTypes.func.isRequired,
-    incrementItem: PropTypes.func.isRequired,
-  }),
+export const useAppContext = (): IAppContext => {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error('useAppContext must be used within an AppProvider');
+  }
+  return context;
 };

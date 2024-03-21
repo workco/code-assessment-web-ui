@@ -1,16 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import Button from '../Button';
-import Quantity from '../Quantity';
+import Button from '../Button/index';
+import Quantity from '../Quantity/index';
 
 import { getImage } from '../../utils/images';
-import imageTypes from '../../constants/imageTypes';
 
 import styles from './Product.module.scss';
+import { IProduct } from '../../hooks/useAppContext';
+import imageTypes from '../../constants/imageTypes';
 
-const Product = ({
+interface IProductProps extends IProduct {
+  isAdded?: boolean;
+  isFeatured?: boolean;
+  onClick?: () => void;
+  onDecrement?: () => void;
+  onIncrement?: () => void;
+  className?: string;
+  count?: number;
+}
+
+const Product: React.FC<IProductProps> = ({
   className,
   count = 1,
   images,
@@ -50,34 +60,19 @@ const Product = ({
             count={count}
           />
         ) : (
-          <Button
-            className={styles.addButton}
-            disabled={isAdded}
-            onClick={onClick}
-          >
-            {isAdded ? 'Added' : 'Add to Bag'}
-          </Button>
+          onClick && (
+            <Button
+              className={styles.addButton}
+              disabled={isAdded}
+              onClick={onClick}
+            >
+              {isAdded ? 'Added' : 'Add to Bag'}
+            </Button>
+          )
         )}
       </div>
     </div>
   );
-};
-
-Product.propTypes = {
-  className: PropTypes.string,
-  count: PropTypes.number,
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  isFeatured: PropTypes.bool,
-  onClick: PropTypes.func,
-  onDecrement: PropTypes.func,
-  onIncrement: PropTypes.func,
-  price: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
 };
 
 export default Product;

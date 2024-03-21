@@ -1,14 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import useAppContext, { providerPropTypes } from './hooks/useAppContext';
-import AppContext from './contexts/AppContext';
-
-import ProductLanding from './pages/ProductLanding';
 import Cart from './pages/Cart';
+import AppContext from './contexts/AppContext';
+import ProductLanding from './pages/ProductLanding';
+import useAppContextValue from './hooks/useAppContext';
 
-function App() {
-  const appContextValue = useAppContext();
+const App: React.FC = () => {
+  const appContextValue = useAppContextValue();
+
   return (
     <AppContext.Provider value={appContextValue}>
       <Router>
@@ -19,8 +18,6 @@ function App() {
       </Router>
     </AppContext.Provider>
   );
-}
-
-AppContext.Provider.propTypes = providerPropTypes;
+};
 
 export default App;

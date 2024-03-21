@@ -1,12 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import Product from '../Product';
 
 import styles from './ProductList.module.scss';
+import { IProduct, ICart } from '../../hooks/useAppContext';
 
-function ProductList({ addItem, products, cartItems }) {
-  const renderProduct = (product, isFeatured) => (
+interface Props {
+  addItem: (product: IProduct) => void;
+  cartItems: ICart[];
+  products: IProduct[];
+}
+const ProductList: React.FC<Props> = ({ addItem, products, cartItems }) => {
+  const renderProduct = (product: IProduct, isFeatured = false) => (
     <Product
       {...product}
       isAdded={cartItems.some(({ id }) => id === product.id)}
@@ -24,12 +28,6 @@ function ProductList({ addItem, products, cartItems }) {
       </div>
     </div>
   );
-}
-
-ProductList.propTypes = {
-  addItem: PropTypes.func,
-  cartItems: PropTypes.array,
-  products: PropTypes.array,
 };
 
 export default ProductList;
