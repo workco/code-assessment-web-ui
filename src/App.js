@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import useAppContext, { providerPropTypes } from './hooks/useAppContext';
 import AppContext from './contexts/AppContext';
@@ -12,12 +12,10 @@ function App() {
   return (
     <AppContext.Provider value={appContextValue}>
       <Router>
-        <ProductLanding />
-        <Switch>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<ProductLanding />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
       </Router>
     </AppContext.Provider>
   );

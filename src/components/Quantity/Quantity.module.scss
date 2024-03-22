@@ -1,9 +1,10 @@
-@import 'base.scss';
+@use '/src/styles/colors';
+@use '/src/styles/typography';
 
 $buttonWidth: 38px;
 
 .quantity {
-  @include price;
+  @include typography.price;
   position: relative;
   display: flex;
   align-items: center;
@@ -18,7 +19,7 @@ $buttonWidth: 38px;
     height: 1px;
     position: absolute;
     left: $buttonWidth;
-    background: $color-gray;
+    background: colors.$color-gray;
   }
 
   &:before {
@@ -31,7 +32,7 @@ $buttonWidth: 38px;
 }
 
 .button {
-  background: $color-gray;
+  background: colors.$color-gray;
   width: $buttonWidth;
   height: 40px;
   font-size: 20px;

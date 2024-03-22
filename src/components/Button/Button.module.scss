@@ -1,10 +1,11 @@
-@import 'base.scss';
+@use '/src/styles/colors';
+@use '/src/styles/typography';
 
 .button {
-  @include price;
+  @include typography.price;
   display: inline-block;
-  color: $color-white;
-  background: $color-black;
+  color: colors.$color-white;
+  background: colors.$color-black;
   font-weight: bold;
   padding: 12px 20px;
   border-radius: 20px;
@@ -13,12 +14,12 @@
   cursor: pointer;
 
   &:hover {
-    background: $color-gray;
-    color: $color-black;
+    background: colors.$color-gray;
+    color: colors.$color-black;
   }
 
   &:disabled {
-    background: $color-gray;
-    color: $color-black-35;
+    background: colors.$color-gray;
+    color: colors.$color-black-35;
   }
 }

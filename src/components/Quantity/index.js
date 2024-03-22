@@ -21,7 +21,7 @@ const Quantity = ({ onIncrement, onDecrement, count }) => {
 Quantity.propTypes = {
   count: PropTypes.number.isRequired,
   onDecrement: PropTypes.func.isRequired,
-  onIncrement: PropTypes.func.isRequired
+  onIncrement: PropTypes.func.isRequired,
 };
 
 export default Quantity;

@@ -11,7 +11,7 @@ const CartButton = ({ className, cartQuantity }) => {
   const buttonClasses = cx(
     styles.button,
     { [styles.empty]: !cartQuantity },
-    className
+    className,
   );
 
   return (
@@ -28,7 +28,7 @@ const CartButton = ({ className, cartQuantity }) => {
 
 CartButton.propTypes = {
   cartQuantity: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default CartButton;

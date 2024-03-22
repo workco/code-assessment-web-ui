@@ -16,25 +16,25 @@ export default function useAppContext() {
 
   const updateProductQuantity = (productId, quantityChange) => {
     const newProducts = [...products];
-    const productIndex = products.findIndex(p => p.id === productId);
+    const productIndex = products.findIndex((p) => p.id === productId);
     if (newProducts[productIndex]) {
       newProducts[productIndex] = {
         ...newProducts[productIndex],
-        inventory: newProducts[productIndex].inventory - quantityChange
+        inventory: newProducts[productIndex].inventory - quantityChange,
       };
 
       setProducts(newProducts);
     }
   };
 
-  const onAddItem = product => {
+  const onAddItem = (product) => {
     const newCart = [...cart];
-    const cartIndex = cart.findIndex(i => i.id === product.id);
+    const cartIndex = cart.findIndex((i) => i.id === product.id);
 
     if (cartIndex > -1) {
       newCart[cartIndex] = {
         ...newCart[cartIndex],
-        count: newCart[cartIndex].count + 1
+        count: newCart[cartIndex].count + 1,
       };
     } else {
       newCart.push({
@@ -42,7 +42,7 @@ export default function useAppContext() {
         id: product.id,
         title: product.title,
         price: product.price,
-        images: product.images
+        images: product.images,
       });
     }
 
@@ -52,7 +52,7 @@ export default function useAppContext() {
 
   const onUpdateItemQuantity = (cartItem, quantityChange) => {
     const newCart = [...cart];
-    const cartIndex = cart.findIndex(i => i.id === cartItem.id);
+    const cartIndex = cart.findIndex((i) => i.id === cartItem.id);
     const shouldRemoveFromCart = quantityChange === -1 && cartItem.count === 1;
 
     if (shouldRemoveFromCart) {
@@ -60,7 +60,7 @@ export default function useAppContext() {
     } else {
       newCart[cartIndex] = {
         ...newCart[cartIndex],
-        count: newCart[cartIndex].count + quantityChange
+        count: newCart[cartIndex].count + quantityChange,
       };
     }
 
@@ -72,11 +72,11 @@ export default function useAppContext() {
     setCart([]);
   };
 
-  const cartItems = cart.map(cartItem => {
-    const product = products.find(p => p.id === cartItem.id);
+  const cartItems = cart.map((cartItem) => {
+    const product = products.find((p) => p.id === cartItem.id);
     return {
       ...cartItem,
-      ...product
+      ...product,
     };
   });
 
@@ -85,8 +85,8 @@ export default function useAppContext() {
     products,
     addItem: onAddItem,
     checkout: onCheckout,
-    incrementItem: item => onUpdateItemQuantity(item, 1),
-    decrementItem: item => onUpdateItemQuantity(item, -1)
+    incrementItem: (item) => onUpdateItemQuantity(item, 1),
+    decrementItem: (item) => onUpdateItemQuantity(item, -1),
   };
 }
 
@@ -95,12 +95,12 @@ const productPropTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    })
+      src: PropTypes.string.isRequired,
+    }),
   ).isRequired,
   inventory: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export const providerPropTypes = {
@@ -108,13 +108,13 @@ export const providerPropTypes = {
     cart: PropTypes.arrayOf(
       PropTypes.shape({
         ...productPropTypes,
-        count: PropTypes.number.isRequired
-      })
+        count: PropTypes.number.isRequired,
+      }),
     ),
     products: PropTypes.arrayOf(PropTypes.shape(productPropTypes)).isRequired,
     addItem: PropTypes.func.isRequired,
     checkout: PropTypes.func.isRequired,
     decrementItem: PropTypes.func.isRequired,
-    incrementItem: PropTypes.func.isRequired
-  })
+    incrementItem: PropTypes.func.isRequired,
+  }),
 };

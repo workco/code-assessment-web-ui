@@ -1,23 +1,26 @@
-@import 'base.scss';
+@use '/src/styles/breakpoints.scss';
+@use '/src/styles/typography.scss';
+@use '/src/styles/variables.scss';
+@use '/src/styles/functions.scss';
 
 .product {
   margin: 0 0 25px;
   width: 100%;
 
-  @include medium {
+  @include breakpoints.medium {
     margin: 0 0 40px;
-    width: getColumns(6.5, $bp-medium);
+    width: functions.getColumns(6.5, variables.$bp-medium);
 
     &:last-child {
-      margin-left: getColumns(1, $bp-medium);
+      margin-left: functions.getColumns(1, variables.$bp-medium);
     }
   }
 
-  @include large {
-    width: getColumns(7, $bp-large);
+  @include breakpoints.large {
+    width: functions.getColumns(7, variables.$bp-large);
 
     &:last-child {
-      margin-left: getColumns(1, $bp-large);
+      margin-left: functions.getColumns(1, variables.$bp-large);
     }
   }
 }
@@ -30,9 +33,9 @@
     margin-bottom: 0;
   }
 
-  @include medium {
+  @include breakpoints.medium {
     flex-wrap: wrap;
-    width: getColumns(5.5, $bp-medium);
+    width: functions.getColumns(5.5, variables.$bp-medium);
 
     &:last-child {
       margin-left: 0;
@@ -43,8 +46,8 @@
     }
   }
 
-  @include large {
-    width: getColumns(7, $bp-large);
+  @include breakpoints.large {
+    width: functions.getColumns(7, variables.$bp-large);
 
     &:last-child {
       margin-left: 0;
@@ -55,8 +58,8 @@
 .featured {
   width: 100%;
 
-  @include large {
-    width: getColumns(14, $bp-large);
+  @include breakpoints.large {
+    width: functions.getColumns(14, variables.$bp-large);
   }
 }
 
@@ -68,18 +71,18 @@
   }
 
   .featured & {
-    @include small-only {
+    @include breakpoints.small-only {
       // Modern browsers see a more optimal crop on mobile
-      height: getColumns(15 * 445/315, $bp-small);
+      height: functions.getColumns(calc(15 * 445 / 315), variables.$bp-small);
       object-fit: cover;
     }
   }
 
   .inCart & {
     flex-shrink: 0;
-    width: getColumns(6, $bp-small);
+    width: functions.getColumns(6, variables.$bp-small);
 
-    @include medium {
+    @include breakpoints.medium {
       margin-bottom: 15px;
       width: 100%;
     }
@@ -94,11 +97,11 @@
   .inCart & {
     width: 50%;
     margin-top: 4px;
-    margin-left: getColumns(1, $bp-small);
+    margin-left: functions.getColumns(1, variables.$bp-small);
     flex-direction: column;
     flex-wrap: wrap;
 
-    @include medium {
+    @include breakpoints.medium {
       width: 100%;
       flex-direction: row;
       align-items: center;
@@ -116,14 +119,14 @@
     width: 100%;
     margin-bottom: 20px;
 
-    @include medium {
+    @include breakpoints.medium {
       margin-bottom: 0;
     }
   }
 }
 
 .title {
-  @include body;
+  @include typography.body;
   margin-right: 20px;
   font-weight: normal;
   white-space: nowrap;
@@ -132,7 +135,7 @@
 }
 
 .price {
-  @include price;
+  @include typography.price;
   display: block;
   margin-top: -3px;
 }
@@ -145,7 +148,7 @@
 
   // On desktop, only disable Add to Bag on hover
   .isAddable:not(:hover) & {
-    @include large {
+    @include breakpoints.large {
       opacity: 0;
     }
   }

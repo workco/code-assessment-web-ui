@@ -1,17 +1,19 @@
+@use 'variables.scss';
+
 @mixin small-only {
-  @media (max-width: #{$bp-medium - .1}) {
+  @media (max-width: #{variables.$bp-medium - .1}) {
     @content;
   }
 }
 
 @mixin medium {
-  @media (min-width: #{$bp-medium}) {
+  @media (min-width: #{variables.$bp-medium}) {
     @content;
   }
 }
 
 @mixin large {
-  @media (min-width: #{$bp-large}) {
+  @media (min-width: #{variables.$bp-large}) {
     @content;
   }
 }
