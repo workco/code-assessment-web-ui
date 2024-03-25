@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { withRouter } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 import Product from '../../components/Product';
 import Button from '../../components/Button';
@@ -9,15 +9,26 @@ import empty from '../../assets/empty.png';
 import close from '../../assets/close.svg';
 
 import styles from './Cart.module.scss';
-import AppContext from '@/contexts/AppContext';
+import AppContext from '../../contexts/AppContext';
+import { ICart } from '@/hooks/useAppContext';
 
-class Cart extends React.Component {
+interface Props {
+  navigate: NavigateFunction;
+}
+
+const Cart: React.FC = () => {
+  const navigate: NavigateFunction = useNavigate();
+
+  return <CartComponent navigate={navigate} />;
+};
+class CartComponent extends React.Component<Props> {
   static contextType = AppContext;
+  context!: React.ContextType<typeof AppContext>;
 
-  wrapperRef = React.createRef();
+  wrapperRef = React.createRef<HTMLDivElement>();
 
   state = {
-    isFadedIn: false
+    isFadedIn: false,
   };
 
   componentDidMount() {
@@ -26,24 +37,29 @@ class Cart extends React.Component {
     }, 500);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (!prevState.isFadedIn && this.state.isFadedIn) {
-      this.wrapperRef.current.style.opacity = 1;
-    } else if (prevState.isFadedIn && !this.state.isFadedIn) {
-      this.wrapperRef.current.style.opacity = 0;
+  componentDidUpdate(_prevProps: unknown, prevState: { isFadedIn: boolean }) {
+    if (this.wrapperRef?.current) {
+      if (!prevState.isFadedIn && this.state.isFadedIn) {
+        this.wrapperRef.current.style.opacity = '1';
+      } else if (prevState.isFadedIn && !this.state.isFadedIn) {
+        this.wrapperRef.current.style.opacity = '0';
+      }
     }
   }
 
   close = () => {
-    const { history } = this.props;
     this.setState({ isFadedIn: false }, () => {
       setTimeout(() => {
-        history.push({ pathname: '/' });
+        this.props.navigate({ pathname: '/' });
       }, 500);
     });
   };
 
   render() {
+    if (!this.context) {
+      throw new Error('useAppContext must be used within an AppProvider');
+    }
+
     const { cartItems, checkout, incrementItem, decrementItem } = this.context;
 
     const innerClasses = cx(styles.inner, {
@@ -62,7 +78,7 @@ class Cart extends React.Component {
               <div className={cx(styles.products, styles.section)}>
                 <h2 className={styles.heading}>Shopping Bag</h2>
                 <ul className={styles.productList}>
-                  {cartItems.map((cartItem) => (
+                  {cartItems.map((cartItem: ICart) => (
                     <Product
                       {...cartItem}
                       className={styles.product}
@@ -135,4 +151,4 @@ class Cart extends React.Component {
   }
 }
 
-export default withRouter(Cart);
+export default Cart;
