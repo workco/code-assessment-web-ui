@@ -218,9 +218,9 @@ describe('useAppContextValue', () => {
   });
 
   describe.skip('decrementItem', () => {
-    test('on decrement item from 2 to 1');
+    test('on decrement item from 2 to 1', () => undefined);
 
-    test('on decrement item from 1 to 0, removing from cart');
+    test('on decrement item from 1 to 0, removing from cart', () => undefined);
   });
 
   describe('checkout', () => {
