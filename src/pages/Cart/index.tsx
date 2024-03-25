@@ -24,7 +24,7 @@ const Cart: React.FC = () => {
           <img src={close} alt="close" />
         </Link>
 
-        {!!cartItems.length ? (
+        {Boolean(cartItems.length) ? (
           <>
             <div className={cx(styles.products, styles.section)}>
               <h2 className={styles.heading}>Shopping Bag</h2>

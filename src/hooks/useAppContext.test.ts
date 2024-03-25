@@ -4,6 +4,7 @@ import mockProducts from '../mocks/products.json';
 import useAppContextValue, { IAppContext } from './useAppContext';
 
 interface IResult {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   current: any;
   all?: (IAppContext | Error)[];
   error?: Error | undefined;
@@ -217,9 +218,9 @@ describe('useAppContextValue', () => {
   });
 
   describe.skip('decrementItem', () => {
-    test('on decrement item from 2 to 1', () => {});
+    test('on decrement item from 2 to 1');
 
-    test('on decrement item from 1 to 0, removing from cart', () => {});
+    test('on decrement item from 1 to 0, removing from cart');
   });
 
   describe('checkout', () => {
