@@ -1,8 +1,5 @@
-import React, { useContext } from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
-
-import AppContext from '../../contexts/AppContext';
 
 import Product from '../../components/Product';
 import Button from '../../components/Button';
@@ -11,10 +8,10 @@ import empty from '../../assets/empty.png';
 import close from '../../assets/close.svg';
 
 import styles from './Cart.module.scss';
+import { ICart, useAppContext } from '../../hooks/useAppContext';
 
-function Cart() {
-  const { cartItems, checkout, incrementItem, decrementItem } =
-    useContext(AppContext);
+const Cart: React.FC = () => {
+  const { cartItems, checkout, incrementItem, decrementItem } = useAppContext();
 
   const innerClasses = cx(styles.inner, {
     [styles.empty]: !cartItems.length,
@@ -27,12 +24,12 @@ function Cart() {
           <img src={close} alt="close" />
         </Link>
 
-        {!!cartItems.length ? (
+        {Boolean(cartItems.length) ? (
           <>
             <div className={cx(styles.products, styles.section)}>
               <h2 className={styles.heading}>Shopping Bag</h2>
               <ul className={styles.productList}>
-                {cartItems.map((cartItem) => (
+                {cartItems.map((cartItem: ICart) => (
                   <Product
                     {...cartItem}
                     className={styles.product}
@@ -96,6 +93,6 @@ function Cart() {
       </div>
     </div>
   );
-}
+};
 
 export default Cart;

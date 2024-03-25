@@ -1,10 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import styles from './Button.module.scss';
 
-const Button = ({ children, className, onClick, disabled }) => {
+interface Props {
+  children: React.ReactNode;
+  className?: string;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
+const Button: React.FC<Props> = ({
+  children,
+  className = '',
+  onClick,
+  disabled = false,
+}) => {
   return (
     <button
       className={cx(styles.button, className)}
@@ -14,13 +25,6 @@ const Button = ({ children, className, onClick, disabled }) => {
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;

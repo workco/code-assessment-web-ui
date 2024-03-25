@@ -1,11 +1,18 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
-import useAppContext from './useAppContext';
-import mockProducts from '../mocks/products';
+import mockProducts from '../mocks/products.json';
+import useAppContextValue, { IAppContext } from './useAppContext';
 
-describe('useAppContext', () => {
+interface IResult {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  current: any;
+  all?: (IAppContext | Error)[];
+  error?: Error | undefined;
+}
+
+describe('useAppContextValue', () => {
   test('initial state', () => {
-    const { result } = renderHook(() => useAppContext());
+    const { result } = renderHook(() => useAppContextValue());
 
     expect(result.current).toEqual({
       addItem: expect.any(Function),
@@ -18,17 +25,19 @@ describe('useAppContext', () => {
   });
 
   test('on fetch products', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useAppContext());
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useAppContextValue(),
+    );
     await waitForNextUpdate();
 
     expect(result.current.products).toEqual(mockProducts);
   });
 
   describe('addItem', () => {
-    let result;
+    let result: IResult;
 
     beforeEach(async () => {
-      const hook = renderHook(() => useAppContext());
+      const hook = renderHook(() => useAppContextValue());
       result = hook.result;
       await hook.waitForNextUpdate();
     });
@@ -127,10 +136,10 @@ describe('useAppContext', () => {
   });
 
   describe('incrementItem', () => {
-    let result;
+    let result: IResult;
 
     beforeEach(async () => {
-      const hook = renderHook(() => useAppContext());
+      const hook = renderHook(() => useAppContextValue());
       result = hook.result;
       await hook.waitForNextUpdate();
       const [firstProductToAdd, secondProductToAdd] = mockProducts;
@@ -146,7 +155,7 @@ describe('useAppContext', () => {
     test('on increment item', () => {
       const [cartItemToIncrement] = result.current.cartItems;
       const productToIncrement = result.current.products.find(
-        (p) => p.id === cartItemToIncrement.id,
+        (p: { id: number }) => p.id === cartItemToIncrement.id,
       );
 
       act(() => {
@@ -176,7 +185,7 @@ describe('useAppContext', () => {
     test('on increment item from 1 to 2', () => {
       const [cartItemToIncrement] = result.current.cartItems;
       const productToIncrement = result.current.products.find(
-        (p) => p.id === cartItemToIncrement.id,
+        (p: { id: number }) => p.id === cartItemToIncrement.id,
       );
 
       act(() => {
@@ -209,16 +218,16 @@ describe('useAppContext', () => {
   });
 
   describe.skip('decrementItem', () => {
-    test('on decrement item from 2 to 1', () => {});
+    test('on decrement item from 2 to 1', () => undefined);
 
-    test('on decrement item from 1 to 0, removing from cart', () => {});
+    test('on decrement item from 1 to 0, removing from cart', () => undefined);
   });
 
   describe('checkout', () => {
-    let result;
+    let result: IResult;
 
     beforeEach(async () => {
-      const hook = renderHook(() => useAppContext());
+      const hook = renderHook(() => useAppContextValue());
       result = hook.result;
       await hook.waitForNextUpdate();
       const [productToAdd] = mockProducts;

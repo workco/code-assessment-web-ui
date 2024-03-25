@@ -1,8 +1,9 @@
+import { IImage } from '@/hooks/useAppContext';
 import imageTypes from '../constants/imageTypes';
 
 import { getImage } from './images';
 
-const testImages = [
+const testImages: IImage[] = [
   {
     type: imageTypes.DEFAULT_RT,
     src: 'https://via.placeholder.com/300x300?text=default-rt',
@@ -12,7 +13,7 @@ const testImages = [
     src: 'https://via.placeholder.com/300x300?text=default-sq',
   },
   {
-    type: 'local',
+    type: 'local' as imageTypes,
     src: '/assets/local.png',
   },
 ];
@@ -31,11 +32,11 @@ describe('getImage', () => {
   });
 
   test('no match', () => {
-    expect(getImage(testImages, 'banana')).toBeUndefined();
+    expect(getImage(testImages, 'banana' as imageTypes)).toBeUndefined();
   });
 
   test('local asset', () => {
-    expect(getImage(testImages, 'local')).toBe(
+    expect(getImage(testImages, 'local' as imageTypes)).toBe(
       `${process.env.PUBLIC_URL}/assets/local.png`,
     );
   });
