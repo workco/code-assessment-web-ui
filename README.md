@@ -86,7 +86,7 @@ The build is minified and the filenames include the hashes.
 
 ### `yarn lint`
 
-Lint all .js files according to ESLint config. Run `yarn lint:fix` to automatically apply fixes.
+Lint all .ts files according to ESLint config. Run `yarn lint:fix` to automatically apply fixes.
 
 ### `yarn storybook`
 
@@ -103,7 +103,7 @@ We're using [React](https://reactjs.org/), one of our favorite front-end librari
 - Our implementation features [React Hooks](https://reactjs.org/docs/hooks-intro.html), a feature that came out in React 16.8. We primarily use the [useState](https://reactjs.org/docs/hooks-state.html) and [useEffect](https://reactjs.org/docs/hooks-effect.html) hooks.
 - The app's data is exposed using [React Context](https://reactjs.org/docs/context.html) and managed via a [custom React Hook](https://reactjs.org/docs/hooks-custom.html) called `useAppContext`.
 - Routing via [React Router](https://reacttraining.com/react-router/web/guides/quick-start).
-- Most of our current React projects validate properties with TypeScript or Flow, but for this exercise we've opted to use Facebook's [PropTypes library](https://github.com/facebook/prop-types). See more info in [the React docs](https://reactjs.org/docs/typechecking-with-proptypes.html).
+- We are validating properties with TypeScript. See more info in [the React docs](https://react-typescript-cheatsheet.netlify.app/).
 
 ### Sass & Fonts
 

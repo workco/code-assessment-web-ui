@@ -65,7 +65,7 @@ Requirements:
 
 # 7. Enhance Component Stories
 
-This repo uses [Storybook](https://storybook.js.org/). Run `yarn storybook` to start a local instance at http://localhost:5000.
+This repo uses [Storybook](https://storybook.js.org/). Run `yarn storybook` to start a local instance at http://localhost:6006.
 
 Complete the following objectives:
 
