@@ -147,7 +147,7 @@ Additionally, you may need to run `nvm install` if the specified version is not 
 
 ## Design/Browser Info
 
-You can find the Figma file for this project here: https://www.figma.com/file/ddnRArsK0ZT4CmmQvLvJTh/Code-Assessment. The "App" designs are for a mobile assessment - please disregard.
+You can find the Figma file for this project here: https://www.figma.com/file/1PbluBCo3DdjdSeMwb6i0p/Code-Assessment-Web. The "App" designs are for a mobile assessment - please disregard.
 
 Please see package.json for a list of supported browsers.
 
